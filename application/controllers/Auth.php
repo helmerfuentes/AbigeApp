@@ -24,11 +24,13 @@ class Auth extends CI_Controller {
 
     //sha1(); ENCRIPTAR LA CONTRASEÑA
     $respuesta=$this->Usuarios_Model->login($correo, $password);
+    var_dump($respuesta);
 
     if (!$respuesta) {
         $this->session->set_flashdata("error","El usuario y/o Contraseña son Incorrectos!");
         redirect(base_url());
     }else{
+        
             $data=array(
                 'identificacion'=>$respuesta->identificacion,
                 'nombres'=>$respuesta->nombres,

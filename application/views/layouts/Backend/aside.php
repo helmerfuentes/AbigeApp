@@ -17,26 +17,91 @@
                    
                         <?php 
                         if(!empty($menu)):
+                            
                         ?>
-                            <?php foreach ($menu as $menu): ?>
+                            <?php foreach ($menu as $men): ?>
                             <li class="treeview">
                           <a href="#">
-                           <i class="fa fa-cogs"></i> <span><?php echo $menu->titulo ?></span>
+                           <i class="fa fa-cogs"></i> <span><?php echo $men->titulo ?></span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                               </span>
                                 </a>
+
+
+                                
+                                <ul class="treeview-menu">
+                                <?php foreach ($submenu as $submen): 
+
+                                    if($men->id_menu==$submen->padre): ?>
+                                         
+                                        <?php 
+                                         $tieneSubhija=false;
+                                         foreach ($submenu as $submen2):
+                                            if($submen->id_menu==$submen2->padre):
+                                                $tieneSubhija=true;
+                                            endif;
+
+                                         endforeach;
+
+                                         if($tieneSubhija){
+                                            ?>
+                                                 <li class="treeview">
+                                                    <a href="#">
+                                                        <i class="fa fa-cogs"></i> <span><?php echo $submen->titulo ?></span>
+                                                        <span class="pull-right-container">
+                                                            <i class="fa fa-angle-left pull-right"></i>
+                                                        </span>
+                                                    </a>
+                                                    <ul class="treeview-menu">
+                                                    <?php 
+                                                $tieneSubhija=false;
+                                                foreach ($submenu as $submen2):
+                                                    if($submen->id_menu==$submen2->padre):
+                                                        ?>
+                                                        <li><a href="../../index.html"><i class="fa fa-circle-o"></i><?php echo $submen2->titulo?></a></li>   
+                           
+                                                        <?php
+                                                    endif;
+
+                                                      endforeach;
+
+                                         
+                                            ?>
+                                                 
+                                                       </ul>
+
+
+                                                       </li>
+
+                                            <?php
+                                         }else{?>
+                                            <li><a href="../../index.html"><i class="fa fa-circle-o"></i><?php echo $submen->titulo ?></a></li>
+                                            <?php
+                                         }
+                                        
+                                        
+                                        endif ?>
+      
+                                     <?php  endforeach; ?>
+                                     </ul>
+                                    
                               
-                             
+
+                               
                                
                           </li>
                                   <?php  endforeach; ?>
     
-                        <?php  endif; ?>
+                        <?php  endif;
+                        
+                        
+                        
+                        ?>
                   
 
                      <!-- =============================================== -->
-
+                     
                      
                 </ul>
             </section>
@@ -48,7 +113,7 @@
         <!--
 
 
-<li class="treeview">
+                  <li class="treeview">
                         <a href="#">
                             <i class="fa fa-cogs"></i> <span>Mantenimiento</span>
                             <span class="pull-right-container">

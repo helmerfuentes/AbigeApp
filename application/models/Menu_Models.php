@@ -13,6 +13,7 @@ class Menu_Models extends CI_Model {
         $this->db->from("menu me");
         $this->db->join("menu_perfil mp","me.id_menu=mp.menu");
         $this->db->where("mp.rol='$rol' and padre is  null");
+        $this->db->order_by("me.titulo","asc");
         
 
 
