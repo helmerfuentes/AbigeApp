@@ -35,7 +35,14 @@ class ConsultarDispositivo extends CI_Controller {
         print_r($this->data);
      $this->load->view('layouts/Backend/header'); 
      $this->load->view("layouts/Backend/aside",$data);
-     $this->load->view('admin/ConsultaDispositivoSystem');
+     if($this->session->userdata("rol")=="SYSTEM1" || $this->session->userdata("rol")=="SYSTEM2"){
+        $this->load->view('admin/ConsultaDispositivoSystem',$dispo);
+     }elseif ($this->session->userdata("rol")=="DUEÑO"){
+        $this->load->view('admin/ConsultaDispositivoSystem',$dispo);
+     }else {
+        $this->load->view('admin/ConsultaDispositivoSystem',$dispo);
+     }
+     
      $this->load->view('layouts/Backend/footer');
 	}
 }

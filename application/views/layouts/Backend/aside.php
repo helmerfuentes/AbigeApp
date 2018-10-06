@@ -48,7 +48,7 @@
                                             ?>
                                                  <li class="treeview">
                                                     <a href="<?php echo base_url(); ?>">
-                                                        <i class="fa fa-cogs"></i> <span><?php echo $submen->titulo ?></span>
+                                                        <i class="fa fa-share-alt"></i> <span><?php echo $submen->titulo ?></span>
                                                         <span class="pull-right-container">
                                                             <i class="fa fa-angle-left pull-right"></i>
                                                         </span>
