@@ -6,9 +6,9 @@
             <section class="sidebar">      
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu" data-widget="tree">
-                    <li class="header">MAIN NAVIGATION</li>
+                    <li class="header">MENU NAVEGACIÓN</li>
                     <li>
-                        <a href="../widgets.html">
+                        <a href="<?php echo base_url(); ?>">
                             <i class="fa fa-home"></i> <span>Inicio</span>
                         </a>
                     </li>
@@ -21,7 +21,7 @@
                         ?>
                             <?php foreach ($menu as $men): ?>
                             <li class="treeview">
-                          <a href="#">
+                          <a href="<?php echo base_url();echo $men->controller ?>">
                            <i class="fa fa-cogs"></i> <span><?php echo $men->titulo ?></span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
@@ -47,7 +47,7 @@
                                          if($tieneSubhija){
                                             ?>
                                                  <li class="treeview">
-                                                    <a href="#">
+                                                    <a href="<?php echo base_url(); ?>">
                                                         <i class="fa fa-cogs"></i> <span><?php echo $submen->titulo ?></span>
                                                         <span class="pull-right-container">
                                                             <i class="fa fa-angle-left pull-right"></i>
@@ -59,7 +59,7 @@
                                                 foreach ($submenu as $submen2):
                                                     if($submen->id_menu==$submen2->padre):
                                                         ?>
-                                                        <li><a href="../../index.html"><i class="fa fa-circle-o"></i><?php echo $submen2->titulo?></a></li>   
+                                                        <li><a href="<?php echo base_url();echo $submen2->controller ?>"><i class="fa fa-circle-o"></i><?php echo $submen2->titulo?></a></li>   
                            
                                                         <?php
                                                     endif;
@@ -76,7 +76,7 @@
 
                                             <?php
                                          }else{?>
-                                            <li><a href="../../index.html"><i class="fa fa-circle-o"></i><?php echo $submen->titulo ?></a></li>
+                                            <li><a href="<?php echo base_url();echo $submen->controller ?>"><i class="fa fa-circle-o"></i><?php echo $submen->titulo ?></a></li>
                                             <?php
                                          }
                                         

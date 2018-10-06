@@ -9,7 +9,7 @@ class Menu_Models extends CI_Model {
 
     public function opcionesMenuPrincipal($rol){
        
-        $this->db->select("me.id_menu, me.titulo, me.padre");
+        $this->db->select("me.id_menu, me.titulo, me.padre, me.controller");
         $this->db->from("menu me");
         $this->db->join("menu_perfil mp","me.id_menu=mp.menu");
         $this->db->where("mp.rol='$rol' and padre is  null");
@@ -24,7 +24,7 @@ class Menu_Models extends CI_Model {
 
     public function opcionesSubMenu($rol){
        
-        $this->db->select("me.id_menu, me.titulo, me.padre");
+        $this->db->select("me.id_menu, me.titulo, me.padre, me.controller");
         $this->db->from("menu me");
         $this->db->join("menu_perfil mp","me.id_menu=mp.menu");
         $this->db->where("mp.rol='$rol' and padre is not  null");
