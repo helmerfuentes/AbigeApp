@@ -32,5 +32,6 @@ public $data;
      $this->load->view("layouts/Backend/aside",$data);
      $this->load->view('admin/dashboard');
      $this->load->view('layouts/Backend/footer');
+     
 	}
 }

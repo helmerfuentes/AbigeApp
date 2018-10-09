@@ -17,7 +17,9 @@
         <hr>
         <div class="row">
         <div class="col-md-12">
-        <table class="table table-bordered btn-hover">
+         <a href="<?php echo base_url();?>Dispositivo/Dispositivo/VistaRegistrarDispositivo" class="btn btn-primary btn-flat"><span class="fa fa-plus">Agregar Dispositivo</span></a>
+        <br><br>
+        <table id="example1" class="table table-bordered btn-hover">
             <thead>
             
             <tr>
@@ -25,13 +27,15 @@
             <th>ID Dispositivo</th>
             <th>BATERIA</th>
             <th>FINCA</th>
+            <th>OPCIÓNES</th>
             </tr>
             </thead>
 
             <tbody>
             <tr>
+         
                 <?php
-                
+               
 
                 if(is_array($dispositivos) || is_object($dispositivos)){
                     $i=1;

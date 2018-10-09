@@ -11,23 +11,25 @@ class DispositivosModels extends CI_Model {
         $this->db->join("perimetros per","dis.idperimetro=dis.idperimetro");
         $this->db->join("fincas fi","fi.idfinca=per.idfinca");
         
-        $resultado=$this->db->get("usuarios");
+        $resultado=$this->db->get();
         if($resultado->num_rows()>0){
     
             return $resultado->row();
         }else{
             return  false;
         }
+
     
 
     }
-/*
-select *from dispositivos dis
-inner join perimetros per
-on dis.idperimetro=dis.idperimetro
-inner join fincas fi
-on fi.idfinca=per.idfinca;
-*/
 
+        public function addDispositivo($datos,$tabla){
+       //  $this->db->set('iddispositivo', $datos->codigoDispositivo);
+         //$this->db->set('idperimetro', $datos->finca);
+         //$this->db->set('IdAnimal', $datos->codiigoAnimal);
+         $this->db->set($datos);
+         return $this->db->insert($tabla);
+
+        }
 
 }
