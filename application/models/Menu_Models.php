@@ -12,7 +12,7 @@ class Menu_Models extends CI_Model {
         $this->db->select("me.id_menu, me.titulo, me.padre, me.controller");
         $this->db->from("menu me");
         $this->db->join("menu_perfil mp","me.id_menu=mp.menu");
-        $this->db->where("mp.rol='$rol' and padre is  null");
+        $this->db->where("mp.rol='$rol' and padre is  null and mp.habilitado='S'");
         $this->db->order_by("me.titulo","asc");
         
 
@@ -27,7 +27,7 @@ class Menu_Models extends CI_Model {
         $this->db->select("me.id_menu, me.titulo, me.padre, me.controller");
         $this->db->from("menu me");
         $this->db->join("menu_perfil mp","me.id_menu=mp.menu");
-        $this->db->where("mp.rol='$rol' and padre is not  null");
+        $this->db->where("mp.rol='$rol' and padre is not  null and mp.habilitado='S'");
         $menuSubMenunl=$this->db->get();
         return $menuSubMenunl->result();
     }

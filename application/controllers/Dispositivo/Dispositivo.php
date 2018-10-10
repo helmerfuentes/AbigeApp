@@ -31,10 +31,10 @@ class Dispositivo extends CI_Controller {
         );
 
         if($this->DispositivosModels->addDispositivo($data,"dispositivos")){
-            redirec(base_url()."Dispositivo/Dispositivo/VistaRegistrarDispositivo");
+            redirect(base_url()."Dispositivo/Dispositivo/VistaRegistrarDispositivo");
         }else{
             $this->session->set_flashdata("Error","No se pudo Registrar Información");
-            redirec(base_url()."Dispositivo/Dispositivo/VistaRegistrarDispositivo");
+            redirect(base_url()."Dispositivo/Dispositivo/VistaRegistrarDispositivo");
         }
 
     }
@@ -45,7 +45,7 @@ class Dispositivo extends CI_Controller {
           $finca=array(
               'perimetro'=>$this->FincaModels->getNombreFincas(),
           );
-     var_dump($finca);
+    
             $this->cargarLayaout('admin/RegistrarDispositivo',$finca);
         }else {
             $this->cargarLayaout('admin/ConsultaDispositivoSystem',$dispo); 

@@ -14,7 +14,7 @@ class FincaModels extends CI_Model {
         $resultado=$this->db->get();
         if($resultado->num_rows()>0){
     
-            return $resultado->row();
+            return $resultado->result();
         }else{
             return  false;
         }

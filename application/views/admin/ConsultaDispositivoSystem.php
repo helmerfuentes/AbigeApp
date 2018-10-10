@@ -32,42 +32,34 @@
             </thead>
 
             <tbody>
-            <tr>
-         
-                <?php
-               
+           <?php if(!empty($dispositivos)){
+               $i=1;
+         foreach ($dispositivos as  $value) {
+            ?>
 
-                if(is_array($dispositivos) || is_object($dispositivos)){
-                    $i=1;
-                    foreach ($dispositivos as  $value) {
-                    ?>
-                            
-                            <td><?php echo $i?></td>
+                <tr>
+                 
+                <td><?php echo $i?></td>
                             <td><?php echo $value->iddispositivo?></td>
                             <td><?php echo $value->bateria?></td>
                             <td><?php echo $value->nombreFinca?></td>
-                    <?php
-                    $i++;
-                    }
-                    ?>
-                         <div class="btn-group">
+                            <td>
+                            <div class="btn-group">
             
-            <a href="#" class="btn btn-info"><span class="fa fa-eye"></span></a>
-            <a href="#" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
-            <a href="#" class="btn btn-danger"><span class="fa fa-remove"></span></a>
-        </div>
+                            <a href="#" class="btn btn-info"><span class="fa fa-eye"></span></a>
+                            <a href="#" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
+                            <a href="#" class="btn btn-danger"><span class="fa fa-remove"></span></a>
+                                </div>
+                            </td>
+                </tr>
+            <?php
+                
+            }
+                $i++;
+            }
+            ?>
+               
 
-        <?php
-
-                }
-                    
-                ?>
-
-
-       
-            </td>
-
-            </tr>
 
          
             

@@ -9,7 +9,13 @@
     <div class="box-body">
         <div class="row">
         <div class="col-md-12">
-        
+             <?php if($this->session->flashdata("error")): ?>   
+              <div class="alert alert-danger alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <p><i class="icon fa fa-ban"></i> <?php echo $this->session->flashdata("error") ?></p>
+               
+              </div>
+                <?php endif; ?>
             <form action="<?php echo base_url();?>Dispositivo/Dispositivo/add" method="POST">
             <DIV class="form-group">
             <label for="codigoDispositivo">Codigo Dispositivo</label>
@@ -19,10 +25,10 @@
             <select name="finca" id="finca" class="form-control">
                 <?php
                 if(is_array($perimetro) || is_object($perimetro)){
-                foreach ($perimetro as $key => $value) {
+                foreach ($perimetro as  $value) {
                     
                     ?>
-                    <option value="volvo"><?php echo $value->nombreFinca ?> </option>
+                    <option value="<?php echo $value->idperimetro?>"><?php echo $value->nombreFinca ?> </option>
                     <?php
                         }
                         }
