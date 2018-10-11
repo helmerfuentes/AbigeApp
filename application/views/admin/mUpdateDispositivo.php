@@ -1,0 +1,1 @@
+<p><strong>estoy en la ventana del modals</strong></p>

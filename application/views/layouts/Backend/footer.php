@@ -29,6 +29,23 @@
 
 <script>
 $(document).ready(function () {
+var base="<?php echo base_url(); ?>"; 
+$(".btn-view").on("click",function(){
+var id=$(this).val();
+
+$.ajax({
+ url: base + "Dispositivo/Dispositivo/infoDispositivo/" + id,
+ type: "POST",
+ success: function(resp){
+     
+     $("#modal-default .modal-body").html(resp);
+     
+ }
+
+});
+
+});
+
     $("#example1").DataTable({
         "language": {
             "lengthMenu": "Mostrar _MENU_ registros por pagina",

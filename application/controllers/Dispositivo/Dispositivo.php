@@ -18,6 +18,21 @@ class Dispositivo extends CI_Controller {
    
     }
 
+    public function infoDispositivo($id){
+        $data=array(
+            'dis'=>$this->DispositivosModels->inforDispositivoModels($id),
+
+        );
+
+      
+        
+            $this->load->view('admin/mviews',$data);
+        
+        
+         
+
+    }
+
     public function add(){
 
         $codigo=$this->input->post("codigoDispositivo");

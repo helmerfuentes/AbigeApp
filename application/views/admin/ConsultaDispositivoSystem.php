@@ -45,9 +45,11 @@
                             <td><?php echo $value->nombreFinca?></td>
                             <td>
                             <div class="btn-group">
-            
-                            <a href="#" class="btn btn-info"><span class="fa fa-eye"></span></a>
-                            <a href="#" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
+                            <button type="button" class="btn btn-info  btn-view" data-toggle="modal" data-target="#modal-default" value="<?php echo $value->iddispositivo ?>">
+                                  <span class="fa fa-search"></span>
+                            </button>
+                            
+                            <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#mEditDispositivo" value="<?php echo $value->iddispositivo ?>"><span class="fa fa-pencil"></span></a>
                             <a href="#" class="btn btn-danger"><span class="fa fa-remove"></span></a>
                                 </div>
                             </td>
@@ -74,3 +76,24 @@
     </section>
 
 </div>
+<div class="modal fade" id="modal-default">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Informacion Detallada Dispositivo</h4>
+              </div> 
+              <div class="modal-body">
+                
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal --
