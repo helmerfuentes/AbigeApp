@@ -21,20 +21,11 @@ class Dispositivo extends CI_Controller {
     public function infoDispositivo($id){
         $data=array(
             'dis'=>$this->DispositivosModels->inforDispositivoModels($id),
-
         );
-
-      
-        
-            $this->load->view('admin/mviews',$data);
-        
-        
-         
-
+        $this->load->view('admin/mviews',$data);
     }
 
-    public function add(){
-
+    public function Nuevo(){
         $codigo=$this->input->post("codigoDispositivo");
         $finca=$this->input->post("finca");
         $codigoanimal=$this->input->post("codigoAnimal");
@@ -75,29 +66,21 @@ class Dispositivo extends CI_Controller {
         $data['menu']=$menu;
         $data["submenu"]=$submenu;
 
-      
-        
-     $this->load->view('layouts/Backend/header'); 
-     $this->load->view("layouts/Backend/aside",$data);
-     $this->load->view($vista,$datoEnviar);
-     $this->load->view('layouts/Backend/footer');
+        $this->load->view('layouts/Backend/header'); 
+        $this->load->view("layouts/Backend/aside",$data);
+        $this->load->view($vista,$datoEnviar);
+        $this->load->view('layouts/Backend/footer');
     }
 
-  
-
-
-	public function VistaConsultar()
-	{
+    public function Consultar() {
         if($this->session->userdata('rol')=="SYSTEM1" || $this->session->userdata('rol')=="SYSTEM2"){
         $dispo=array(
             'dispositivos'=>$this->DispositivosModels->getListadoDispositivoCompleto(),
         );
-
-        $this->cargarLayaout('admin/ConsultaDispositivoSystem',$dispo);
-    }else {
+        }else {
         
-    }
+        }
+        $this->cargarLayaout('admin/ConsultaDispositivoSystem',$dispo);
     }
     
-
 }

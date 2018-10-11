@@ -6,6 +6,11 @@ class Perimetros_Model extends CI_Model {
         /**
          * Mostrar datos (coordenadas) de un perimetro.
          */
+        $this->db->select("*");
+        $this->db->from("fincas");
+        $this->db->where("idfinca", $idPerimetro);
+        $consulta = $this->db->get();
+        return $consulta->result();
     }
 
     public function consultaPorFinca() {

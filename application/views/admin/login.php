@@ -32,7 +32,7 @@
                 <p><?php echo $this->session->flashdata("error")?></p>
             </div>
             <?php endif; ?>
-            <form action="<?php echo base_url();?>Auth/login" method="post">
+            <form action="<?php echo base_url();?>Sesion/login" method="post">
                 <div class="form-group has-feedback">
                     <input type="text" class="form-control" placeholder="Correo" name="correo">
                     <span class="glyphicon glyphicon-user form-control-feedback"></span>

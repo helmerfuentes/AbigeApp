@@ -13,106 +13,60 @@
                         </a>
                     </li>
 
+                    <!-- Menus y Submenus -->
                     <!-- =============================================== -->
-                   
-                        <?php 
-                        if(!empty($menu)):
-                            
-                        ?>
-                            <?php foreach ($menu as $men): ?>
+                    <?php if(!empty($menu)): ?>
+                        <?php foreach ($menu as $men): ?>
                             <li class="treeview">
-                          <a href="<?php echo base_url();echo $men->controller ?>">
-                           <i class="fa fa-cogs"></i> <span><?php echo $men->titulo ?></span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                              </span>
+                                <a href="<?php echo base_url();echo $men->controller ?>">
+                                    <i class="fa fa-cogs"></i> <span><?php echo $men->titulo ?></span>
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
                                 </a>
-
-
-                                
                                 <ul class="treeview-menu">
                                 <?php foreach ($submenu as $submen): 
-
                                     if($men->id_menu==$submen->padre): ?>
-                                         
-                                        <?php 
-                                         $tieneSubhija=false;
-                                         foreach ($submenu as $submen2):
-                                            if($submen->id_menu==$submen2->padre):
-                                                $tieneSubhija=true;
-                                            endif;
-
-                                         endforeach;
-
-                                         if($tieneSubhija){
-                                            ?>
-                                                 <li class="treeview">
+                                        <?php $tieneSubhija=false;
+                                            foreach ($submenu as $submen2):
+                                                if($submen->id_menu==$submen2->padre):
+                                                    $tieneSubhija=true;
+                                                endif;
+                                            endforeach;
+                                            if($tieneSubhija): ?>
+                                                <li class="treeview">
                                                     <a href="<?php echo base_url(); ?>">
-                                                        <i class="fa fa-share-alt"></i> <span><?php echo $submen->titulo ?></span>
+                                                        <i class="fa fa-share-alt"></i><span><?php echo $submen->titulo ?></span>
                                                         <span class="pull-right-container">
                                                             <i class="fa fa-angle-left pull-right"></i>
                                                         </span>
                                                     </a>
                                                     <ul class="treeview-menu">
-                                                    <?php 
-                                                $tieneSubhija=false;
-                                                foreach ($submenu as $submen2):
-                                                    if($submen->id_menu==$submen2->padre):
-                                                        ?>
-                                                        <li><a href="<?php echo base_url();echo $submen2->controller ?>"><i class="fa fa-circle-o"></i><?php echo $submen2->titulo?></a></li>   
-                           
-                                                        <?php
-                                                    endif;
-
-                                                      endforeach;
-
-                                         
-                                            ?>
-                                                 
-                                                       </ul>
-
-
-                                                       </li>
-
-                                            <?php
-                                         }else{?>
-                                            <li><a href="<?php echo base_url();echo $submen->controller ?>"><i class="fa fa-circle-o"></i><?php echo $submen->titulo ?></a></li>
-                                            <?php
-                                         }
-                                        
-                                        
-                                        endif ?>
-      
-                                     <?php  endforeach; ?>
-                                     </ul>
-                                    
-                              
-
-                               
-                               
-                          </li>
-                                  <?php  endforeach; ?>
-    
-                        <?php  endif;
-                        
-                        
-                        
-                        ?>
-                  
-
+                                                    <?php $tieneSubhija=false;
+                                                    foreach ($submenu as $submen2):
+                                                        if($submen->id_menu==$submen2->padre): ?>
+                                                            <li><a href="<?php echo base_url();echo $submen2->controller ?>"><i class="fa fa-circle-o"></i><?php echo $submen2->titulo?></a></li>
+                                                        <?php endif;
+                                                    endforeach; ?>
+                                                    </ul>
+                                                </li>
+                                            <?php else: ?>
+                                                <li><a href="<?php echo base_url();echo $submen->controller ?>"><i class="fa fa-circle-o"></i><?php echo $submen->titulo ?></a></li>
+                                            <?php endif; ?>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                                </ul>
+                            </li>
+                        <?php  endforeach; ?>
+                    <?php  endif; ?>
                      <!-- =============================================== -->
-                     
-                     
+                     <!-- Fin de los menus y submenus -->
                 </ul>
             </section>
             <!-- /.sidebar -->
         </aside>
-
         <!-- =============================================== -->
-
         <!--
-
-
                   <li class="treeview">
                         <a href="#">
                             <i class="fa fa-cogs"></i> <span>Mantenimiento</span>
