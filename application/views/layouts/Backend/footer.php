@@ -67,6 +67,52 @@ $.ajax({
 
     $('.sidebar-menu').tree();
 })
+    var base_url= "<?php echo base_url();?>";
+    $(document).ready(function () {
+        $(".btn-finca-view").on("click", function(){
+            var id = $(this).val();
+            $.ajax({
+                url: base_url + "finca/ver/" + id,
+                type:"POST",
+                success:function(resp){
+                    $("#modal-default .modal-body").html(resp);
+                    //alert(resp);
+                }
+            });
+        });
+    });
+
+    /**
+     *  Función para desactivar/activar
+     */
+    $(document).ready(function () {
+        $(".btn-finca-delete").on("click", function(){
+            var id = $(this).val();
+            $.ajax({
+                url: base_url + "finca/desactivar/" + id,
+                type:"POST",
+                success:function(resp){
+                    $("#modal-danger-desactivar .modal-body").html(resp);
+                }
+            });
+            setTimeout(() => {
+                location.reload(true);
+            }, 3000);
+        });
+        $(".btn-finca-active").on("click", function(){
+            var id = $(this).val();
+            $.ajax({
+                url: base_url + "finca/activar/" + id,
+                type:"POST",
+                success:function(resp){
+                    $("#modal-danger-activar .modal-body").html(resp);
+                }
+            });
+            setTimeout(() => {
+                location.reload(true);
+            }, 3000);
+        });
+    });
 </script>
 </body>
 </html>

@@ -6,12 +6,21 @@ class Fincas_Model extends CI_Model {
         /**
          * Mostrar los datos de todas las fincas.
          */
+        $this->db->select("*");
+        $this->db->from("fincas");
+        $consulta = $this->db->get();
+        return $consulta->result();
     }
 
     public function consultarIndividual($idFinca) {
         /**
          * Consultar los datos de una finca, por su id.
          */
+        $this->db->select("*");
+        $this->db->from("fincas");
+        $this->db->where("idfinca", $idFinca);
+        $consulta = $this->db->get();
+        return $consulta->row();
     }
 
     public function consultarPorDepartmento($nombreDpto) {
@@ -26,7 +35,12 @@ class Fincas_Model extends CI_Model {
          */
     }
 
-    public function nuevaFinca() {
+    public function add($data) {
         
+    }
+
+    public function update($id, $data) {
+        $this->db->where("idfinca",$id);
+        return $this->db->update("fincas",$data);
     }
 }
