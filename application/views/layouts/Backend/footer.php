@@ -68,7 +68,7 @@ $(document).ready(function () {
         $(".btn-finca-view").on("click", function(){
             var id = $(this).val();
             $.ajax({
-                url: base_url + "finca/ver/" + id,
+                url: base_url + "fincas/ver/" + id,
                 type:"POST",
                 success:function(resp){
                     $("#modal-default .modal-body").html(resp);
@@ -85,7 +85,7 @@ $(document).ready(function () {
         $(".btn-finca-delete").on("click", function(){
             var id = $(this).val();
             $.ajax({
-                url: base_url + "finca/desactivar/" + id,
+                url: base_url + "fincas/desactivar/" + id,
                 type:"POST",
                 success:function(resp){
                     $("#modal-danger-desactivar .modal-body").html(resp);
@@ -98,7 +98,7 @@ $(document).ready(function () {
         $(".btn-finca-active").on("click", function(){
             var id = $(this).val();
             $.ajax({
-                url: base_url + "finca/activar/" + id,
+                url: base_url + "fincas/activar/" + id,
                 type:"POST",
                 success:function(resp){
                     $("#modal-danger-activar .modal-body").html(resp);

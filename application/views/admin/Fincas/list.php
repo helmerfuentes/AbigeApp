@@ -14,7 +14,7 @@
             <div class="box-body">
                 <div class="row">
                     <div class="col-md-12">
-                        <a href="<?php echo base_url();?>Finca/add" class="btn btn-primary btn-flat"><span class="fa fa-plus"></span> Agregar Fincas</a>
+                        <a href="<?php echo base_url();?>fincas/nuevo" class="btn btn-primary btn-flat"><span class="fa fa-plus"></span> Agregar Fincas</a>
                     </div>
                 </div>
                 <hr>
