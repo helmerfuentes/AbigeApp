@@ -16,8 +16,9 @@
 <!-- SlimScroll -->
 <script src="<?php echo base_url();?>assets/template/jquery-slimscroll/jquery.slimscroll.min.js"></script>
     <!-- DataTables -->
+    <script src="<?php echo base_url();?>assets/template/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="<?php echo base_url();?>assets/template/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-<script src="<?php echo base_url();?>assets/template/datatables.net/js/jquery.dataTables.min.js"></script>
+
 
 <!-- FastClick -->
 <script src="<?php echo base_url();?>assets/template/fastclick/lib/fastclick.js"></script>
@@ -34,7 +35,7 @@ $(document).ready(function () {
         var id=$(this).val();
 
         $.ajax({
-            url: base + "Dispositivo/Dispositivo/infoDispositivo/" + id,
+            url: base + "Dispositivos/info/" + id,
             type: "POST",
             success: function(resp){
                 $("#modal-default .modal-body").html(resp);
