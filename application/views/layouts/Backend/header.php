@@ -53,7 +53,7 @@
                                 <li class="user-body">
                                     <div class="row">
                                         <div class="col-xs-12 text-center">
-                                            <a href="<?php echo base_url(); ?>Sesion/salir"> Cerrar Sesión</a>
+                                            <a href="<?php echo base_url(); ?>sesion/salir"> Cerrar Sesión</a>
                                         </div>
                                     </div>
                                     <!-- /.row -->

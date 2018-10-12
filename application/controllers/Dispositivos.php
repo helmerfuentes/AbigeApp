@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Dispositivo extends CI_Controller {
+class Dispositivos extends CI_Controller {
 
     public $data;
     public function __construct(){
@@ -18,14 +18,14 @@ class Dispositivo extends CI_Controller {
    
     }
 
-    public function infoDispositivo($id){
+    public function info($id){
         $data=array(
             'dis'=>$this->DispositivosModels->inforDispositivoModels($id),
         );
         $this->load->view('admin/mviews',$data);
     }
 
-    public function Nuevo(){
+    public function guardar(){
         $codigo=$this->input->post("codigoDispositivo");
         $finca=$this->input->post("finca");
         $codigoanimal=$this->input->post("codigoAnimal");
@@ -45,7 +45,7 @@ class Dispositivo extends CI_Controller {
 
     }
 
-    public function VistaRegistrarDispositivo(){
+    public function nuevo(){
         if($this->session->userdata('rol')=="SYSTEM1" || $this->session->userdata('rol')=="SYSTEM2"){
            
           $finca=array(
@@ -72,7 +72,7 @@ class Dispositivo extends CI_Controller {
         $this->load->view('layouts/Backend/footer');
     }
 
-    public function Consultar() {
+    public function lista() {
         if($this->session->userdata('rol')=="SYSTEM1" || $this->session->userdata('rol')=="SYSTEM2"){
         $dispo=array(
             'dispositivos'=>$this->DispositivosModels->getListadoDispositivoCompleto(),

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Finca extends CI_Controller {
+class Fincas extends CI_Controller {
 
     public $data;
     public function __construct(){
@@ -16,7 +16,7 @@ class Finca extends CI_Controller {
         }
     }
 
-    public function consultar() {
+    public function lista() {
         $data = array(
             'fincas' => $this->Fincas_Model->consultarGeneral(), 
         );
