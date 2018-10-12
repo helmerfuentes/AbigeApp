@@ -22,6 +22,7 @@ class Dispositivos extends CI_Controller {
         $data=array(
             'dis'=>$this->DispositivosModels->inforDispositivoModels($id),
         );
+
         $this->load->view('admin/mviews',$data);
     }
 

@@ -24,14 +24,22 @@ class DispositivosModels extends CI_Model {
     }
 
     public function inforDispositivoModels($id){
-        $this->db->select('*');
+        $this->db->select('fi.nombreFinca,fi.ubicacion, fi.municipio,per.tipo,dis.iddispositivo,dis.estado as estadodispositivo,
+        dis.idanimal, dis.bateria,po.estado as posicionestado, po.bateria as bateriaposicion, ma.fecha');
+        $this->db->from("fincas fi");
+        $this->db->join("perimetros per","fi.idfinca=per.idfinca","left");
+        $this->db->join("dispositivos dis","dis.idperimetro=per.idperimetro","left");
+        $this->db->join("posicion po", "dis.iddispositivo=po.iddispositivo","left");
+        $this->db->join("mantenimiento ma", "ma.iddispositivo=dis.iddispositivo","rigth");
+        $this->db->where("dis.iddispositivo='$id'");
+        /*
         $this->db->from("dispositivos dis");
         $this->db->join("perimetros per","dis.idperimetro=per.idperimetro","left");
         $this->db->join("fincas fi","fi.idfinca=per.idfinca","left");
         $this->db->join("mantenimiento ma", "ma.iddispositivo=dis.iddispositivo","left");
         $this->db->join("posicion po", "dis.iddispositivo=po.iddispositivo","left");
         $this->db->where("dis.iddispositivo='$id'");
-        
+        */
         
         /*
         $this->db->query("select max(ma.fecha), dis.estado, fi.nombreFinca from dispositivos dis
