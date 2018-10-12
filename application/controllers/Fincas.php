@@ -20,7 +20,14 @@ class Fincas extends CI_Controller {
         $data = array(
             'fincas' => $this->Fincas_Model->consultarGeneral(), 
         );
-        $this->cargarLayaout('admin/Fincas/list',$data);
+        $this->cargarLayaout('admin/fincas/list',$data);
+    }
+
+    public function ver($id) {
+        $data = array(
+            'finca' => $this->Fincas_Model->consultarIndividual($id)
+        );
+        $this->load->view("admin/fincas/ver",$data);
     }
 
     public function activar($id) {

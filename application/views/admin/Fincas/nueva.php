@@ -42,7 +42,7 @@
                                 <label for="municipio">Municipio:</label>
                                 <select name="municipio" id="municipio" class="form-control">
                                     <?php foreach($municipios as $municipio):?>
-                                        <option value="<?php echo $municipio->ID_MUNICIPIO?>"><?php echo $municipio->DESCRIPCION;?></option>
+                                        <option value="<?php echo $municipio->idmunicipio?>"><?php echo $municipio->descripcion;?></option>
                                     <?php endforeach;?>
                                 </select>
                             </div>
