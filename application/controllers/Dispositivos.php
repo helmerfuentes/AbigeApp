@@ -18,13 +18,49 @@ class Dispositivos extends CI_Controller {
    
     }
 
-    public function info($id){
-        $data=array(
+
+    public function eliminar(){
+        $id=$this->input->post('idDisp');
+         echo $this->DispositivosModels->eliminarmodels($id);
+
+    }
+    public function info(){
+        
+        $id=$this->input->post('idDisp');
+        $opcion=$this->input->post('opcion');
+        
+       
+
+        $respuesta=array(
             'dis'=>$this->DispositivosModels->inforDispositivoModels($id),
         );
 
-        $this->load->view('admin/mviews',$data);
+        
+
+        if($opcion==1)
+        $this->load->view('admin/mviews',$respuesta);
+        else if ($opcion==2)
+        $this->load->view('admin/mUpdateDispositivo',$respuesta);
+        else{
+            
+        }
+
     }
+
+    public function actualizar(){
+        
+        $param['idDisposotivo'] = $this->input->post('dispositivo');
+        $param['idAnimal']= $this->input->post('animal');
+        $param['estado']=$this->input->post('esta');
+        $param['bateria']=$this->input->post('bate');
+
+        
+        
+       echo  $this->DispositivosModels->actualizarModels($param);
+      
+
+    }
+    
 
     public function guardar(){
         $codigo=$this->input->post("codigoDispositivo");
@@ -38,10 +74,10 @@ class Dispositivos extends CI_Controller {
         );
 
         if($this->DispositivosModels->addDispositivo($data,"dispositivos")){
-            redirect(base_url()."Dispositivo/Dispositivo/VistaRegistrarDispositivo");
+            redirect(base_url()."dispositivos/nuevo");
         }else{
             $this->session->set_flashdata("Error","No se pudo Registrar Información");
-            redirect(base_url()."Dispositivo/Dispositivo/VistaRegistrarDispositivo");
+            redirect(base_url()."dispositivos/nuevo");
         }
 
     }
