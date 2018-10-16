@@ -9,6 +9,7 @@ class Fincas extends CI_Controller {
         parent::__construct();
         $this->load->model("Menu_Models");
         $this->load->model("Fincas/Fincas_Model");
+        $this->load->model("Departamentos_Model");
         $this->load->model("Municipios_Model");
        
         if (!$this->session->userdata("login")) {
@@ -23,11 +24,11 @@ class Fincas extends CI_Controller {
         $this->cargarLayaout('admin/fincas/list',$data);
     }
 
-    public function ver($id) {
+    public function view($id) {
         $data = array(
             'finca' => $this->Fincas_Model->consultarIndividual($id)
         );
-        $this->load->view("admin/fincas/ver",$data);
+        $this->load->view("admin/fincas/view",$data);
     }
 
     public function activar($id) {
@@ -35,10 +36,8 @@ class Fincas extends CI_Controller {
             'estado' => "1", 
         );
         $this->Fincas_Model->update($id,$data);
-        $data = array(
-            'finca' => $this->Fincas_Model->consultarIndividual($id)
-        );
-        $this->load->view("admin/fincas/ver",$data);
+        $finca = $this->Fincas_Model->consultarIndividual($id);
+        echo($finca->nombreFinca);
     }
 
     public function desactivar($id) {
@@ -46,15 +45,21 @@ class Fincas extends CI_Controller {
             'estado' => "0", 
         );
         $this->Fincas_Model->update($id,$data);
+        $finca = $this->Fincas_Model->consultarIndividual($id);
+        echo($finca->nombreFinca);
+    }
+
+    public function modificar($id) {
         $data = array(
-            'finca' => $this->Fincas_Model->consultarIndividual($id)
+            'finca' => $this->Fincas_Model->consultarIndividual($id),
+            'departamentos' => $this->Departamentos_Model->consultarGeneral()
         );
-        $this->load->view("admin/fincas/ver",$data);
+        $this->cargarLayaout("admin/fincas/edit", $data);
     }
 
     public function nuevo() {
         $data = array(
-            'municipios' => $this->Municipios_Model->consultarGeneral()
+            'departamentos' => $this->Departamentos_Model->consultarGeneral()
         );
         $this->cargarLayaout("admin/fincas/nueva", $data);
     }
