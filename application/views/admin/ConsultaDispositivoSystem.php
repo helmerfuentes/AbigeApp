@@ -1,8 +1,73 @@
+
+
+
 <div class="content-wrapper">
-<section class="content-header">
 
+    <section class="content-header">
+    
 
-</section>
+  <div class="row">
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <h3><?php echo $dTotal ?></h3>
+
+              <p>Total Dispositivos</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-bag"></i>
+            </div>
+            <a href="#" class="small-box-footer">Mas Informacion <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3><?php echo $dActivos ?><sup style="font-size: 20px"></sup></h3>
+
+              <p>Cantidad Activos</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-stats-bars"></i>
+            </div>
+            <a href="#" class="small-box-footer">Mas informacion <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-yellow">
+            <div class="inner">
+              <h3><?php echo $dInactivos ?></h3>
+
+              <p>Cantidad Inactivos</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-person-add"></i>
+            </div>
+            <a href="#" class="small-box-footer">Mas informacion<i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-red">
+            <div class="inner">
+              <h3><?php echo $dDentro ?></h3>
+
+              <p>Cantidad Dentro</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-pie-graph"></i>
+            </div>
+            <a href="#" class="small-box-footer">Mas Informacion<i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+
+    </section>
 
     <section class="content">
     <div class="box box-solid">
@@ -14,11 +79,13 @@
          </div>
         
         </div>
-        <hr>
+        
+ 
+
+        
         <div class="row">
         <div class="col-md-12">
-         <a href="<?php echo base_url();?>dispositivos/nuevo" class="btn btn-primary btn-flat"><span class="fa fa-plus">Agregar Dispositivo</span></a>
-        <br><br>
+         
         <table id="example1" class="table table-bordered btn-hover">
             <thead>
             

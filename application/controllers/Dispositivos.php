@@ -19,6 +19,7 @@ class Dispositivos extends CI_Controller {
     }
 
 
+
     public function eliminar(){
         $id=$this->input->post('idDisp');
          echo $this->DispositivosModels->eliminarmodels($id);
@@ -111,13 +112,41 @@ class Dispositivos extends CI_Controller {
 
     public function lista() {
         if($this->session->userdata('rol')=="SYSTEM1" || $this->session->userdata('rol')=="SYSTEM2"){
-        $dispo=array(
-            'dispositivos'=>$this->DispositivosModels->getListadoDispositivoCompleto(),
-        );
-        }else {
+        $dispositivos=$this->DispositivosModels->getListadoDispositivoCompleto();
         
+        $activos=0;
+        $inactivo=0;
+        $dentro=0;
+
+        foreach ($dispositivos as  $value) {
+            if($value->estado=="Activo"){
+                $activos=$activos+1;
+                if($value->ubicacion=="Dentro" || $value->ubicacion==""){
+                    $dentro=$dentro+1; 
+                 }
+            }else{
+                $inactivo=$inactivo+1;
+            }    
+
+          
+
         }
+        
+        $dispo=array(
+            'dispositivos'=>$dispositivos,
+            'dActivos'=>$activos,
+            'dInactivos'=>$inactivo,
+            'dDentro'=>$dentro,
+            'dTotal'=>$activos+$inactivo
+        );
+
+       
+
         $this->cargarLayaout('admin/ConsultaDispositivoSystem',$dispo);
+        }else {
+            $this->cargarLayaout('admin/ConsultaDispositivoSystem',$dispo);
+        }
+       
     }
     
 }
