@@ -5,6 +5,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>AbigeApp</title>
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/template/css/alertify.css">
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/template/css/default.css">
+    
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -19,9 +22,16 @@
     folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="<?php echo base_url();?>assets/template/dist/css/skins/_all-skins.min.css">
     
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/template/css/alertify.css">
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/template/css/default.css">
+    
+    
+
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
+
+    
     <!-- Site wrapper -->
     <div class="wrapper">
         <header class="main-header">
@@ -45,14 +55,14 @@
                     <ul class="nav navbar-nav">
                         <!-- User Account: style can be found in dropdown.less -->
                         <li class="dropdown user user-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <img src="<?php echo base_url()?>assets/template/dist/img/helmer.png" class="user-image" alt="User Image">
+                            <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
+                                <img src="<?php echo base_url()?>assets/template/dist/img/users/<?php echo $this->session->userdata("imagen");?>" class="user-image" alt="User Image">
                                 <span class="hidden-xs"><?php echo $this->session->userdata("nombres") ?></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li class="user-body">
+                                <li class="dropdown-item user-body">
                                     <div class="row">
-                                        <div class="col-xs-12 text-center">
+                                        <div class="col col-xs-12 text-center">
                                             <a href="<?php echo base_url(); ?>sesion/salir"> Cerrar Sesión</a>
                                         </div>
                                     </div>
