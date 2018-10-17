@@ -16,7 +16,7 @@
                
               </div>
                 <?php endif; ?>
-            <form action="<?php echo base_url();?>Dispositivo/Dispositivo/add" method="POST">
+            <form action="<?php echo base_url();?>Dispositivos/guardar" method="POST">
             <DIV class="form-group">
             <label for="codigoDispositivo">Codigo Dispositivo</label>
             <input type="text" class="form-control" id="codigoDispositivo" name="codigoDispositivo">

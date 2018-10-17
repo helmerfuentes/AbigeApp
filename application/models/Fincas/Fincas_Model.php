@@ -8,6 +8,9 @@ class Fincas_Model extends CI_Model {
          */
         $this->db->select("*");
         $this->db->from("fincas");
+        $this->db->join("municipios", "fincas.idmunicipio = municipios.idmunicipio", "left");
+        $this->db->join("departamentos", "municipios.iddpto = departamentos.COD_DPTO", "left");
+
         $consulta = $this->db->get();
         return $consulta->result();
     }
@@ -18,6 +21,8 @@ class Fincas_Model extends CI_Model {
          */
         $this->db->select("*");
         $this->db->from("fincas");
+        $this->db->join("municipios", "fincas.idmunicipio = municipios.idmunicipio", "left");
+        $this->db->join("departamentos", "municipios.iddpto = departamentos.COD_DPTO", "left");
         $this->db->where("idfinca", $idFinca);
         $consulta = $this->db->get();
         return $consulta->row();

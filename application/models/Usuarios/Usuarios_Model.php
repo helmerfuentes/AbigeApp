@@ -16,7 +16,4 @@ class Usuarios_Model extends CI_Model {
     }
 
     }
-
-
-
 }

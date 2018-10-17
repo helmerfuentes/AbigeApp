@@ -6,10 +6,11 @@ class DispositivosModels extends CI_Model {
 
     //esta funcion, es para retornar dispositivos de todas las fincas, vista System
     public function getListadoDispositivoCompleto(){
-        $this->db->select("dis.*, fi.nombreFinca");
+        $this->db->select("dis.*, fi.nombreFinca, po.estado as ubicacion");
         $this->db->from("dispositivos dis");
         $this->db->join("perimetros per","dis.idperimetro=dis.idperimetro");
         $this->db->join("fincas fi","fi.idfinca=per.idfinca");
+        $this->db->join("posicion po", "dis.iddispositivo=po.iddispositivo","left");
         
         $resultado=$this->db->get();
         if($resultado->num_rows()>0){
@@ -23,35 +24,71 @@ class DispositivosModels extends CI_Model {
 
     }
 
+    public function eliminarmodels($didpositivo){
+$this->db->where('iddispositivo',$didpositivo);
+   return $this->db->delete('dispositivos');
+
+
+    }
+
+    public function actualizarModels($param){
+       
+        
+        $campos = array(
+			'idanimal' =>  $param['idAnimal'],
+			'estado' =>  $param['estado'],
+			'bateria' => $param['bateria']
+			
+        );
+        
+		$this->db->where('iddispositivo', $param['idDisposotivo']);
+		$this->db->update('dispositivos',$campos);
+		
+		return 1;
+
+    }
+
     public function inforDispositivoModels($id){
-        $this->db->select('*');
-        $this->db->from("dispositivos dis");
-        $this->db->join("perimetros per","dis.idperimetro=per.idperimetro","left");
-        $this->db->join("fincas fi","fi.idfinca=per.idfinca","left");
-        $this->db->join("mantenimiento ma", "ma.iddispositivo=dis.iddispositivo","left");
-        $this->db->join("posicion po", "dis.iddispositivo=po.iddispositivo","left");
-        $this->db->where("dis.iddispositivo='$id'");
-        
-        
+    
+        if($query = $this->db->query("CALL infoDispositivo('$id')"))
+        {
+        return ($query->row());
+        }else{
+            return false;
+        }
+
+    
         /*
-        $this->db->query("select max(ma.fecha), dis.estado, fi.nombreFinca from dispositivos dis
-        inner join perimetros per
-        on dis.idperimetro=dis.idperimetro
-        inner join fincas fi
+        $sql="select fi.nombreFinca,fi.ubicacion, fi.municipio,per.tipo,dis.iddispositivo,dis.estado as estadodispositivo,dis.idanimal, dis.bateria,po.estado as posicionestado, po.bateria as bateriaposicion, ma.fecha from fincas fi
+        left join perimetros per
         on fi.idfinca=per.idfinca
-        inner join mantenimiento ma
-        on dis.iddispositivo=ma.iddispositivo
-        where dis.iddispositivo='$id';");
-*/
+        left join dispositivos dis
+        on dis.idperimetro=per.idperimetro
+        left join posicion po
+        on dis.iddispositivo=po.iddispositivo
+        left join mantenimiento ma
+        on ma.iddispositivo=dis.iddispositivo
+        where dis.iddispositivo = '$id'";
+     
+
+        
+        $this->db->select('fi.nombreFinca,fi.ubicacion, fi.municipio,per.tipo,dis.iddispositivo,dis.estado as estadodispositivo,
+        dis.idanimal, dis.bateria,po.estado as posicionestado, po.bateria as bateriaposicion, ma.fecha');
+        $this->db->from("fincas fi");
+        $this->db->join("perimetros per","fi.idfinca=per.idfinca","left");
+        $this->db->join("dispositivos dis","dis.idperimetro=per.idperimetro","left");
+        $this->db->join("posicion po", "dis.iddispositivo=po.iddispositivo","left");
+        $this->db->join("mantenimiento ma", "ma.iddispositivo=dis.iddispositivo","rigth");
+        $this->db->where("dis.iddispositivo",$id);
         $resultado=$this->db->get();
         if($resultado->num_rows() > 0){
-    
+          
             return $resultado->row();
         }else{
             return  false;
         }
         
-
+ */
 
 
     }
