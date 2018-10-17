@@ -55,14 +55,14 @@
                     <ul class="nav navbar-nav">
                         <!-- User Account: style can be found in dropdown.less -->
                         <li class="dropdown user user-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
                                 <img src="<?php echo base_url()?>assets/template/dist/img/users/<?php echo $this->session->userdata("imagen");?>" class="user-image" alt="User Image">
                                 <span class="hidden-xs"><?php echo $this->session->userdata("nombres") ?></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li class="user-body">
+                                <li class="dropdown-item user-body">
                                     <div class="row">
-                                        <div class="col-xs-12 text-center">
+                                        <div class="col col-xs-12 text-center">
                                             <a href="<?php echo base_url(); ?>sesion/salir"> Cerrar Sesión</a>
                                         </div>
                                     </div>

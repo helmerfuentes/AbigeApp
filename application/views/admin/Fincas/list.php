@@ -41,7 +41,7 @@
                                             <td><?php echo $finca->ubicacion;?></td>
                                             <td><?php echo $finca->latitud;?></td>
                                             <td><?php echo $finca->longitud;?></td>
-                                            <td><?php echo $finca->municipio;?></td>
+                                            <td><?php echo $finca->descripcion;?></td>
                                             <td>
                                             <?php if($finca->estado == 1): ?>
                                                 <span class="label-success">Activo</span>
@@ -53,7 +53,7 @@
                                                 <button type="button" class="btn btn-info btn-finca-view" data-toggle="modal" data-target="#modal-default" value="<?php echo $finca->idfinca;?>">
                                                     <span class="fa fa-search"></span>
                                                 </button>
-                                                <a href="<?php echo base_url()?>finca/editar/<?php echo $finca->idfinca;?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
+                                                <a href="<?php echo base_url()?>fincas/modificar/<?php echo $finca->idfinca;?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
                                             <?php if($finca->estado == 1):?>
                                                 <button type="button" class="btn btn-danger btn-finca-delete" data-toggle="modal" data-target="#modal-danger-desactivar" value="<?php echo $finca->idfinca;?>"><span class="fa fa-ban"></span>
                                             <?php else: ?>
@@ -78,7 +78,7 @@
 <!-- /.content-wrapper -->
 
 <!-- Inicio de modal para información detallada -->
-<div class="modal fade" id="modal-default">
+<!-- <div class="modal fade" id="modal-default">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -92,49 +92,8 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cerrar</button>
       </div>
-    </div>
+    </div> -->
     <!-- /.modal-content -->
-  </div>
+  <!-- </div> -->
   <!-- /.modal-dialog -->
-</div>
-<!-- /.modal -->
-<div class="modal fade modal-success in" id="modal-danger-activar">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">¡Se ha activado esta finca!</h4>
-      </div>
-      <div class="modal-body">
-        
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-outline pull-left recargar" data-dismiss="modal">Cerrar</button>
-      </div>
-    </div>
-    <!-- /.modal-content -->
-  </div>
-  <!-- /.modal-dialog -->
-</div>
-<!-- /.modal -->
-<div class="modal fade modal-danger in" id="modal-danger-desactivar">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">¡Se ha desactivado esta finca!</h4>
-      </div>
-      <div class="modal-body">
-        
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-outline pull-left recargar" data-dismiss="modal">Cerrar</button>
-      </div>
-    </div>
-    <!-- /.modal-content -->
-  </div>
-  <!-- /.modal-dialog -->
-</div>
-<!-- /.modal -->
+<!-- </div> -->

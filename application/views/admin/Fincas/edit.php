@@ -5,7 +5,7 @@
     <section class="content-header">
         <h1>
         Categorias
-        <small>Nuevo</small>
+        <small>Editar</small>
         </h1>
     </section>
     <!-- Main content -->
@@ -24,25 +24,25 @@
                         <form action="<?php echo base_url();?>finca/add" method="POST">
                             <div class="form-group">
                                 <label for="nombre">Nombre:</label>
-                                <input type="text" class="form-control" id="nombre" name="nombre">
+                                <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $finca->nombreFinca ?>">
                             </div>
                             <div class="form-group">
                                 <label for="descripcion">Ubicación:</label>
-                                <input type="text" class="form-control" id="descripcion" name="descripcion">
+                                <input type="text" class="form-control" id="descripcion" name="descripcion" value="<?php echo $finca->ubicacion ?>">
                             </div>
                             <div class="form-group">
                                 <label for="nombre">Latitud:</label>
-                                <input type="text" class="form-control" id="nombre" name="nombre">
+                                <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $finca->latitud ?>">
                             </div>
                             <div class="form-group">
                                 <label for="descripcion">Longitud:</label>
-                                <input type="text" class="form-control" id="descripcion" name="descripcion">
+                                <input type="text" class="form-control" id="descripcion" name="descripcion" value="<?php echo $finca->longitud ?>">
                             </div>
                             <div class="form-group">
                                 <label for="municipio">Departamento:</label>
                                 <select name="departamento" id="departamento" class="form-control">
                                     <?php foreach($departamentos as $departamento):?>
-                                        <option value="<?php echo $departamento->COD_DPTO?>"><?php echo $departamento->DESCRIPCION;?></option>
+                                        <option value="<?php echo $departamento->COD_DPTO?>" <?php echo $departamento->COD_DPTO == $finca->COD_DPTO ? "selected='selected'" : ""; ?>><?php echo $departamento->DESCRIPCION;?></option>
                                     <?php endforeach;?>
                                 </select>
                             </div>
@@ -51,6 +51,7 @@
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-success btn-flat">Guardar</button>
+                                <a href="<?php echo base_url() ?>fincas/lista" class="btn btn-danger btn-flat">Cancelar</a>
                             </div>
                         </form>
                     </div>
