@@ -13,7 +13,7 @@ class mantenimientoModels extends CI_Model {
     //listado de mantenimientos de todos los dispositivos de todas las finca
 
     public function getListado(){
-        $this->db->select("count(ma.iddispositivo) as cantidad, fi.nombreFinca,fi.ubicacion, fi.municipio,
+        $this->db->select("count(ma.iddispositivo) as cantidad, fi.nombreFinca,fi.ubicacion, fi.idmunicipio,
         dis.iddispositivo,dis.estado as estadodispositivo,dis.idanimal,
         dis.bateria,po.estado as posicionestado, po.bateria as bateriaposicion, max(ma.fecha) as fecha, ma.descripcion");
         $this->db->from("fincas fi");

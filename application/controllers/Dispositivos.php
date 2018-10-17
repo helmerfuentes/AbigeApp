@@ -113,11 +113,12 @@ class Dispositivos extends CI_Controller {
     public function lista() {
         if($this->session->userdata('rol')=="SYSTEM1" || $this->session->userdata('rol')=="SYSTEM2"){
         $dispositivos=$this->DispositivosModels->getListadoDispositivoCompleto();
-        
+       
+       
         $activos=0;
         $inactivo=0;
         $dentro=0;
-
+            if($dispositivos){
         foreach ($dispositivos as  $value) {
             if($value->estado=="Activo"){
                 $activos=$activos+1;
@@ -128,7 +129,7 @@ class Dispositivos extends CI_Controller {
                 $inactivo=$inactivo+1;
             }    
 
-          
+        }
 
         }
         
