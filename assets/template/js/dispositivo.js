@@ -6,7 +6,7 @@ $(document).ready(function () {
     $(".btn-view").on("click",function(){
       
         var id=$(this).val();
-       
+        
         $.ajax({
             url: base + "Dispositivos/info/",
             type: "POST",
@@ -15,6 +15,7 @@ $(document).ready(function () {
                 'opcion': 1
             },
             success: function(resp){
+                
                 $("#modal-default .modal-body").html(resp);
             }
         });
@@ -25,9 +26,9 @@ $(document).ready(function () {
     $(".btn-Edit").on("click",function(){
         var id=$(this).val();
        
-        
+       
         $.ajax({
-            url: base + "Dispositivos/info/",
+            url: base + "Dispositivos/info",
             data:{
                 'idDisp': id,
                 'opcion': 2
@@ -35,7 +36,7 @@ $(document).ready(function () {
             type: "POST",
             success: function(resp){
                $("#mEdit .modal-body").html(resp);
-
+                
            //console.log(resp);
 
             }

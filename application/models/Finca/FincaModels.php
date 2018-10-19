@@ -22,6 +22,39 @@ class FincaModels extends CI_Model {
 
     }
 
+    //funcion creada para obtener fincas que no tienen dueño asignado aun
+    //para al momento de registrar usuario
 
+    public function noAsignada(){
+        $this->db->select("f.nombreFinca, pe.idperimetro");
+        $this->db->from("fincas f");
+        $this->db->join("perimetros pe","f.idfinca=pe.idfinca");
+        $this->db->where("nombreFinca!=","SIstema");
+        
+        $resultado=$this->db->get();
+        if($resultado->num_rows()>0){
+    
+            return $resultado->result();
+        }else{
+            return  false;
+        }
+    
+
+    }
+
+    public function noAsifgnada(){
+        $this->db->select("fi.nombreFinca, fi.idfinca");
+        $this->db->from("fincas fi");
+        $this->db->join("usuarios usu","fi.idfinca=usu.idfinca","left");
+        $this->db->where("usu.idfinca is null");
+        $resultado=$this->db->get();
+        if($resultado->num_rows()>0){
+    
+            return $resultado->result();
+        }else{
+            return  false;
+        }
+
+    }
 
 }

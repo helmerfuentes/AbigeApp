@@ -22,21 +22,22 @@ class Dispositivos extends CI_Controller {
 
     public function eliminar(){
         $id=$this->input->post('idDisp');
+        
          echo $this->DispositivosModels->eliminarmodels($id);
 
     }
+
     public function info(){
         
         $id=$this->input->post('idDisp');
         $opcion=$this->input->post('opcion');
-        
        
 
         $respuesta=array(
             'dis'=>$this->DispositivosModels->inforDispositivoModels($id),
         );
 
-        
+          
 
         if($opcion==1)
         $this->load->view('admin/mviews',$respuesta);
@@ -45,6 +46,7 @@ class Dispositivos extends CI_Controller {
         else{
             
         }
+        
 
     }
 
@@ -114,7 +116,7 @@ class Dispositivos extends CI_Controller {
         if($this->session->userdata('rol')=="SYSTEM1" || $this->session->userdata('rol')=="SYSTEM2"){
         $dispositivos=$this->DispositivosModels->getListadoDispositivoCompleto();
        
-       
+            
         $activos=0;
         $inactivo=0;
         $dentro=0;

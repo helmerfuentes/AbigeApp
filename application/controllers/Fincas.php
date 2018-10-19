@@ -21,7 +21,7 @@ class Fincas extends CI_Controller {
         $data = array(
             'fincas' => $this->Fincas_Model->consultarGeneral(), 
         );
-        $this->cargarLayaout('admin/fincas/list',$data);
+        $this->cargarLayaout('admi n/fincas/list',$data);
     }
 
     public function view($id) {
@@ -56,6 +56,8 @@ class Fincas extends CI_Controller {
         );
         $this->cargarLayaout("admin/fincas/edit", $data);
     }
+
+ 
 
     public function nuevo() {
         $data = array(

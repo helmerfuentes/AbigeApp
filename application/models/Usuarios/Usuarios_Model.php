@@ -16,4 +16,9 @@ class Usuarios_Model extends CI_Model {
     }
 
     }
+
+    public function guardar($datos,$tabla){
+        $this->db->set($datos);
+        return $this->db->insert($tabla);
+    }
 }

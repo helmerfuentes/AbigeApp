@@ -6,6 +6,7 @@ class DispositivosModels extends CI_Model {
 
     //esta funcion, es para retornar dispositivos de todas las fincas, vista System
     public function getListadoDispositivoCompleto(){
+        
         $this->db->select("dis.*, fi.nombreFinca, po.estado as ubicacion");
         $this->db->from("dispositivos dis");
         $this->db->join("perimetros per","dis.idperimetro=dis.idperimetro");

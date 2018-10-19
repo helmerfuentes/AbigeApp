@@ -1,5 +1,6 @@
 
 <?php
+
 if($dis){
 ?>
 <p> <strong>Nombre Finca:  </strong> <?php echo $dis->nombreFinca ?></p>

@@ -100,7 +100,8 @@
             </thead>
 
             <tbody>
-           <?php if(!empty($dispositivos)){
+           <?php 
+           if(!empty($dispositivos)){
                     $i=1;
                   
                 foreach ($dispositivos as  $value) {
