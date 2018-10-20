@@ -25,31 +25,33 @@
             <th>#</th>
             <th>IDENTIFICACION</th>
             <th>FINCA</th>
+            <th>NOMBRE DUEÑO</th>
             <th>N° EMPLEADOS</th>
             <th>N° DISPOSITIVOS</th>
-            <th>ESTADO</th>
+            
             <th></th>
             </tr>
             </thead>
 
             <tbody>
-           <?php if(!empty($mantenimiento)){
+           <?php if(!empty($lista)){
                     $i=1;
                   
-                foreach ($mantenimiento as  $value) {
+                foreach ($lista as  $value) {
                 ?>
 
                 <tr>
                  
                 <td><?php echo $i?>
                 </td>
-                            <td><?php echo $value->iddispositivo?></td>
-                            <td><?php echo $value->nombreFinca?></td>
-                            <td><?php echo $value->fecha?></td>
-                            <td><?php echo $value->cantidad?></td>
+                            <td><?php echo $value->identduenio?></td>
+                            <td><?php echo $value->finca?></td>
+                            <td><?php echo $value->duenio?></td>
+                            <td><?php echo $value->empleados?></td>
+                            <td><?php echo $value->dispositivos?></td>
                             <td>
                             <div class="btn-group">
-                                <button type="button" class="btn btn-info  btn-view" data-toggle="modal" data-target="#modal-default" value="<?php  echo $value->iddispositivo; ?>">
+                                <button type="button" class="btn btn-info  btn-view" data-toggle="modal" data-target="#modal-default" value="<?php  echo $value->identduenio; ?>">
                                     <span class="fa fa-search"></span>
                                 </button>
 

@@ -58,7 +58,7 @@
             <div class="inner">
               <h3><?php echo $dDentro ?></h3>
 
-              <p>Cantidad Dentro</p>
+              <p>Cantidad Fuera</p>
             </div>
             <div class="icon">
               <i class="ion ion-pie-graph"></i>

@@ -21,4 +21,21 @@ class Usuarios_Model extends CI_Model {
         $this->db->set($datos);
         return $this->db->insert($tabla);
     }
+
+
+        //funcion para mostrar al SYSTEM, lista agrupada por finca
+        //con numero de empleados, numeros de dispositivo en esa fina
+    public function lista(){
+    
+        $query = $this->db->query("CALL procedureDuvan()");
+        mysqli_next_result( $this->db->conn_id );
+        $res= $query->result();
+
+          
+
+            return $res;
+
+    }
+
+
 }

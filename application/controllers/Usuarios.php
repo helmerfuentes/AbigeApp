@@ -51,7 +51,12 @@ public function Guardar(){
 
 
 public function lista(){
-    $this->cargarLayaout("admin/usuarios/lista", "");
+    $data=array(
+        'lista'=>$this->Usuarios_Model->lista()
+    );
+   
+
+    $this->cargarLayaout("admin/usuarios/lista", $data);
 }
 
 public function cargarLayaout($vista,$datoEnviar){

@@ -75,6 +75,21 @@ class CI_DB_mysql_result extends CI_DB_result {
 		return $this->num_rows;
 	}
 
+	//-----------------------------------
+	// --------------------------------------------------------------------
+  /**
+   * Read the next result
+   *
+   * @return  null
+   */   
+  function next_result()
+  {
+    if (is_object($this->conn_id))
+    {
+      return mysqli_next_result($this->conn_id);
+    }
+  }
+  // --
 	// --------------------------------------------------------------------
 
 	/**

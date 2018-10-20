@@ -119,13 +119,13 @@ class Dispositivos extends CI_Controller {
             
         $activos=0;
         $inactivo=0;
-        $dentro=0;
+        $fuera=0;
             if($dispositivos){
         foreach ($dispositivos as  $value) {
             if($value->estado=="Activo"){
                 $activos=$activos+1;
-                if($value->ubicacion=="Dentro" || $value->ubicacion==""){
-                    $dentro=$dentro+1; 
+                if($value->ubicacion=!"Dentro" || $value->ubicacion!=""){
+                    $fuera=$fuera+1; 
                  }
             }else{
                 $inactivo=$inactivo+1;

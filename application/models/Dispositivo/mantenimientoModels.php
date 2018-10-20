@@ -26,7 +26,7 @@ class mantenimientoModels extends CI_Model {
         
         $resultado=$this->db->get();
         if($resultado->num_rows()>0){
-    
+            $this->db->close ();
             return $resultado->result();
         }else{
             return  false;
