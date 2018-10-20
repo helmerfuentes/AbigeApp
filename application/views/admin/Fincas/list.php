@@ -9,8 +9,8 @@
     </section>
     <!-- Main content -->
     <section class="content">
-        <!-- Default box -->
-        <div class="box box-solid">
+        <!-- Default box --> 
+        <div class="box box-solid ">
             <div class="box-body">
                 <div class="row">
                     <div class="col-md-12">
