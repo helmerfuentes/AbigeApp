@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Perimetro extends CI_Controller {
+class Perimetros extends CI_Controller {
 
     public $data;
     public function __construct(){
@@ -16,6 +16,24 @@ class Perimetro extends CI_Controller {
     }
 
     public function index() {
-        var_dump($this->Perimetros_Model->consultaCoordenadas(1));
+        echo($this->Perimetros_Model->consultaCoordenadas(1));
     }
+
+    public function data($idFinca) {
+        header("Content-type: text/xml");
+        // Start XML file, echo parent node
+        echo '<markers>';
+        // Iterate through the rows, adding XML nodes for each
+        foreach ($consulta as $row) {
+            echo '<marker ';
+            echo 'name="' . $row['idcoordenada'] . '" ';
+            echo 'address="' . $row['idperimetro'] . '" ';
+            echo 'lat="' . $row['latitud'] . '" ';
+            echo 'lng="' . $row['longitud'] . '" ';
+            echo '/>';
+        }
+        // End XML file
+        echo '</markers>';
+    }
+
 }

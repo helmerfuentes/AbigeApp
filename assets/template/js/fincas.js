@@ -19,6 +19,7 @@ $(document).ready(function () {
                         swal({
                             type: 'success',
                             title: '¡Finca eliminada con éxito!',
+                            html: resp,
                             showConfirmButton: false,
                             timer: 1500,
                             onClose: () => {
@@ -40,6 +41,7 @@ $(document).ready(function () {
                 swal({
                     type: 'success',
                     title: '¡Finca activada con éxito!',
+                    html: resp,
                     showConfirmButton: false,
                     timer: 1500,
                     onClose: () => {
@@ -50,27 +52,24 @@ $(document).ready(function () {
         });
     });
     // Visualizar finca
-    $(document).ready(function () {
-        $(".btn-finca-view").on("click", function(){
-            var id = $(this).val();
-            $.ajax({
-                url: base_url + "fincas/view/" + id,
-                type:"POST",
-                success:function(resp){
-                    swal({
-                        title: '<strong>Información de la finca</strong>',
-                        type: 'info',
-                        html: resp,
-                        showCloseButton: true,
-                        confirmButtonText: 'Ver más &rarr;',
-                        focusConfirm: false,
-                        preConfirm: () => {
-                            location.href = base_url + "fincas/ver/" + id;
-                        }
-                    });
-                    // $("#modal-default .modal-body").html(resp);
-                }
-            });
+    $(".btn-finca-view").on("click", function(){
+        var id = $(this).val();
+        $.ajax({
+            url: base_url + "fincas/ver/" + id,
+            type:"POST",
+            success:function(resp){
+                swal({
+                    title: '<strong>Información de la finca</strong>',
+                    type: 'info',
+                    html: resp,
+                    showCloseButton: true,
+                    confirmButtonText: 'Ver más &rarr;',
+                    focusConfirm: false,
+                    preConfirm: () => {
+                        location.href = base_url + "fincas/info/" + id;
+                    }
+                });
+            }
         });
     });
 });

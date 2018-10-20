@@ -17,5 +17,6 @@ class Perimetros_Model extends CI_Model {
         /**
          * Mostrar datos (coordenadas) de perímetros de una finca.
          */
+        $this->db->select("");
     }
 }

@@ -40,8 +40,17 @@ class Fincas_Model extends CI_Model {
          */
     }
 
-    public function add($data) {
+    public function store($data) {
         
+    }
+
+    public function detailedInfo($id) {
+        /**
+         * Información detallada de la finca para mostrar en la vista individual
+         */
+        $query = $this->db->query("Call detailedFinca($id)")->row();
+        mysqli_next_result($this->db->conn_id);
+        return $query;
     }
 
     public function update($id, $data) {
