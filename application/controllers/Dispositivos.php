@@ -40,9 +40,9 @@ class Dispositivos extends CI_Controller {
           
 
         if($opcion==1)
-        $this->load->view('admin/mviews',$respuesta);
+        $this->load->view('admin/dispositivos/mviews',$respuesta);
         else if ($opcion==2)
-        $this->load->view('admin/mUpdateDispositivo',$respuesta);
+        $this->load->view('admin/dispositivos/mUpdateDispositivo',$respuesta);
         else{
             
         }
@@ -92,9 +92,9 @@ class Dispositivos extends CI_Controller {
               'perimetro'=>$this->FincaModels->getNombreFincas(),
           );
     
-            $this->cargarLayaout('admin/RegistrarDispositivo',$finca);
+            $this->cargarLayaout('admin/dispositivos/RegistrarDispositivo',$finca);
         }else {
-            $this->cargarLayaout('admin/ConsultaDispositivoSystem',$dispo); 
+            $this->cargarLayaout('admin/dispositivos/ConsultaDispositivoSystem',$dispo); 
         }
 
     }
@@ -145,9 +145,9 @@ class Dispositivos extends CI_Controller {
 
        
 
-        $this->cargarLayaout('admin/ConsultaDispositivoSystem',$dispo);
+        $this->cargarLayaout('admin/dispositivos/ConsultaDispositivoSystem',$dispo);
         }else {
-            $this->cargarLayaout('admin/ConsultaDispositivoSystem',$dispo);
+            $this->cargarLayaout('admin/dispositivos/ConsultaDispositivoSystem',$dispo);
         }
        
     }

@@ -6,7 +6,7 @@ $(document).ready(function () {
     $(".btn-view").on("click",function(){
       
         var id=$(this).val();
-        
+       
         $.ajax({
             url: base + "Dispositivos/info/",
             type: "POST",

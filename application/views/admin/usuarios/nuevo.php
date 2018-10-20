@@ -24,6 +24,7 @@ redirect(base_url()."/fincas/nuevo");
                 <!-- Row -->
                 <div class="row">
                     <!-- Column -->
+                    
                     <div class="col-lg-4 col-xlg-1 col-md-1">
                         <div class="card">
                             <div class="card-block">
@@ -38,11 +39,12 @@ redirect(base_url()."/fincas/nuevo");
                     </div>
                     <!-- Column -->
                     <!-- Column -->
+                    
                     <div class="col-lg-6 col-xlg-9 col-md-7">
                         <div class="card">
                             <div class="card-block">
                                 <form role="form" class="form-horizontal form-material" action="<?php echo base_url();?>Usuarios/guardar" method="POST" id="frmUsuario">
-                                <div class="form-group">
+                                    <div class="form-group">
                                         <label class="col-md-12"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Identificación</font></font></label>
                                         <div class="col-md-12">
                                             <input name="identificacion" id="identificacion" type="text" placeholder="1034567432" class="form-control form-control-line">
