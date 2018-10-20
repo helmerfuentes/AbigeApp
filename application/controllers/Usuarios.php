@@ -20,6 +20,8 @@ $this->cargarLayaout("admin/usuarios/nuevo", $data);
 
 }
 
+
+
 public function Guardar(){
     $iden=$this->input->post("identificacion");
     $nombres=$this->input->post("nombres");

@@ -139,7 +139,7 @@ class Dispositivos extends CI_Controller {
             'dispositivos'=>$dispositivos,
             'dActivos'=>$activos,
             'dInactivos'=>$inactivo,
-            'dDentro'=>$dentro,
+            'dDentro'=>$fuera,
             'dTotal'=>$activos+$inactivo
         );
 
