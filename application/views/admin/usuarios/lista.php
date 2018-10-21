@@ -1,86 +1,132 @@
+
 <div class="content-wrapper">
 <section class="content-header">
+      <div class="box-header with-border">
+          <h3 class="box-title">Listado Dueños Finca</h3>
+          
+        </div><!-- /.box-header -->
 
+              <?php
+              foreach ($lista as $key => $value) {
+              ?>
+<div class="box box-default collapsed-box">
+        <div class="box-header with-border">
+        <table class="table no-margin">
+        <!--nombre principal-->
+        <thead>
+        <tr border="3">
+                <td colspand="1" class="col-lg-5" >
+                <h5><strong> IDENTIFICACION: </strong> <?php echo $value->identduenio ?> </h5>
+                <h5><strong>NOMBRE: </strong><?php echo $value->duenio?></h5>
+                <h5><strong>FINCA: </strong><?php echo $value->finca ?></h5>
+                <h5><strong>EMPLEADOS:</strong> <?php echo $value->empleados?></h5>
+                <h5><strong>DISPOSITIVOS:</strong> <?php echo $value->dispositivos?></h5>
 
-</section>
-
-    <section class="content">
-    <div class="box box-solid">
-    <div class="box-body">
-        <div class="row">
-          <div class="col-md-12"> 
-        
-             <a href="#"><span class="fa fa-2x"></span><h4>Listado Dueños Fincas</h4></a>
-         </div>
-        
-        </div>
-        <hr>
-        <div class="row">
-        <div class="col-md-12">
-      
-        <table id="example1" class="table table-bordered btn-hover">
-            <thead>
-            
-            <tr>
-            <th>#</th>
-            <th>IDENTIFICACION</th>
-            <th>FINCA</th>
-            <th>NOMBRE DUEÑO</th>
-            <th>N° EMPLEADOS</th>
-            <th>N° DISPOSITIVOS</th>
-            
-            <th></th>
-            </tr>
-            </thead>
-
-            <tbody>
-           <?php if(!empty($lista)){
-                    $i=1;
-                  
-                foreach ($lista as  $value) {
-                ?>
-
-                <tr>
-                 
-                <td><?php echo $i?>
+                <div class="row">
+                  <div class="col-md-10"> 
+                          <a href="#"><span class="fa fa-2x"></span>Mas Información>></a>
+                   </div>
+                </div>
                 </td>
-                            <td><?php echo $value->identduenio?></td>
-                            <td><?php echo $value->finca?></td>
-                            <td><?php echo $value->duenio?></td>
-                            <td><?php echo $value->empleados?></td>
-                            <td><?php echo $value->dispositivos?></td>
-                            <td>
-                            <div class="btn-group">
-                                <a  href='<?php echo base_url()."fincas/descripcion/$value->identduenio"?>' type="button" class="btn btn-info "   value="<?php  echo $value->identduenio; ?>">
-                                    <span class="fa fa-search"></span>
-                                </a>
-
+                <td>
+                <div class="col-lg-2 col-xlg-1 col-md-1">
+                        <div class="card">
+                            <div class="card-block">
+                                <center class="m-t-30"> <img src="<?php echo base_url()?>assets/template/dist/img/users/<?php echo $value->imagen ?>" class="img-circle" width="150">
+                                  
                                
+                                  
+                                   
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+              
+          </tr>
 
-                                </div>
-                            </td>
-                </tr>
-            <?php
-                 $i=$i+1;
-            }
-               
+         </thead>
+        </table>
+          <div class="box-tools pull-right">
+            <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+          
+          </div><!-- /.box-tools -->
+        </div><!-- /.box-header -->
+        <div class="box-body">
+        <div class="table-responsive">
+            <table class="table no-margin">
+              <thead>
+              <tr>
+                <th>Identificación</th>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Estado</th>
+              </tr>
+              </thead>
+              <tbody>
+
+                   <?php
+              foreach ($empleados as  $emp) {
+                if($value->idfinca==$emp->idfinca){
+              ?>
+                 <tr>
+                <td><a value="<?php echo $emp->identificacion ?>" href="#"><?php echo $emp->identificacion ?></a></td>
+                <td><?php echo $emp->nombres ?></td>
+                <td><?php echo $emp->primerApellido." ".$emp->segundoApellido?></td>
+                <?php if($emp->estado=="A"){
+
+                    ?>
+                      <td><span class="label label-success">Activo</span></td>
+                    <?php
+
+                }else{
+                  ?>
+                    <td><span class="label label-danger">Inactivo</span></td>
+                  <?php
+
+                } ?>
+                
+                
+              </tr>
+
+              <?php
+                }
+              }
+              ?>
+
+             
+              </tbody>
+            </table>
+          </div>
+        </div><!-- /.box-body -->
+      </div><!-- /.box -->
+
+
+                <?php
             }
             ?>
-               
+
+
+
+        
+          
+        <!-- ******************************************************************************************** -->
+         
+ 
+</section>
+</div>
+
+
+        
+
 
 
          
+    
+              
+              
             
-            </tbody>
-        
-        </table>
-        
-        </div>
-        </div>
-    </div>
-    </div>
-    </section>
 
-</div>
 
 

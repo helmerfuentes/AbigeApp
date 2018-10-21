@@ -53,10 +53,15 @@ public function Guardar(){
 
 
 public function lista(){
+    
+
     $data=array(
-        'lista'=>$this->Usuarios_Model->lista()
+        'lista'=>$this->Usuarios_Model->lista(),
+        'empleados'=>$this->Usuarios_Model->trabajadores()
     );
    
+    
+
 
     $this->cargarLayaout("admin/usuarios/lista", $data);
 }

@@ -21,7 +21,7 @@ class mantenimientos extends CI_Controller {
                 
             }
            
-                $this->cargarLayaout('admin/consultasMantenimiento',$mantenimiento);
+                $this->cargarLayaout('admin/dispositivos/consultasMantenimiento',$mantenimiento);
 
         }
 

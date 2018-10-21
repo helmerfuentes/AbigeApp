@@ -20,7 +20,7 @@ class novedades extends CI_Controller {
             
         }
        
-            $this->cargarLayaout('admin/novedades',$mantenimiento);
+            $this->cargarLayaout('admin/dispositivos/novedades',$mantenimiento);
 
     }
 

@@ -37,5 +37,22 @@ class Usuarios_Model extends CI_Model {
 
     }
 
+    //retornar los trbajadores de una finca finca
+    public function trabajadores(){
+        $this->db->select("*");
+        $this->db->from("usuarios");
+        $this->db->where("rol","EMPLEADO");
+
+        $resultado=$this->db->get();
+        if($resultado->num_rows()>0){
+    
+            return $resultado->result();
+        }else{
+            return  false;
+        }
+
+
+    }
+
 
 }
