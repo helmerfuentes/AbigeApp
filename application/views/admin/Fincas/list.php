@@ -20,7 +20,7 @@
                 <hr>
                 <div class="row">
                     <div class="col-md-12">
-                        <table id="example1" class="table table-bordered table-hover">
+                        <table id="dataFincas" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
                                     <th>#</th>
@@ -35,7 +35,7 @@
                             <tbody>
                                 <?php if(!empty($fincas)):?>
                                     <?php foreach($fincas as $finca):?>
-                                        <tr>
+                                        <tr class="fila" id="<?php echo $finca->idfinca ?>">
                                             <td><?php echo $finca->idfinca;?></td>
                                             <td><?php echo $finca->nombreFinca;?></td>
                                             <td><?php echo $finca->ubicacion;?></td>

@@ -30,9 +30,16 @@
 <!-- Script para usar la variable global en scripts  -->
 <script>var base_url = "<?php echo base_url() ?>"</script>
 
-<script src="<?php echo base_url();?>assets/template/js/sweetalert2.js"></script>
 <script src="<?php echo base_url();?>assets/template/js/dispositivo.js"></script>
 <script src="<?php echo base_url();?>assets/template/js/usuarios.js"></script>
+
+<!-- include the style -->
+<link rel="stylesheet" href="<?php echo base_url();?>assets/template/alertify/css/alertify.min.css" />
+<!-- include a theme -->
+<link rel="stylesheet" href="<?php echo base_url();?>assets/template/alertify/css/themes/default.min.css" />
+<!-- include semantic ui theme  -->
+<link rel="stylesheet" href="<?php echo base_url();?>assets/template/alertify/css/themes/semantic.css">
+<script src="<?php echo base_url();?>assets/template/alertify/alertify.min.js"></script>
 
 <?php if($this->uri->segment(1) == 'fincas'): ?>
 <script src="<?php echo base_url();?>assets/template/js/fincas.js"></script>

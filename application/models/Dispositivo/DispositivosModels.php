@@ -13,7 +13,7 @@ class DispositivosModels extends CI_Model {
         $this->db->join("fincas fi","fi.idfinca=per.idfinca");
         $this->db->join("posicion po", "dis.iddispositivo=po.iddispositivo","left");
         $this->db->group_by("dis.iddispositivo");
-        $this->db->having("dis.eliminado!=0"); 
+        $this->db->having("dis.eliminado=0"); 
         $resultado=$this->db->get();
         if($resultado->num_rows()>0){
     
