@@ -19,9 +19,6 @@
                         <span>category 4</span>
                     </li>
                 </ul>
-
-                    <img class="img-responsive" src="<?php echo base_url()?>assets/template/dist/img/t1.jpg" alt="">
-                        
                 <div class="clearfix"> </div>
                 <div class="resp-tabs-container">
                     <div class="tab-1 resp-tab-content">
@@ -39,8 +36,8 @@
                                 </div>
                             </div>
                             <div class="col-md-3 portfolio-grids grid">
-                                <div class ="hover ehover14">
-                                    <a  src="<?php echo base_url()?>assets/template/dist/img/g2.jpg" class="swipebox" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus tortor diam, ac lobortis justo rutrum quis. Praesent non purus fermentum, eleifend velit non">
+                                <div class="hover ehover14">
+                                    <a href="views/images/g2.jpg" class="swipebox" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus tortor diam, ac lobortis justo rutrum quis. Praesent non purus fermentum, eleifend velit non">
                                         <img src="views/images/g2.jpg" alt="" class="img-responsive" />
                                         <div class="overlay">
                                             <h4>Portfolio</h4>

@@ -16,10 +16,19 @@
 		            </div>
 		        </div>
 
+
+
 		        <div class="form-group">
 		            <label class="col-sm-3 control-label">Codigo Animal</label>
 		            <div class="col-sm-9"> 
 		              <input type="text" name="midAnimal" class="form-control" id="midAnimal" value="<?php echo $dis->idanimal; ?>" >
+		            </div>
+		        </div>
+
+				   <div class="form-group">
+		            <label class="col-sm-3 control-label">Bateria</label>
+		            <div class="col-sm-9"> 
+		              <input type="text" name="mbateria" class="form-control" readonly="readonly"  id="mbateria"  value="<?php echo $dis->bateria; ?>">
 		            </div>
 		        </div>
 
@@ -30,17 +39,17 @@
 		            <div class="col-sm-9">
 		            	<select class="form-control" id="mEstado" name="mEstado">
                         <?php
-                        if($dis->estadodispositivo=="Activo"){
+                        if($dis->estadodispositivo=="1"){
                             ?>
-                            <option value="Activo">Activo</option>
-		            		<option value="Inactivo">Inactivo</option>
+                            <option value="1">Activo</option>
+		            		<option value="0">Inactivo</option>
                             <?php
 
                         }else{
                             ?>
                                
-		            		<option value="Inactivo">Inactivo</option>
-                            <option value="Activo">Activo</option>
+		            		<option value="0">Inactivo</option>
+                            <option value="1">Activo</option>
                             <?php
                             
                         }
@@ -52,36 +61,7 @@
 		        </div>
 
 
-                <div class="form-group">
-		            <label class="col-sm-3 control-label">Bateria</label>
-		            <div class="col-sm-9">
-		            	<select class="form-control" id="mbateria" name="mbateria">
-                        <?php 
-                        if($dis->bateria=="Alta"){
-
-                            ?>
-                            <option value="Alta">Alta</option>
-		            		<option value="Media">Media</option>
-		            		<option value="Baja">Baja</option>
-                                <?php
-                        }else if($dis->bateria=="Media"){
-                            ?>
-                            <option value="Media">Media</option>
-		            		<option value="Baja">Baja</option>
-                            <option value="Alta">Alta</option>
-                            <?php
-                        }else{
-                            ?>
-                            <option value="Baja">Baja</option>
-                            <option value="Media">Media</option>
-                            <option value="Alta">Alta</option>
-                            <?php
-                        }
-		            		?>
-		            	
-		            	</select>
-		            </div>
-		        </div>
+              
 
 
 			</div>

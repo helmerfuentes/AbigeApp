@@ -28,10 +28,35 @@
 <script src="<?php echo base_url();?>assets/template/dist/js/demo.js"></script>
 
 <!-- Script para usar la variable global en scripts  -->
-<script>var base_url = "<?php echo base_url() ?>"</script>
+<script> var base_url = "<?php echo base_url() ?>"
+ $("#example1").DataTable({
+        "language": {
+            "lengthMenu": "Mostrar _MENU_ registros por pagina",
+            "zeroRecords": "No se encontraron resultados en su busqueda",
+            "searchPlaceholder": "Buscar registros",
+            "info": "Mostrando registros de _START_ al _END_ de un total de  _TOTAL_ registros",
+            "infoEmpty": "No existen registros",
+            "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+            "search": "Buscar:",
+            "paginate": {
+                "first": "Primero",
+                "last": "Último",
+                "next": "Siguiente",
+                "previous": "Anterior"
+            },
+        }
+    });
+</script>
 
+<?php if($this->uri->segment(1) == 'dispositivos'){?>
 <script src="<?php echo base_url();?>assets/template/js/dispositivo.js"></script>
-<script src="<?php echo base_url();?>assets/template/js/usuarios.js"></script>
+<?php } ?>
+
+<?php if($this->uri->segment(1) == 'usuarios'){?>
+    <script src="<?php echo base_url();?>assets/template/js/usuarios.js"></script>
+<?php } ?>
+
+
 
 <!-- include the style -->
 <link rel="stylesheet" href="<?php echo base_url();?>assets/template/alertify/css/alertify.min.css" />

@@ -9,7 +9,7 @@ class DispositivosModels extends CI_Model {
         
         $this->db->select("dis.*, fi.nombreFinca, po.estado as ubicacion");
         $this->db->from("dispositivos dis");
-        $this->db->join("perimetros per","dis.idperimetro=dis.idperimetro");
+        $this->db->join("perimetros per","per.idperimetro=dis.idperimetro");
         $this->db->join("fincas fi","fi.idfinca=per.idfinca");
         $this->db->join("posicion po", "dis.iddispositivo=po.iddispositivo","left");
         $this->db->group_by("dis.iddispositivo");
@@ -28,7 +28,7 @@ class DispositivosModels extends CI_Model {
 
     public function eliminarmodels($didpositivo){
             $campos=array(
-                'eliminado' => 0
+                'eliminado' => 1
             );
 
             $this->db->where('iddispositivo',$didpositivo);

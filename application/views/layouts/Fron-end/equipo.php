@@ -4,8 +4,7 @@
             <div class="team-row">
                 <div class="col-md-3 team-grids">
                     <div class="team-img">
-                        <img class="img-responsive" src="<?php echo base_url()?>assets/template/dist/img/t1.jpg" alt="">
-                        
+                        <img class="img-responsive" src="views/images/t1.jpg" alt="">
                         <div class="captn">
                             <p>Mi nombre es <span>Iván Contreras</span>, desde que trabajo en este proyecto me doy cuenta lo fabuloso que es cuando tus ideas pueden transformarse en soluciones.</p>
                             <div class="social-icons">
@@ -34,8 +33,7 @@
                 </div>
                 <div class="col-md-3 team-grids">
                     <div class="team-img">
-                    <img class="img-responsive" src="<?php echo base_url()?>assets/template/dist/img/t2.jpg" alt="">
-                        
+                        <img class="img-responsive" src="views/images/t2.jpg" alt="">
                         <div class="captn">
                             <p>Mi nombre es
                                 <span>Angélica Morales</span>, estoy aquí para hacer del mundo un lugar mejor.</p>
@@ -65,8 +63,7 @@
                 </div>
                 <div class="col-md-3 team-grids">
                     <div class="team-img">
-                    <img class="img-responsive" src="<?php echo base_url()?>assets/template/dist/img/t3.jpg" alt="">
-                        
+                        <img class="img-responsive" src="views/images/t3.jpg" alt="">
                         <div class="captn">
                             <p>Soy <span>Ramiro González</span>, integrante de este maravilloso equipo de trabajo, estamos cada día esforzándonos por dar soluciones eficaces a problemas reales.</p>
                             <div class="social-icons">
@@ -95,8 +92,7 @@
                 </div>
                 <div class="col-md-3 team-grids">
                     <div class="team-img">
-                    <img class="img-responsive" src="<?php echo base_url()?>assets/template/dist/img/helmer.png" alt="">
-                        
+                        <img class="img-responsive" src="views/images/helmer.png" alt="">
                         <div class="captn">
                             <p>Hola, soy
                                 <span>Helmer Fuentes</span>; recuerda que buenos resultados requieren de un buen trabajo.</p>

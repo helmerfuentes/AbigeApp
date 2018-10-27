@@ -22,6 +22,21 @@ $this->cargarLayaout("admin/usuarios/nuevo", $data);
 
 
 
+public function buscar(){
+    $identificacion=$this->input->post("identificacion");
+    $respuesta= array(
+     'respuesta' =>  $this->Usuarios_Model->buscar($identificacion)
+    );
+    
+    $this->load->view('admin/usuarios/mInfor',$respuesta);
+
+    
+
+    
+
+
+}
+
 public function Guardar(){
     $iden=$this->input->post("identificacion");
     $nombres=$this->input->post("nombres");
@@ -79,6 +94,33 @@ public function cargarLayaout($vista,$datoEnviar){
     $this->load->view($vista,$datoEnviar);
     $this->load->view('layouts/Backend/footer');
 }
+
+public function update(){
+    $apellidos=explode(" ",$this->input->post("apellidos"));
+    
+    $nombres=$this->input->post("nombres");
+    $apellido1=$apellidos[0];
+    $apellido2=$apellidos[1];
+    $email=$this->input->post("email");
+    $direc=$this->input->post("direccion");
+    $telefono=$this->input->post("telefono");
+    $codigo=$this->input->post("codigo");
+
+    $datos=array(
+        'nom'=>$nombres,
+        'ape1'=>$apellido1,
+        'ape2'=>$apellido2,
+        'ema'=>$email,
+        'tele'=>$telefono,
+        'dire'=>$direc
+    );
+    
+  
+        echo $this->Usuarios_Model->updatemodels($datos,$codigo);
+
+
+}
+
 
 
 

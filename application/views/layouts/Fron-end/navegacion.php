@@ -8,7 +8,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li class="hvr-bounce-to-bottom active">
-                    <a href="">Principal</a>
+                    <a href="index.html">Principal</a>
                 </li>
                 <li class="hvr-bounce-to-bottom">
                     <a href="#about" class="scroll">¿Quiénes somos?</a>

@@ -34,7 +34,6 @@
                 <div class='bar_group__bar thin' label='Planeación de Crecimineto' value='220'></div>
             </div>
             <!--bar-js-->
-           
             <script src="<?php echo base_url();?>assets/template/jquery/bars.js"></script>
             <!--bar-js-->
             <div class="clearfix"> </div>
