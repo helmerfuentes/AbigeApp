@@ -7,6 +7,7 @@ class Fincas extends CI_Controller {
     public function __construct(){
         
         parent::__construct();
+        $this->load->helper('array');
         $this->load->model("Menu_Models");
         $this->load->model("Fincas/Fincas_Model");
         $this->load->model("Departamentos_Model");
@@ -24,19 +25,8 @@ class Fincas extends CI_Controller {
         $this->cargarLayaout('admin/fincas/list',$data);
     }
     public function ver($id) {
-        $finca = $this->Fincas_Model->consultarIndividual($id);
-        echo "
-        <p><strong>Nombre: </strong>$finca->nombreFinca</p>
-        <p><strong>Ubicación: </strong>$finca->ubicacion</p>
-        <p><strong>Latitud: </strong>$finca->latitud</p>
-        <p><strong>Longitud: </strong>$finca->longitud</p>
-        <p><strong>Municipio: </strong>$finca->DESCRIPCION</p>
-        ";
-        if($finca->estado == 1) {
-            echo "<p><strong>Estado: </strong><span class='label-success'>Activa</span>";
-        } else {
-            echo "<p><strong>Estado: </strong><span class='label-danger'>Inactiva</span>";
-        }
+        $data = array('finca' => $this->Fincas_Model->consultarIndividual($id));
+        $this->load->view("admin/fincas/verIndividual",$data);
     }
 
     public function info($id) {
@@ -71,8 +61,10 @@ class Fincas extends CI_Controller {
     public function modificar($id) {
         $data = array(
             'finca' => $this->Fincas_Model->consultarIndividual($id),
-            'departamentos' => $this->Departamentos_Model->consultarGeneral()
+            'departamentos' => $this->Departamentos_Model->consultarGeneral(),
         );
+        $data['municipios'] = $this->Municipios_Model->consultarPorDepartamento(element('finca', $data)->COD_DPTO);
+        
         $this->cargarLayaout("admin/fincas/edit", $data);
     }
 

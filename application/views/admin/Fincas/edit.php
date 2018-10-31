@@ -39,15 +39,20 @@
                                 <input type="text" class="form-control" id="descripcion" name="descripcion" value="<?php echo $finca->longitud ?>">
                             </div>
                             <div class="form-group">
-                                <label for="municipio">Departamento:</label>
+                                <label for="departamento">Departamento:</label>
                                 <select name="departamento" id="departamento" class="form-control">
                                     <?php foreach($departamentos as $departamento):?>
                                         <option value="<?php echo $departamento->COD_DPTO?>" <?php echo $departamento->COD_DPTO == $finca->COD_DPTO ? "selected='selected'" : ""; ?>><?php echo $departamento->DESCRIPCION;?></option>
                                     <?php endforeach;?>
                                 </select>
                             </div>
-                            <div class="form-group" id="municipios">
-                                <!-- Municipios -->
+                            <div class="form-group">
+                                <label for="municipio">municipio:</label>
+                                <select name="municipio" id="municipio" class="form-control">
+                                    <?php foreach($municipios as $municipio):?>
+                                        <option value="<?php echo $municipio->idmunicipio?>" <?php echo $municipio->idmunicipio == $finca->idmunicipio ? "selected='selected'" : ""; ?>><?php echo $municipio->descripcion;?></option>
+                                    <?php endforeach;?>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-success btn-flat">Guardar</button>

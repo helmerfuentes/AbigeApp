@@ -11,4 +11,11 @@ class Municipios_Model extends CI_Model {
         $consulta = $this->db->get();
         return $consulta->result();
     }
+    public function consultarPorDepartamento($dpto) {
+        $this->db->select("*");
+        $this->db->from("municipios");
+        $this->db->where("iddpto", $dpto);
+        $consulta = $this->db->get();
+        return $consulta->result();
+    }
 }

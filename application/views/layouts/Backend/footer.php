@@ -42,11 +42,11 @@
 <script src="<?php echo base_url();?>assets/template/alertify/alertify.min.js"></script>
 
 <?php if($this->uri->segment(1) == 'fincas'): ?>
-<script src="<?php echo base_url();?>assets/template/js/fincas.js"></script>
-<?php if($this->uri->segment(2) == 'info'): ?>
-    <script>var idFinca = "<?php echo $this->uri->segment(3) ?>"</script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4IEb95P9DieOSrXns34Ao2URyFTGCLNI&libraries=geometry&callback=initMap"></script>
-    <script src="<?php echo base_url();?>assets/template/js/maps.js"></script>
+    <script src="<?php echo base_url();?>assets/template/js/fincas.js"></script>
+    <?php if($this->uri->segment(2) == 'info'): ?>
+        <script>var idFinca = "<?php echo $this->uri->segment(3) ?>"</script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4IEb95P9DieOSrXns34Ao2URyFTGCLNI&libraries=geometry&callback=initMap"></script>
+        <script src="<?php echo base_url();?>assets/template/js/maps.js"></script>
     <?php endif; ?>
 <?php endif; ?>
 </body>

@@ -2,7 +2,7 @@ $(document).ready(function () {
     // Eliminar finca
     $("#dataFincas").on("click", ".btn-finca-delete", function(){
         var id = $(this).val();
-        alertify.confirm('¿Deseas eliminar esta finca?', '¡Podrás revertir el cambio más tarde!').setting({
+        var eliminar = alertify.confirm('¿Deseas eliminar esta finca?', '¡Podrás revertir el cambio más tarde!').setting({
             title: "Eliminación de finca",
             onok: function(){
                 $.ajax({
@@ -19,7 +19,7 @@ $(document).ready(function () {
     // Activar finca
     $("#dataFincas").on("click", ".btn-finca-active", function(){
         var id = $(this).val();
-        alertify.confirm('¿Deseas activar esta finca?', '¡Podrás revertir el cambio más tarde!').setting({
+        var activar = alertify.confirm('¿Deseas activar esta finca?', '¡Podrás revertir el cambio más tarde!').setting({
             title: "Activación de finca",
             onok: function(){
                 $.ajax({
@@ -37,18 +37,18 @@ $(document).ready(function () {
     // Visualizar finca
     $("#dataFincas").on("click", ".btn-finca-view", function(){
         var id = $(this).val();
-        alertify.confirm().destroy();
         $.ajax({
             url: base_url + "fincas/ver/" + id,
             type:"POST",
             success:function(resp){
-                alertify.alert()
+                var ver = alertify.alert()
                 .setting({
                     title: "Información de finca",
                     message: resp,
                     transition: 'flipx',
                     basic: false,
-                }).show();
+                });
+                ver.show();
             }
         });
     });
