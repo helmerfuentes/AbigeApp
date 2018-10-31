@@ -11,8 +11,8 @@
     
 
 
-    <link href="<?php echo base_url();?>assets/template/css/style.css" type="text/css" rel="stylesheet" media="all">
-    <link rel="stylesheet" href="<?php echo base_url();?>assets/template/css/swipebox.css">
+    <link href="<?php echo base_url();?>assets/template/front-end/css/style.css" type="text/css" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/template/front-end/css/swipebox.css">
 
     <script src="<?php echo base_url();?>assets/template/jquery/jquery.min.js"></script>
     <script src="<?php echo base_url();?>assets/template/jquery/move-top.js"></script>

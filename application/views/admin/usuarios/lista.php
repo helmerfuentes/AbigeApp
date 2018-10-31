@@ -2,7 +2,7 @@
 <div class="content-wrapper">
 <section class="content-header">
       <div class="box-header with-border">
-          <h3 class="box-title">Listado Dueños Finca</h3>
+          <h3 class="box-title">Listado Fincas | Dueños</h3>
           
         </div><!-- /.box-header -->
 
@@ -14,7 +14,7 @@
         <table class="table no-margin">
         <!--nombre principal-->
         <thead>
-        <tr border="3">
+        <tr >
                 <td colspand="1" class="col-lg-5" >
                 <h5><strong> IDENTIFICACION: </strong> <?php echo $value->identduenio ?> </h5>
                 <h5><strong>NOMBRE: </strong><?php echo $value->duenio?></h5>
@@ -23,9 +23,9 @@
                 <h5><strong>DISPOSITIVOS:</strong> <?php echo $value->dispositivos?></h5>
 
                 <div class="row">
-                  <div class="col-md-10"> 
-                          <a href="#"><span class="fa fa-2x"></span>Mas Información>></a>
-                   </div>
+                  <div   class="col-md-10"> 
+                  <button type="button" data-toggle="modal" data-target="#mUsuarios" value="<?=$value->identduenio ?>" class="btn btn-link hview">Mas Informacion>></button>
+                                      </div>
                 </div>
                 </td>
                 <td>
@@ -71,7 +71,8 @@
                 if($value->idfinca==$emp->idfinca){
               ?>
                  <tr>
-                <td><a value="<?php echo $emp->identificacion ?>" href="#"><?php echo $emp->identificacion ?></a></td>
+                <td><button type="button" data-toggle="modal" data-target="#mUsuarios" value="<?=$emp->identificacion ?>" class="btn btn-link hview"><?=$emp->identificacion ?></button>
+                   </td>
                 <td><?php echo $emp->nombres ?></td>
                 <td><?php echo $emp->primerApellido." ".$emp->segundoApellido?></td>
                 <?php if($emp->estado=="A"){
@@ -123,8 +124,34 @@
 
 
          
-    
-              
+   
+
+
+
+  
+  <div class="modal fademodal fade bd-example-modal-lg" id="mUsuarios" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+
+     <div class="modal-header bg-blue">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Editar Persona</h4>
+      </div>
+
+            <div class="modal-body">
+            
+
+            </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" id="mbtnCerrarModal" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-info" id="mbtnUpdPerona">Actualizar</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
               
             
 

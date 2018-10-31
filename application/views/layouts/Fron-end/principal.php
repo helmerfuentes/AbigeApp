@@ -27,7 +27,9 @@
         <div class="banner-text">
             <h2>Bienvenido</h2>
             <!-- banner Slider starts Here -->
-            <script src="views/js/responsiveslides.min.js"></script>
+           
+
+            <script src="<?php echo base_url();?>assets/template/jquery/responsiveslides.min.js"></script>
             <script>
                 // You can also use "$(window).load(function() {"
                 $(function () {

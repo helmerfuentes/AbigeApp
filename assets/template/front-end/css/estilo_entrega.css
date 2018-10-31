@@ -1,0 +1,288 @@
+*{
+    box-sizing: border-box;
+    margin-top: 0px;
+}
+.todo{
+   width:55%;
+    
+}
+.div{
+   float: left;
+}
+
+.formulario_historial{
+    width:80%;
+    margin:auto;
+    margin-left: 30%;
+   
+}
+
+.unica{
+    width:20%;
+    height: 30px;
+}
+.tabla{
+    margin-left: 30%;
+}
+.table{
+    margin-left: 30%;
+}
+body{
+    margin:100px 0px;
+    background-image: url(../vista/css/images/img01.jpg); 
+    margin-top: 30px;
+    background-size: 100%;
+    background-position: center;
+}
+ 
+   .miForm{
+     margin: auto;  
+    padding: 45px;   
+    max-width: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 90px;
+    margin-left: 35%;
+    background-color: lightgrey;
+   }
+h2{
+   font-family: 'Bree Serif', serif;
+    background:dodgerblue;
+    padding: 25px;
+    text-align: center;
+    color:black;
+    font-size: 50px;
+    border-bottom: 5px solid gray;
+    border-top-left-radius:7px;
+    border-top-right-radius: 7px;
+}
+.Contenedor_general{
+    margin-top: 10px;
+    margin-left:17px;
+    margin-right:px; 
+    width: 100%
+    
+   }
+   .Contenedor_productos{
+    margin-top: 10px;
+    margin-left:17px;
+    margin-right:px;   
+   }
+
+button{
+    padding:15px;
+    margin-right:100px;
+    background: #40E0D0;
+    width:30%;
+  
+ }
+button:hover{
+    width:31.5%;
+    background: cadetblue;
+    color:white;
+    font-size: 20px;
+}
+
+   .Enviar{
+       margin:auto;
+       height: 80px;
+       max-width: 900px;
+       max-height: 400px;
+       width:98%;
+       background: white;
+       border-top-left-radius: 0px;
+       border-top-right-radius: 0px;
+       border-bottom-left-radius: 2px;
+       border-bottom-right-radius: 7px;
+       border:2px solid blue;
+       border-top:0px;  
+       
+   }
+
+    .Formulario{
+       margin:auto;
+       width:100%;
+       max-width: 900px;
+       max-height: 1000px;
+       background: white;
+       border-radius: 7px;
+       border-bottom-left-radius: 0px;
+       border-bottom-right-radius: 0px;
+       border:2px solid blue;
+       border-bottom:0px;
+       padding-bottom: 1px;
+              
+   }
+   input,select{
+       padding: 15px;
+       margin: 10px;
+       font-size: 16px;
+       border-radius: 3px;
+       border: 1px solid gray;
+       
+   }
+   .cant{
+       max-width: 900px;
+       margin:auto;
+   }
+   .Texto{
+       text-align: left;
+       width : 40%;
+       border:none;
+       font-weight: bold;
+       font-size: 15px;
+   }
+   .textos{
+       width: 100%;
+       padding: 12px;
+       margin-left: 30%;
+    }
+    div label {
+        
+        width: 50%;
+        float: left;
+        padding: 10px;
+      } 
+      .identificacion label{
+          padding: 20px;
+          height:10px;
+          width: 15%;
+          float: left;
+           margin-left: 20%;
+      }
+   
+   .Mediano{
+    width: 45%;
+     font-family: 'Bree Serif', serif;
+      margin-left:30px;
+   } 
+    .Mediano_1{
+      width: 10%;
+      font-family: 'Bree Serif', serif;
+      font-size: 22px;
+    } 
+    .Mediano_1:focus{
+        background-color: #fff;
+        border:1 px solid blue;
+    }
+    .Mediano_2{
+      width: 10%;
+      font-family: 'Bree Serif', serif;
+  
+    } 
+    .Mediano_2:focus{
+        background-color: #fff;
+        border:1 px solid blue;
+    }
+    .Mediano_3{
+      width: 10%;
+      font-family: 'Bree Serif', serif;
+  
+    } 
+    .Mediano_3:hover{
+         border: 1px solid black;
+         background:dodgerblue;
+    }
+    .ver{       
+        width:10%;
+        font-family: 'Bree Serif', serif;
+        background: buttonface;
+        margin-left: 45%;
+    }
+    .ver:hover{
+     border: 1px solid black;
+     background:dodgerblue;  
+    color:white;
+    
+    }
+    .buscar{
+        margin:auto;
+        margin-left: 60px;
+    }
+   .Medianos{
+      width: 45%;
+      font-family: 'Bree Serif', serif;
+      margin-left:1000px;  
+   }
+    .submit_1{
+      width:30%;
+      font-family: 'Bree Serif', serif;
+      background: buttonface;
+      margin-left: 10%;
+      
+    }
+   .submit_1:hover{
+     border: 1px solid black;
+     background:dodgerblue;  
+     color:white;    
+    }
+    .link{
+        padding: 15px;
+        width:30%;
+        font-family: 'Bree Serif', serif;
+        background: buttonface;
+        margin-left: 10%;
+        
+    }
+    .link:hover{
+        padding: 15px;
+        width:50%;
+        font-family: 'Bree Serif', serif;
+        border: 1px solid black;
+        background:dodgerblue;  
+        color:white; 
+        margin-left: 10%;
+        border: 1px black;
+    }
+    .submit{
+      width:20%;
+      font-family: 'Bree Serif', serif;
+      background: buttonface;
+      margin-left: 10%;
+      
+    }
+   .submit:hover{
+     border: 1px solid black;
+     background:dodgerblue;  
+    color:white;
+    
+    }
+   
+  tr:nth-child(even) {
+       background: #eee;
+   }
+ 
+   tr:hover{
+    background-color: lightgreen;
+   }
+   
+    table{
+     border-collapse:collapse;  
+   }
+   .table{
+       border-collapse:collapse;
+       margin: auto;
+       width: 90%;
+   }
+    th{
+         background: teal;
+         color: #fff;
+         font-family: cursive;
+         font-size: 12.5px; 
+      }
+      td{
+         font-family: Arial Rounded MT Bold; 
+        }
+   
+   input:focus{
+       background:gainsboro;
+   }
+   .mos{
+       width: 25%;
+       height:15px;
+       padding:20px;
+   }
+   .mos:hover{
+       background:gainsboro;
+   }
+   

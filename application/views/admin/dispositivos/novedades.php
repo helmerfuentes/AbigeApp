@@ -14,9 +14,9 @@
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3>150</h3>
+              <h3><?= $total?></h3>
 
-              <p>Perimetro No Asignado</p>
+              <p>Total</p>
             </div>
             <div class="icon">
               <i class="ion ion-bag"></i>
@@ -29,9 +29,9 @@
           <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
-              <h3>53<sup style="font-size: 20px">%</sup></h3>
+              <h3><?= $collar?><sup style="font-size: 20px"></sup></h3>
 
-              <p>Reporte Collar</p>
+              <p>Collar</p>
             </div>
             <div class="icon">
               <i class="ion ion-stats-bars"></i>
@@ -44,9 +44,9 @@
           <!-- small box -->
           <div class="small-box bg-yellow">
             <div class="inner">
-              <h3>44</h3>
+              <h3><?= $localizacion?></h3>
 
-              <p>Departamentos</p>
+              <p>Localización</p>
             </div>
             <div class="icon">
               <i class="ion ion-person-add"></i>
@@ -59,7 +59,7 @@
           <!-- small box -->
           <div class="small-box bg-red">
             <div class="inner">
-              <h3>65</h3>
+              <h3><?= $hoy?></h3>
 
               <p>Hoy</p>
             </div>
@@ -77,7 +77,7 @@
     <div class="row">
       <div class="col-md-12"> 
     
-         <a href="#"><span class="fa fa-2x"></span><h4>Listado Novedades <strong><?php echo date("d/m/y")?></strong> </h4></a>
+         <a href="#"><span class="fa fa-2x"></span><h4>Listado Novedades <strong><?php echo date("d-m-Y")?></strong> </h4></a>
      </div>
     
     </div>
@@ -91,18 +91,19 @@
         <tr>
         <th>#</th>
         <th>ID Dispositivo</th>
-        <th>FINCA</th>
-        <th>FECHA</th>
-        <th>N° MANTENIMIENTO</th>
+        <th>Finca</th>
+        <th>Fecha/Hra</th>
+        <th>Novedad</th>
         <th></th>
         </tr>
         </thead>
 
         <tbody>
-       <?php if(!empty($mantenimiento)){
+       <?php if(!empty($novedades)){
                 $i=1;
               
-            foreach ($mantenimiento as  $value) {
+            foreach ($novedades as  $value) {
+              if(date("d-m-Y",strtotime($value->fecha))==date("d-m-Y")){
             ?>
 
             <tr>
@@ -112,7 +113,7 @@
                         <td><?php echo $value->iddispositivo?></td>
                         <td><?php echo $value->nombreFinca?></td>
                         <td><?php echo $value->fecha?></td>
-                        <td><?php echo $value->cantidad?></td>
+                        <td><?php echo $value->novedad?></td>
                         <td>
                         <div class="btn-group">
                             <button type="button" class="btn btn-info  btn-view" data-toggle="modal" data-target="#modal-default" value="<?php  echo $value->iddispositivo; ?>">
@@ -126,6 +127,7 @@
             </tr>
         <?php
              $i=$i+1;
+              }
         }
            
         }

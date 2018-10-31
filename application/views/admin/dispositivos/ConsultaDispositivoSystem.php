@@ -92,9 +92,10 @@
             <tr>
             <th>#</th>
             <th>ID Dispositivo</th>
-            <th>BATERIA</th>
             <th>FINCA</th>
-            <th>Estado</th>
+            <th>BATERIA</th>
+            <th>ESTADO</th>
+            <th>LOCALIZACIÓN</th>
             <th>OPCIÓNES</th>
             </tr>
             </thead>
@@ -112,10 +113,34 @@
                 <td><?php echo $i?>
                 </td>
                             <td><?php echo $value->iddispositivo?></td>
+                            <td><?php echo $value->nombreFinca?></td> 
                             <td><?php echo $value->bateria?></td>
-                            <td><?php echo $value->nombreFinca?></td>
-                            <td><?php echo $value->estado?></td>
+                            
+                            
+                            <td > 
+                         
+                            <?php 
+                            if( $value->estado==1) {
+                                echo "<strong class='label label-success'>Activo </strong >";
+                            }else{
+                              echo "<strong class='label label-danger'>Inactivo</strong >";
+                            }
+                            
+                            ?>
+                            </td>
+                            <td><?php if( $value->ubicacion=="")
+                            {
+                              echo "<strong class='label label-warning'>Sin Registro</strong >";
+                            }else if($value->ubicacion==1){
+                              echo "<strong class='label label-success'>Dentro </strong >";
+                            }else{
+                              echo "<strong class='label label-danger'>Fuera</strong >";
+
+                            }?>
+                            
+                            </td>
                             <td>
+                            
                             <div class="btn-group">
                                 <button type="button" class="btn btn-info  btn-view" data-toggle="modal" data-target="#modal-default" value="<?php  echo $value->iddispositivo; ?>">
                                     <span class="fa fa-search"></span>
@@ -133,9 +158,9 @@
                             </td>
                 </tr>
             <?php
-                
+               $i++; 
             }
-                $i++;
+                
             }
             ?>
                

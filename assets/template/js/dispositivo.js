@@ -1,6 +1,6 @@
 
 $(document).ready(function () {
-    var base="http://localhost/AbigeApp/"; 
+    var base=base_url; 
     
    
     $(".btn-view").on("click",function(){
@@ -45,7 +45,7 @@ $(document).ready(function () {
 
     $(".btn-Delete").on("click",function(){
         var id=$(this).val();
-        console.log(id);
+      
         $.ajax({
             url: base + "Dispositivos/eliminar/",
             data:{
@@ -53,17 +53,15 @@ $(document).ready(function () {
             },
             type: "POST",
             success: function(resp){
+                alertify.set('notifier','position', 'top-center');
                 if(resp){
-                    swal("Hello world!");
-                
-        
-                    location.reload();
+                    alertify.success('Dispositivo Eliminado' );
+            
                   }else{
-                    alert('Error al Eliminar');
+                    alertify.error('ahh ocurrido un Error!!');
                 
-        
-                    location.reload();
                   }
+                  setTimeout('document.location.reload()',1000);
             }
         });
     });
@@ -88,11 +86,12 @@ $('#mbtnUpdPerona').click(function(){
         type: "POST",
         success: function(resp){
           if(resp==1){
-            alert('Dato Actualaizado');
+            alertify.success('Dato Actualaizado');
 			$('#mbtnCerrarModal').click();
-
-			location.reload();
+          }else{
+            alertify.error('ahh ocurrido un Error!!');
           }
+          setTimeout('document.location.reload()',1000);
         }
     });
 
@@ -126,23 +125,7 @@ $('#mbtnUpdPerona').click(function(){
 
 
 
-    $("#example1").DataTable({
-        "language": {
-            "lengthMenu": "Mostrar _MENU_ registros por pagina",
-            "zeroRecords": "No se encontraron resultados en su busqueda",
-            "searchPlaceholder": "Buscar registros",
-            "info": "Mostrando registros de _START_ al _END_ de un total de  _TOTAL_ registros",
-            "infoEmpty": "No existen registros",
-            "infoFiltered": "(filtrado de un total de _MAX_ registros)",
-            "search": "Buscar:",
-            "paginate": {
-                "first": "Primero",
-                "last": "Último",
-                "next": "Siguiente",
-                "previous": "Anterior"
-            },
-        }
-    });
+   
 
 
         

@@ -1,8 +1,79 @@
+
+
+
+
+
+
+
+
+<!-- *******************************************************  -->
 <div class="content-wrapper">
 <section class="content-header">
+    
 
+  <div class="row">
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <h3><?php echo "123" ?></h3>
 
-</section>
+              <p>Total Mantenimientos</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-bag"></i>
+            </div>
+            <a href="#" class="small-box-footer">Mas Informacion <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3><?php echo "45" ?><sup style="font-size: 20px"></sup></h3>
+
+              <p>Mantenimientos del Mes</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-stats-bars"></i>
+            </div>
+            <a href="#" class="small-box-footer">Mas informacion <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-yellow">
+            <div class="inner">
+              <h3><?php echo "30" ?></h3>
+
+              <p>Mantenimientos Año</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-person-add"></i>
+            </div>
+            <a href="#" class="small-box-footer">Mas informacion<i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-red">
+            <div class="inner">
+              <h3><?php echo "10" ?></h3>
+
+              <p>Sin Mantenimientos</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-pie-graph"></i>
+            </div>
+            <a href="#" class="small-box-footer">Mas Informacion<i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+
+    </section>
+
 
     <section class="content">
     <div class="box box-solid">
@@ -23,10 +94,10 @@
             
             <tr>
             <th>#</th>
-            <th>ID Dispositivo</th>
+            <th>DUEÑO</th>
             <th>FINCA</th>
-            <th>FECHA</th>
-            <th>N° MANTENIMIENTO</th>
+            <th>N° DISPOSITIVOS</th>
+            <th>ULTIMOS REGISTROS</th>
             <th></th>
             </tr>
             </thead>

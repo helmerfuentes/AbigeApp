@@ -74,6 +74,7 @@ class Dispositivos extends CI_Controller {
             'iddispositivo'=>$codigo,
             'idperimetro'=>$finca,
             'IdAnimal'=>$codigoanimal,
+            'eliminado'=>0
         );
 
         if($this->DispositivosModels->addDispositivo($data,"dispositivos")){
@@ -122,7 +123,7 @@ class Dispositivos extends CI_Controller {
         $fuera=0;
             if($dispositivos){
         foreach ($dispositivos as  $value) {
-            if($value->estado=="Activo"){
+            if($value->estado=="1"){
                 $activos=$activos+1;
                 if($value->ubicacion=!"Dentro" || $value->ubicacion!=""){
                     $fuera=$fuera+1; 

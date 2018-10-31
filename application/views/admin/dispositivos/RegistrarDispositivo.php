@@ -1,7 +1,13 @@
 <div class="content-wrapper">
 <section class="content-header">
-<h1>Nuevo Dispositivo</h1>
-<br> <br><br>
+<div class="row page-titles">
+                    <div class="col-md-8 col-10 align-self-center">
+                          <ol class="breadcrumb">
+                            <li class="breadcrumb-item active"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4> Registros Dispositivos </h4></font></font></li>
+                        </ol>
+                    </div>
+                   
+                </div>
 </section>
 
     <section class="content col-md-8 " >
@@ -54,7 +60,7 @@
                 <div class="form-group">
                     <div class="col-sm-12 col-md-offset-1" >
                         <br> 
-                        <button type="submit" class="btn btn-success"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Registrar Usuario</font></font></button>
+                        <button type="submit" class="btn btn-success"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Registrar Dispositivo</font></font></button>
                     </div>
                  </div>
                  
