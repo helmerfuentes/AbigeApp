@@ -28,25 +28,12 @@
                                         <label class="col-md-12"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Codigo Dispositivo</font></font></label>
                                         <div class="col-md-8">
                                             <input name="codigoDispositivo" id="codigoDispositivo" type="text" placeholder="1034567432" class="form-control form-control-line">
+                                            <input name="finca" id="finca" type="hidden"  class="form-control form-control-line" value="<?=$perimetro->idperimetro ?>">
+                                       
                                         </div>
                 </div>
               
-                <div class="form-group">
-                           <label class="col-sm-12"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Seleccionar Finca</font></font></label>
-                        <div class="col-sm-8">
-                            <select class="form-control form-control-line" name="finca" id="finca">
-                                <?php
-                                    if(is_array($perimetro) || is_object($perimetro)){
-                                        foreach ($perimetro as  $value) {                                                    
-                                                ?>
-                                                <option value="<?php echo $value->idperimetro?>"><?php echo $value->nombreFinca ?> </option>
-                                                <?php
-                                                }
-                                                }
-                                                ?>
-                            </select>
-                        </div>
-                </div>
+
 
 
 
@@ -56,7 +43,6 @@
                                             <input name="codigoAnimal" id="codigoAnimal" type="text" placeholder="1034567432" class="form-control form-control-line">
                                         </div>
                 </div>
-             
                 <div class="form-group">
                                         <label class="col-md-12"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Estado</font></font></label>
                                         <div class="col-sm-8">
@@ -70,6 +56,7 @@
 		            	</select>
 		            </div>
                 </div>
+             
                 <div class="form-group">
                     <div class="col-sm-12 col-md-offset-1" >
                         <br> 

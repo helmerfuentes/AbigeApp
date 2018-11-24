@@ -42,7 +42,7 @@
                         if($dis->estadodispositivo=="1"){
                             ?>
                             <option value="1">Activo</option>
-		            		<option value="0">Inactivo</option>
+		            		<option value="0">Inactivo </option>
                             <?php
 
                         }else{

@@ -12,14 +12,20 @@ class novedades extends CI_Controller {
 
     public function lista(){
         if($this->session->userdata('rol')=="SYSTEM1" || $this->session->userdata('rol')=="SYSTEM2"){
-            
             $novedades=$this->novedadesmodels->getListadoGeneral();
+        }else{
+            $idfinca=$this->session->userdata('finca');
+            $novedades=$this->novedadesmodels->getlistadoFinca($idfinca);       
+        }
+           
                 $localizacion=0;
                 $collar=0;
                 $hoy=0;
                 $total=0;
+                
+               
                 foreach ($novedades as $value) {
-                   
+                    if($value->total==0) break;   
                         $total++;
                     
 
@@ -28,6 +34,7 @@ class novedades extends CI_Controller {
                     if ($value->novedad=="senal") 
                         $collar++;
                     if(date("d-m-Y",strtotime($value->fecha))==date("d-m-Y")) $hoy++;
+
                 }
 
 
@@ -39,12 +46,15 @@ class novedades extends CI_Controller {
                 'hoy'=>$hoy,
                 'total'=>$total
             );
-            
+
+        if($this->session->userdata('rol')=="SYSTEM1" || $this->session->userdata('rol')=="SYSTEM2"){
+            $this->cargarLayaout('admin/dispositivos/novedades',$data);
        }else{
+        $this->cargarLayaout('Dueño/Dispositivos/novedades',$data);
             
         }
        
-            $this->cargarLayaout('admin/dispositivos/novedades',$data);
+            
    
 
     }

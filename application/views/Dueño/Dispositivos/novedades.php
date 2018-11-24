@@ -1,4 +1,7 @@
 
+
+
+
 <div class="content-wrapper">
 <section class="content-header">
 <h1>
@@ -94,7 +97,7 @@
             <tr>
             <th>#</th>
             <th>ID Dispositivo</th>
-            <th>Finca</th>
+            <th>ID Animal</th>
             <th>Fecha/Hra</th>
             <th>Novedad</th>
             <th></th>
@@ -114,7 +117,7 @@
             <td><?php echo $i?>
             </td>
                         <td><?php echo $value->iddispositivo?></td>
-                        <td><?php echo $value->nombreFinca?></td>
+                        <td><?php echo $value->idanimal?></td>
                         <td><?php echo $value->fecha?></td>
                         <td><?php echo $value->novedad?></td>
                         <td>
@@ -152,5 +155,3 @@
     </section>
 
 </div>
-
-

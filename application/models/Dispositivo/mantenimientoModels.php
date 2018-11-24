@@ -50,8 +50,26 @@ class mantenimientoModels extends CI_Model {
     }   
 
     //listado de mantenimiento de dispositivo de una finca
-    public function getListadoFinca(){
-
+    public function getListadoFinca($finca){
+        $this->db->select("count(ma.iddispositivo) as cantidad, fi.nombreFinca,fi.ubicacion, fi.idmunicipio,
+        dis.iddispositivo,dis.estado as estadodispositivo,dis.idanimal,
+        dis.bateria,po.estado as posicionestado, po.bateria as bateriaposicion, max(ma.fecha) as fecha, ma.descripcion");
+        $this->db->from("fincas fi");
+        $this->db->join("perimetros per","fi.idfinca=per.idfinca","left");
+        $this->db->join("dispositivos dis","dis.idperimetro=per.idperimetro","left");
+        $this->db->join("posicion po", "dis.iddispositivo=po.iddispositivo","left");
+        $this->db->join("mantenimiento ma", "ma.iddispositivo=dis.iddispositivo","left");
+        $this->db->where("fi.idfinca =",$finca);
+        $this->db->group_by("ma.iddispositivo");
+        
+        
+        $resultado=$this->db->get();
+        if($resultado->num_rows()>0){
+            $this->db->close ();
+            return $resultado->result();
+        }else{
+            return  false;
+        }
 
     }
 

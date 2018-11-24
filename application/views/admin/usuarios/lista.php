@@ -24,7 +24,7 @@
 
                 <div class="row">
                   <div   class="col-md-10"> 
-                  <button type="button" data-toggle="modal" data-target="#mUsuarios" value="<?=$value->identduenio ?>" class="btn btn-link hview">Mas Informacion>></button>
+                  <button type="button" data-toggle="modal" data-target="#mUsuarios" value="<?=$value->idusuario ?>" class="btn btn-link hview">Mas Informacion>></button>
                                       </div>
                 </div>
                 </td>
@@ -71,7 +71,7 @@
                 if($value->idfinca==$emp->idfinca){
               ?>
                  <tr>
-                <td><button type="button" data-toggle="modal" data-target="#mUsuarios" value="<?=$emp->identificacion ?>" class="btn btn-link hview"><?=$emp->identificacion ?></button>
+                <td><button type="button" data-toggle="modal" data-target="#mUsuarios" value="<?=$emp->idusuario ?>" class="btn btn-link hview"><?=$emp->identificacion ?></button>
                    </td>
                 <td><?php echo $emp->nombres ?></td>
                 <td><?php echo $emp->primerApellido." ".$emp->segundoApellido?></td>

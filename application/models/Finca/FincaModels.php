@@ -57,4 +57,25 @@ class FincaModels extends CI_Model {
 
     }
 
+    //traer los datos de una finca y su perimetro, respecto a una ID finca
+
+    public function perimetro($finca){
+        
+        $this->db->select("*");
+        $this->db->from("fincas fi");
+        $this->db->join("perimetros p","fi.idfinca=p.idfinca","left");
+        $this->db->where("fi.idfinca=",$finca);
+        $resultado=$this->db->get();
+        if($resultado->num_rows()>0){
+    
+            return $resultado->row();
+        }else{
+            return  false;
+        }
+
+        
+
+
+    }
+
 }

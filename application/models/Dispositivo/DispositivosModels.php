@@ -26,6 +26,30 @@ class DispositivosModels extends CI_Model {
 
     }
 
+    //retorna dispositivos de una finca determinada
+    public function getListadoDispositivo($finca){
+        
+        $this->db->select("dis.*, fi.nombreFinca, po.estado as ubicacion");
+        $this->db->from("dispositivos dis");
+        $this->db->join("perimetros per","per.idperimetro=dis.idperimetro");
+        $this->db->join("fincas fi","fi.idfinca=per.idfinca");
+        $this->db->join("posicion po", "dis.iddispositivo=po.iddispositivo","left");
+        $this->db->where("dis.eliminado=0");
+        $this->db->where("fi.idfinca=",$finca);
+        $this->db->group_by("dis.iddispositivo");
+        
+        $resultado=$this->db->get();
+        if($resultado->num_rows()>0){
+    
+            return $resultado->result();
+        }else{
+            return  false;
+        }
+
+    
+
+    }
+
     public function eliminarmodels($didpositivo){
             $campos=array(
                 'eliminado' => 1

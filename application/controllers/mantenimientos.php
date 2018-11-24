@@ -16,12 +16,19 @@ class mantenimientos extends CI_Controller {
                 $mantenimiento=array(
                     'mantenimiento'=>$this->mantenimientoModels->getListado(),
                 );
-                
+                $this->cargarLayaout('admin/dispositivos/consultasMantenimiento',$mantenimiento);
            }else{
+            
+            $idifinca=$this->session->userdata('finca');
+            $mantenimiento=array(
+                'mantenimiento'=>$this->mantenimientoModels->getListadoFinca($idifinca),
+            );
+            $this->cargarLayaout('Dueño/Dispositivos/consultasMantenimiento',$mantenimiento);
+            
                 
             }
            
-                $this->cargarLayaout('admin/dispositivos/consultasMantenimiento',$mantenimiento);
+                
 
         }
 

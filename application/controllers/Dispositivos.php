@@ -69,12 +69,15 @@ class Dispositivos extends CI_Controller {
         $codigo=$this->input->post("codigoDispositivo");
         $finca=$this->input->post("finca");
         $codigoanimal=$this->input->post("codigoAnimal");
+        $estado=$this->input->post("estado");
+        
 
         $data=array(
             'iddispositivo'=>$codigo,
             'idperimetro'=>$finca,
             'IdAnimal'=>$codigoanimal,
-            'eliminado'=>0
+            'eliminado'=>0,
+            'estado'=>$estado
         );
 
         if($this->DispositivosModels->addDispositivo($data,"dispositivos")){
@@ -92,10 +95,15 @@ class Dispositivos extends CI_Controller {
           $finca=array(
               'perimetro'=>$this->FincaModels->getNombreFincas(),
           );
+
     
             $this->cargarLayaout('admin/dispositivos/RegistrarDispositivo',$finca);
         }else {
-            $this->cargarLayaout('admin/dispositivos/ConsultaDispositivoSystem',$dispo); 
+            $finca=array(
+                'perimetro'=>$this->FincaModels->perimetro($this->session->userdata('finca')),
+            );
+            
+            $this->cargarLayaout('Dueño/Dispositivos/RegistrarDispositivo',$finca); 
         }
 
     }
@@ -114,42 +122,50 @@ class Dispositivos extends CI_Controller {
     }
 
     public function lista() {
-        if($this->session->userdata('rol')=="SYSTEM1" || $this->session->userdata('rol')=="SYSTEM2"){
-        $dispositivos=$this->DispositivosModels->getListadoDispositivoCompleto();
-       
-            
-        $activos=0;
-        $inactivo=0;
-        $fuera=0;
-            if($dispositivos){
-        foreach ($dispositivos as  $value) {
-            if($value->estado=="1"){
-                $activos=$activos+1;
-                if($value->ubicacion=!"Dentro" || $value->ubicacion!=""){
-                    $fuera=$fuera+1; 
-                 }
-            }else{
-                $inactivo=$inactivo+1;
-            }    
-
-        }
-
-        }
         
-        $dispo=array(
-            'dispositivos'=>$dispositivos,
-            'dActivos'=>$activos,
-            'dInactivos'=>$inactivo,
-            'dDentro'=>$fuera,
-            'dTotal'=>$activos+$inactivo
-        );
+        if($this->session->userdata('rol')=="SYSTEM1" || $this->session->userdata('rol')=="SYSTEM2"){
+            $dispositivos=$this->DispositivosModels->getListadoDispositivoCompleto();
+        }else{
+            $idfinca=$this->session->userdata('finca');
+            $dispositivos=$this->DispositivosModels->getListadoDispositivo($idfinca);
+        }
+              
+                $activos=0;
+                $inactivo=0;
+                $fuera=0;
+            if($dispositivos){
+                 foreach ($dispositivos as  $value) {
+                    if($value->estado=="1"){
+                        $activos=$activos+1;
+                        if($value->ubicacion=!"Dentro" || $value->ubicacion!=""){
+                            $fuera=$fuera+1; 
+                        }
+                    }else{
+                        $inactivo=$inactivo+1;
+                    }    
 
+                  }
+
+            }
+        
+                $dispo=array(
+                    'dispositivos'=>$dispositivos,
+                    'dActivos'=>$activos,
+                    'dInactivos'=>$inactivo,
+                    'dDentro'=>$fuera,
+                    'dTotal'=>$activos+$inactivo
+                );
+                          
+                
+                if($this->session->userdata('rol')=="SYSTEM1" || $this->session->userdata('rol')=="SYSTEM2"){
+                    $this->cargarLayaout('admin/dispositivos/ConsultaDispositivoSystem',$dispo);
+                }else{
+                    $this->cargarLayaout('Dueño/Dispositivos/lista',$dispo);
+                }
        
 
-        $this->cargarLayaout('admin/dispositivos/ConsultaDispositivoSystem',$dispo);
-        }else {
-            $this->cargarLayaout('admin/dispositivos/ConsultaDispositivoSystem',$dispo);
-        }
+         
+       
        
     }
     

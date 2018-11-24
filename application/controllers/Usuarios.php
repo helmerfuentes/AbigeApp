@@ -12,22 +12,62 @@ class Usuarios extends CI_Controller {
     }
 
 public function nuevo(){
-    $data = array(
-        'fincas' => $this->FincaModels-> noAsifgnada(), 
-    );
    
-$this->cargarLayaout("admin/usuarios/nuevo", $data);
+    if($this->session->userdata('rol')=="SYSTEM1" || $this->session->userdata('rol')=="SYSTEM2"){
+        $data = array(
+            'fincas' => $this->FincaModels-> noAsifgnada(), 
+        );
+       
+    $this->cargarLayaout("admin/usuarios/nuevo", $data);
+    }else{
+        $this->cargarLayaout("Dueño/Usuarios/nuevo", "");
+    }
+    
+   
 
 }
+
+/*
+    public function activar($id) {
+        $data  = array(
+            'estado' => "1", 
+        );
+        $this->Fincas_Model->update($id,$data);
+        $data = array(
+            'finca' => $this->Fincas_Model->consultarIndividual($id)
+        );
+        $this->load->view("admin/fincas/view",$data);
+    }
+ */
+    public function updateEstado(){
+        $idusuario=$this->input->post("id");
+        $opcion=$this->input->post("opcion");
+     
+        $respuesta=$this->Usuarios_Model->UpdateEstado($idusuario,$opcion);
+        if($respuesta==1){
+            
+            $data = array(
+                'value' => $this->Usuarios_Model->buscarCodigo($idusuario)
+            );
+            
+            if($opcion!="E")
+           $this->load->view("Dueño/Usuarios/view", $data);    
+
+        }else{
+            return 0;
+        }
+        
+    }
 
 
 
 public function buscar(){
-    $identificacion=$this->input->post("identificacion");
+    $idusuario=$this->input->post("identificacion");
     $respuesta= array(
-     'respuesta' =>  $this->Usuarios_Model->buscar($identificacion)
+     'respuesta' =>  $this->Usuarios_Model->buscarCodigo($idusuario)
     );
-    
+  
+
     $this->load->view('admin/usuarios/mInfor',$respuesta);
 
     
@@ -44,14 +84,21 @@ public function Guardar(){
     $emai=$this->input->post("email");
     $direcc=$this->input->post("direccion");
     $telefono=$this->input->post("telefono");
-    $idfinca=$this->input->post("finca");
+    
+    if($this->session->userdata('rol')=="SYSTEM1" || $this->session->userdata('rol')=="SYSTEM2"){
+        $rol="DUEÑO";
+        $idfinca=$this->input->post("finca");
+    }else{
+        $rol="EMPLEADO";
+        $idfinca=$this->session->userdata('finca');
 
+    }
     $data=array(
         'idfinca'=>$idfinca,
         'nombres'=>$nombres,
         'primerApellido'=>$apellidos[0],
         'identificacion'=>$iden,
-        'rol'=>"DUEÑO",
+        'rol'=>$rol,
         'email'=>$emai,
         'telefono'=>$telefono,
         'clave'=>$iden,
@@ -69,16 +116,22 @@ public function Guardar(){
 
 public function lista(){
     
-
-    $data=array(
-        'lista'=>$this->Usuarios_Model->lista(),
-        'empleados'=>$this->Usuarios_Model->trabajadores()
-    );
-   
+    if($this->session->userdata('rol')=="SYSTEM1" || $this->session->userdata('rol')=="SYSTEM2"){
+        $data=array(
+            'lista'=>$this->Usuarios_Model->lista(),
+            'empleados'=>$this->Usuarios_Model->trabajadores()
+        );
+    
+        $this->cargarLayaout("admin/usuarios/lista", $data);
+    }else{
+        $idfinca=$this->session->userdata('finca');
+        $data = array('empleados' =>$this->Usuarios_Model->trabajadoresFinca($idfinca));
+        
+        $this->cargarLayaout("Dueño/Usuarios/lista", $data);
+    }
     
 
-
-    $this->cargarLayaout("admin/usuarios/lista", $data);
+    
 }
 
 public function cargarLayaout($vista,$datoEnviar){
@@ -105,6 +158,8 @@ public function update(){
     $direc=$this->input->post("direccion");
     $telefono=$this->input->post("telefono");
     $codigo=$this->input->post("codigo");
+
+        
 
     $datos=array(
         'nom'=>$nombres,

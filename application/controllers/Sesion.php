@@ -36,6 +36,7 @@ class Sesion extends CI_Controller {
                 'apellido'=>$respuesta->primerApellido,
                 'rol'=>$respuesta->rol,
                 'imagen'=>$respuesta->imagen,
+                'finca'=>$respuesta->idfinca,
                 'login'=>true
             );
             $this->session->set_userdata($data);
