@@ -77,8 +77,8 @@ class Fincas extends CI_Controller {
         $this->cargarLayaout("admin/fincas/nueva", $data);
     }
 
-    public function agregar() {
-
+    public function store() {
+        
     }
 
     private function cargarLayaout($vista,$datoEnviar){

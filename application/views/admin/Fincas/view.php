@@ -6,9 +6,9 @@
 <td><?php echo $finca->descripcion;?></td>
 <td>
 <?php if($finca->estado == 1): ?>
-    <span class="label-success">Activo</span>
+    <strong class='label label-success'>Activo</strong >
 <?php else: ?>
-    <span class="label-danger">Inactivo</span>
+    <strong class='label label-danger'>Inactivo</strong >
 <?php endif; ?>
 </td>
 <td>
