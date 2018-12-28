@@ -21,22 +21,22 @@
                                 <p><i class="icon fa fa-ban"></i><?php echo $this->session->flashdata("error"); ?></p>
                              </div>
                         <?php endif;?>
-                        <form action="<?php echo base_url();?>finca/store" method="POST">
+                        <form action="<?php echo base_url();?>fincas/store" method="POST">
                             <div class="form-group">
                                 <label for="nombre">Nombre:</label>
                                 <input type="text" class="form-control" id="nombre" name="nombre">
                             </div>
                             <div class="form-group">
-                                <label for="descripcion">Ubicación:</label>
-                                <input type="text" class="form-control" id="descripcion" name="descripcion">
+                                <label for="ubicacion">Ubicación:</label>
+                                <input type="text" class="form-control" id="ubicacion" name="ubicacion">
                             </div>
                             <div class="form-group">
-                                <label for="nombre">Latitud:</label>
-                                <input type="text" class="form-control" id="nombre" name="nombre">
+                                <label for="latitud">Latitud:</label>
+                                <input type="text" class="form-control" id="latitud" name="latitud">
                             </div>
                             <div class="form-group">
-                                <label for="descripcion">Longitud:</label>
-                                <input type="text" class="form-control" id="descripcion" name="descripcion">
+                                <label for="longitud">Longitud:</label>
+                                <input type="text" class="form-control" id="longitud" name="longitud">
                             </div>
                             <div class="form-group">
                                 <label for="departamento">Departamento:</label>

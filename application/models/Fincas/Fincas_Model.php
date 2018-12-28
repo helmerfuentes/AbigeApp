@@ -2,6 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Fincas_Model extends CI_Model {
+    protected $table = 'Fincas';
     public function consultarGeneral() {
         /**
          * Mostrar los datos de todas las fincas.
@@ -20,7 +21,7 @@ class Fincas_Model extends CI_Model {
          * Consultar los datos de una finca, por su id.
          */
         $this->db->select("*");
-        $this->db->from("fincas");
+        $this->db->from($this->table);
         $this->db->join("municipios", "fincas.idmunicipio = municipios.idmunicipio", "left");
         $this->db->join("departamentos", "municipios.iddpto = departamentos.COD_DPTO", "left");
         $this->db->where("idfinca", $idFinca);
@@ -41,7 +42,7 @@ class Fincas_Model extends CI_Model {
     }
 
     public function store($data) {
-        
+        return $this->db->insert($this->table,$data);
     }
 
     public function detailedInfo($id) {
@@ -55,6 +56,6 @@ class Fincas_Model extends CI_Model {
 
     public function update($id, $data) {
         $this->db->where("idfinca",$id);
-        return $this->db->update("fincas",$data);
+        return $this->db->update($this->table,$data);
     }
 }

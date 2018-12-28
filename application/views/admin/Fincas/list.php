@@ -37,7 +37,7 @@
                                     <?php foreach($fincas as $finca):?>
                                         <tr class="fila" id="<?php echo $finca->idfinca ?>">
                                             <td><?php echo $finca->idfinca;?></td>
-                                            <td><?php echo $finca->nombreFinca;?></td>
+                                            <td><?php echo $finca->nombre;?></td>
                                             <td><?php echo $finca->ubicacion;?></td>
                                             <td><?php echo $finca->latitud;?></td>
                                             <td><?php echo $finca->longitud;?></td>

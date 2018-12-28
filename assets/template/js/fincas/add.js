@@ -1,8 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var dpto = document.getElementById('departamento');
-    dpto.addEventListener('change', function() {
-        var mnpo = document.getElementById('municipio');
-        mnpo.innerHTML = '<option value="0">Seleccione...</option>';
+    getMunicipios();
+});
+
+let getMunicipios = () => {
+    var departamento = document.getElementById('departamento');
+    departamento.addEventListener('change', function() {
+        var municipio = document.getElementById('municipio');
+        municipio.innerHTML = '<option value="0">Seleccione...</option>';
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
@@ -11,12 +15,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     option = document.createElement("option");
                     option.text = x.descripcion;
                     option.value = x.idmunicipio;
-                    mnpo.add(option);
+                    municipio.add(option);
                 });
                 console.log(municipios);
             }
         };
-        xhttp.open("GET", base_url + "municipios/data/"+dpto.value, true);
+        xhttp.open("GET", base_url + "municipios/data/"+departamento.value, true);
         xhttp.send();
     });
-});
+};

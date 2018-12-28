@@ -78,7 +78,20 @@ class Fincas extends CI_Controller {
     }
 
     public function store() {
-        
+        $data = [
+            'idmunicipio' => $this->input->post('municipio'),
+            'latitud' => $this->input->post('latitud'),
+            'longitud' => $this->input->post('longitud'),
+            'nombre' => $this->input->post('nombre'),
+            'ubicacion' => $this->input->post('ubicacion')
+        ];
+        if($this->Fincas_Model->store($data)) {
+            $this->nuevo();
+        } else {
+            $this->session->set_flashdata("Error","No se pudo Registrar Información");
+            $this->nuevo();
+        }
+
     }
 
     private function cargarLayaout($vista,$datoEnviar){
