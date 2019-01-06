@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Municipios_Model extends CI_Model {
-    public function consultarGeneral() {
+    public function all() {
         /**
          * Mostrar los datos de todos los municipios
          */
@@ -11,10 +11,10 @@ class Municipios_Model extends CI_Model {
         $consulta = $this->db->get();
         return $consulta->result();
     }
-    public function consultarPorDepartamento($dpto) {
+    public function getByDpto($dpto) {
         $this->db->select("*");
         $this->db->from("municipios");
-        $this->db->where("iddpto", $dpto);
+        $this->db->where("iddpto", $dpto)->order_by('descripcion');
         $consulta = $this->db->get();
         return $consulta->result();
     }

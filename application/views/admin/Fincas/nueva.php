@@ -21,7 +21,7 @@
                                 <p><i class="icon fa fa-ban"></i><?php echo $this->session->flashdata("error"); ?></p>
                              </div>
                         <?php endif;?>
-                        <form action="<?php echo base_url();?>finca/add" method="POST">
+                        <form action="<?php echo base_url();?>finca/store" method="POST">
                             <div class="form-group">
                                 <label for="nombre">Nombre:</label>
                                 <input type="text" class="form-control" id="nombre" name="nombre">
@@ -39,15 +39,20 @@
                                 <input type="text" class="form-control" id="descripcion" name="descripcion">
                             </div>
                             <div class="form-group">
-                                <label for="municipio">Departamento:</label>
+                                <label for="departamento">Departamento:</label>
                                 <select name="departamento" id="departamento" class="form-control">
+                                    <option value="0">Seleccione...</option>
                                     <?php foreach($departamentos as $departamento):?>
-                                        <option value="<?php echo $departamento->COD_DPTO?>"><?php echo $departamento->DESCRIPCION;?></option>
+                                        <option value="<?= $departamento->COD_DPTO?>"><?= $departamento->DESCRIPCION;?></option>
                                     <?php endforeach;?>
                                 </select>
                             </div>
-                            <div class="form-group" id="municipios">
+                            <div class="form-group">
                                 <!-- Municipios -->
+                                <label for="municipio">Municipio:</label>
+                                <select name="municipio" id="municipio" class="form-control">
+                                    <option value="0">Seleccione...</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-success btn-flat">Guardar</button>
