@@ -1,9 +1,9 @@
-$(document).ready(function () {
 
+$(document).ready(function () {
     $("#example1").on("click", ".btn-empleado-desactivar", function(){
         var id = $(this).val();
         
-       var eliminar = alertify.confirm('¿Deseas Desactivar este Usuario?', '¡Podrás revertir el cambio más tarde!').setting({
+        var eliminar = alertify.confirm('¿Deseas Desactivar este Usuario?', '¡Podrás revertir el cambio más tarde!').setting({
             title: "Desactivación de Usuario",
             onok: function(){
                 $.ajax({
@@ -69,7 +69,7 @@ $(document).ready(function () {
 
     
     $('#mbtnUpdPerona').click(function(){
-        
+
         var cod=$('#codigo').val();
         
         var name=$('#nombres').val();
@@ -77,7 +77,7 @@ $(document).ready(function () {
         var dire=$('#direccion').val();
         var emai=$('#email').val();
         var tele=$('#telefono').val();
-      
+
         
         $.ajax({
             url: base_url + "Usuarios/update/",
@@ -88,31 +88,31 @@ $(document).ready(function () {
                 'email': emai,
                 'telefono': tele,
                 'codigo': cod
-    
+
             },
             type: "POST",
             success: function(resp){
                 alertify.set('notifier','position', 'top-center');
-              
-              
+
+
 
                 if(resp==1){
-               
-                alertify.success('Registro Actualizado  ' );
 
-                $('#mbtnCerrarModal').click();
-    
-                setTimeout('document.location.reload()',1000);
-              }else{
-                alertify.error('ahh ocurrido un Error!!');
-              }
+                    alertify.success('Registro Actualizado  ' );
+
+                    $('#mbtnCerrarModal').click();
+
+                    setTimeout('document.location.reload()',1000);
+                }else{
+                    alertify.error('ahh ocurrido un Error!!');
+                }
             }
         });
-    
-       
+
+
         
-    
-    
+
+
     });
 
 
@@ -136,7 +136,7 @@ $(document).ready(function () {
     });
 
     $(".hview").on("click",function(ev){
-      
+
         var id=$(this).val();
 
         alert(id);
@@ -148,19 +148,23 @@ $(document).ready(function () {
             },
             type: "POST",
             success: function(resp){
-              
+
                $("#mUsuarios .modal-body").html(resp);
-                
+
         //   console.log(resp);
 
-            }
-        });
+    }
+});
         
 
     });
 
 
-      
+
+    
+
+
 
 
 });
+

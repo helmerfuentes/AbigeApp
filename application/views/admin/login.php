@@ -34,12 +34,14 @@
             <?php endif; ?>
             <form action="<?php echo base_url();?>Sesion/login" method="post">
                 <div class="form-group has-feedback">
-                    <input type="text" class="form-control" placeholder="Correo" name="correo">
+                    <input type="text" class="form-control" placeholder="Correo" name="correo" id="correo">
                     <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                    <?php echo form_error("correo","<span class='help-block'>","</span>"); ?>
                 </div>
                 <div class="form-group has-feedback">
-                    <input type="password" class="form-control" placeholder="Password" name="password">
+                    <input type="password" class="form-control" placeholder="Password" name="password" id="password">
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    <?php echo form_error("correo","<span class='help-block'>","</span>"); ?>
                 </div>
                 <div class="row">
                     <div class="col-xs-12 col-12">
