@@ -31,7 +31,7 @@ class Fincas extends CI_Controller {
 
     public function info($id) {
         $data = array(
-            'finca' => $this->Fincas_Model->detailedInfo($id)
+            'finca' => $this->Fincas_Model->detalle($id)
         );
         $this->cargarLayaout("admin/fincas/info", $data);
     }
@@ -61,20 +61,35 @@ class Fincas extends CI_Controller {
     public function modificar($id) {
         $data = array(
             'finca' => $this->Fincas_Model->consultarIndividual($id),
-            'departamentos' => $this->Departamentos_Model->consultarGeneral(),
+            'departamentos' => $this->Departamentos_Model->all(),
         );
-        $data['municipios'] = $this->Municipios_Model->consultarPorDepartamento(element('finca', $data)->COD_DPTO);
+        $data['municipios'] = $this->Municipios_Model->getByDpto(element('finca', $data)->COD_DPTO);
         
         $this->cargarLayaout("admin/fincas/edit", $data);
     }
 
- 
-
     public function nuevo() {
         $data = array(
-            'departamentos' => $this->Departamentos_Model->consultarGeneral()
+            'departamentos' => $this->Departamentos_Model->all()
         );
         $this->cargarLayaout("admin/fincas/nueva", $data);
+    }
+
+    public function update() {
+        $id = $this->input->post('idfinca');
+        $data = [
+            'idmunicipio' => $this->input->post('municipio'),
+            'latitud' => $this->input->post('latitud'),
+            'longitud' => $this->input->post('longitud'),
+            'nombre' => $this->input->post('nombre'),
+            'ubicacion' => $this->input->post('ubicacion')
+        ];
+        if($this->Fincas_Model->update($id,$data)) {
+            $this->lista();
+        } else {
+            $this->session->set_flashdata("Error","No se pudo Registrar Información");
+            $this->lista();
+        }
     }
 
     public function store() {

@@ -21,10 +21,11 @@
                                 <p><i class="icon fa fa-ban"></i><?php echo $this->session->flashdata("error"); ?></p>
                              </div>
                         <?php endif;?>
-                        <form action="<?php echo base_url();?>finca/add" method="POST">
+                        <form action="<?php echo base_url();?>fincas/update" method="POST">
+                            <input type="hidden" name="idfinca" value="<?= $finca->idfinca?>>">
                             <div class="form-group">
                                 <label for="nombre">Nombre:</label>
-                                <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $finca->nombreFinca ?>">
+                                <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $finca->nombre ?>">
                             </div>
                             <div class="form-group">
                                 <label for="descripcion">Ubicación:</label>

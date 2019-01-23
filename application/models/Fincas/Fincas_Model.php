@@ -29,6 +29,14 @@ class Fincas_Model extends CI_Model {
         return $consulta->row();
     }
 
+    public function coords() {
+        // Datos: Latitud y Longitud de cada finca
+        $this->db->select('latitud, longitud');
+        $this->db->from($this->table);
+        $consulta = $this->db->get();
+        return $consulta->row();
+    }
+
     public function consultarPorDepartmento($nombreDpto) {
         /**
          * Consultar los datos de fincas en un departamento.
@@ -45,11 +53,11 @@ class Fincas_Model extends CI_Model {
         return $this->db->insert($this->table,$data);
     }
 
-    public function detailedInfo($id) {
+    public function detalle($id) {
         /**
          * Información detallada de la finca para mostrar en la vista individual
          */
-        $query = $this->db->query("Call detailedFinca($id)")->row();
+        $query = $this->db->query("Call detalle_finca($id)")->row();
         mysqli_next_result($this->db->conn_id);
         return $query;
     }
@@ -57,5 +65,12 @@ class Fincas_Model extends CI_Model {
     public function update($id, $data) {
         $this->db->where("idfinca",$id);
         return $this->db->update($this->table,$data);
+    }
+
+    public function list() {
+        $this->db->select('idfinca, nombre');
+        $this->db->from($this->table);
+        $consulta = $this->db->get();
+        return $consulta->result();
     }
 }
