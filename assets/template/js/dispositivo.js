@@ -67,7 +67,7 @@ $(document).ready(function () {
     });
 
     
-$('#mbtnUpdPerona').click(function(){
+$('#mbtnUpdispositivo').click(function(){
     
     var idDis=$('#mCodDispositivo').val();
     var idAnimal=$('#midAnimal').val();
@@ -77,7 +77,7 @@ $('#mbtnUpdPerona').click(function(){
     $.ajax({
         url: base + "Dispositivos/actualizar/",
         data:{
-            'dispositivo': idDis,
+            'mCodDispositivo': idDis,
             'animal': idAnimal,
             'esta': estado,
             'bate':bateria
@@ -85,13 +85,15 @@ $('#mbtnUpdPerona').click(function(){
         },
         type: "POST",
         success: function(resp){
+            
           if(resp==1){
             alertify.success('Dato Actualaizado');
-			$('#mbtnCerrarModal').click();
+            $('#mbtnCerrarModal').click();
+             setTimeout('document.location.reload()',1000);
           }else{
             alertify.error('ahh ocurrido un Error!!');
           }
-          setTimeout('document.location.reload()',1000);
+         
         }
     });
 
@@ -101,34 +103,8 @@ $('#mbtnUpdPerona').click(function(){
 
 });
   
-      /*  
-    $.post(base + "Dispositivos/actualizar/",	
-	{
-		idispositivo:idDis,
-		idAnimal: idAnimal,
-		estado:estado,
-		bateria:bateria
-		
-	},			
-	function(data){
-		if (data == 1) {
-			alert('Dato Actualaizado');
-			$('#mbtnCerrarModal').click();
+      
 
-			location.reload();
-		}
-	});
-
-    */
-
-
-
-
-
-   
-
-
-        
 
 });
 

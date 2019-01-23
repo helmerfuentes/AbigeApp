@@ -120,28 +120,16 @@ class Usuarios_Model extends CI_Model {
        
         extract($datos);
        
+        $this->db->set('nombres',$nom );
+        $this->db->set('primerApellido',$ape1);
+        $this->db->set('segundoApellido',$ape2);
+        $this->db->set('telefono',$tele);
+        $this->db->set('direccion',$dire);
+        $this->db->where ('idusuario' ,$codigo); 
+        $this->db->update ('usuarios');
+        return 1;
 
-       
-       /* $campos = array(
-            'nombres'=> $param['nombres'],
-          'primerApellido'=> $param['apellido1'],
-          'email'=> $param['email'],
-          'telefono'=> $param['telefono'],
-          'direccion'=> $param['direc'],
-          'segundoApellido'=> $param['apellido2'],
-          );
-          
-          
-            */
-            //$this->db->where("idusuario",$codigo);
-            //$this->db->update("usuarios",$datos);
-          
-            if($this->db->query("CALL updateUsuario('$codigo','$nom','$ape1','$ape2','$ema','$tele','$dire')")){
-                return 1;
-            }else{
-                return 0;
-
-            }
+      
         
     }
 

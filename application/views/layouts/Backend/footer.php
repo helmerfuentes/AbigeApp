@@ -51,6 +51,7 @@
 
 <?php if($this->uri->segment(1) == 'dispositivos'){?>
     <script src="<?php echo base_url();?>assets/template/js/dispositivo.js"></script>
+    <script src="<?php echo base_url();?>assets/template/js/validacion.js"></script>
 <?php } ?>
 
 <?php if($this->uri->segment(1) == 'usuarios'){?>

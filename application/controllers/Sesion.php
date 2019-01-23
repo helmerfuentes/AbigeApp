@@ -21,19 +21,13 @@ class Sesion extends CI_Controller {
 
     public function login(){
         $correo=$this->input->post('correo');
-        $password=$this->input->post('password');
-        
-        
-      
+        $password=$this->input->post('password');    
         $this->form_validation->set_rules("correo","Correo","required|trim|valid_email");
         $this->form_validation->set_rules("password","Cotraseña","required|trim");
 
        if($this->form_validation->run()){
             //sha1(); ENCRIPTAR LA CONTRASEÑA
                 $respuesta=$this->Usuarios_Model->login($correo, $password);
-            
-          
-
                 if (!$respuesta) {
                     $this->session->set_flashdata("error","El usuario y/o Contraseña son Incorrectos!");
                     redirect(base_url());
@@ -55,11 +49,7 @@ class Sesion extends CI_Controller {
             $this->session->set_flashdata("error","Correo Invalido");
             redirect(base_url());
             
-        }
-
-        
-
-        
+        }        
     }
 
     public function Salir(){

@@ -4,8 +4,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-        Categorias
-        <small>Editar</small>
+            Categorias
+            <small>Editar</small>
         </h1>
     </section>
     <!-- Main content -->
@@ -19,7 +19,7 @@
                             <div class="alert alert-danger alert-dismissible">
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                                 <p><i class="icon fa fa-ban"></i><?php echo $this->session->flashdata("error"); ?></p>
-                             </div>
+                            </div>
                         <?php endif;?>
                         <form action="<?php echo base_url();?>finca/add" method="POST">
                             <div class="form-group">

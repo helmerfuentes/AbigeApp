@@ -1,14 +1,87 @@
 
-$( document ).ready(function() {
-	$("#identificacion").keyup(validarUsuario);
-});
 
-$("#identificacion").keyup(validarUsuario);
-$("#nombres").keyup(validarUsuario);
-$("#apellidos").keyup(validarUsuario);
-$("#email").keyup(validarUsuario);
-$("#direccion").keyup(validarUsuario);
-$("#telefono").keyup(validarUsuario);
+
+
+function addDispositivoDueno(){
+	var codigodispositivo=document.querySelector("#codigoDispositivo").value;
+	var finca=document.querySelector("#finca").value;
+	var estado=document.querySelector("#estado").value;
+	var codigoAnimal=document.querySelector("#codigoAnimal").value;
+	if(codigodispositivo.length==0){
+		$("#iconotexto").remove();
+			$("#codigoDispositivo").parent().parent().attr("class","form-group has-error has-feedback");
+			$("#codigoDispositivo").parent().children("span").text("Campo requerido").show();
+			$("#codigoDispositivo").parent().append("<span id='iconotexto' class='glyphicon glyphicon-remove form-control-feedback'></span>");
+			
+	
+		return false;
+	}else{
+		$("#iconotexto").remove();
+		$("#codigoDispositivo").parent().parent().attr("class","form-group has-success has-feedback");
+		$("#codigoDispositivo").parent().children("span").text("").hide();
+		$("#codigoDispositivo").parent().append("<span id='iconotexto' class='glyphicon glyphicon-ok form-control-feedback'></span>");
+		
+
+	}
+
+	if(codigoAnimal.length==0){
+		$("#iconotexto").remove();
+		$("#codigoAnimal").parent().parent().attr("class","form-group has-error has-feedback");
+		$("#codigoAnimal").parent().children("span").text("Campo requerido").show();
+		$("#codigoAnimal").parent().append("<span id='iconotexto' class='glyphicon glyphicon-remove form-control-feedback'></span>");
+		
+		return false;
+	}else{
+		$("#iconotexto").remove();
+		$("#codigoAnimal").parent().parent().attr("class","form-group has-success has-feedback");
+		$("#codigoAnimal").parent().children("span").text("").hide();
+		$("#codigoAnimal").parent().append("<span id='iconotexto' class='glyphicon glyphicon-ok form-control-feedback'></span>");
+		
+		
+	}
+	
+	
+	
+	return true;
+	}
+
+
+
+
+
+function addDispositivo(){
+var codigodispositivo=document.querySelector("#codigoDispositivo").value;
+var finca=document.querySelector("#finca").value;
+var estado=document.querySelector("#estado").value;
+
+if(codigodispositivo.length==0){
+	$("#iconotexto").remove();
+		$("#codigoDispositivo").parent().parent().attr("class","form-group has-error has-feedback");
+		$("#codigoDispositivo").parent().children("span").text("Campo requerido").show();
+		$("#codigoDispositivo").parent().append("<span id='iconotexto' class='glyphicon glyphicon-remove form-control-feedback'></span>");
+		
+
+	return false;
+}
+
+if(estado<0 || estado>1){
+	return false;
+}
+
+if(finca.length==0){
+	$("#iconotexto").remove();
+		$("#codigoDispositivo").parent().parent().attr("class","form-group has-error has-feedback");
+		$("#codigoDispositivo").parent().children("span").text("Campo requerido").show();
+		$("#codigoDispositivo").parent().append("<span id='iconotexto' class='glyphicon glyphicon-remove form-control-feedback'></span>");
+		
+	return false;
+}
+
+
+
+return false;
+}
+
 function validarUsuario(){
 	var identificacion=document.querySelector("#identificacion").value;
 	var nombres=document.querySelector("#nombres").value;
@@ -192,8 +265,6 @@ function validarUsuario(){
 		
 
 	}
-
-
 
 
 

@@ -52,28 +52,68 @@ class Dispositivos extends CI_Controller {
 
     public function actualizar(){
         
-        $param['idDisposotivo'] = $this->input->post('dispositivo');
+        $param['idDisposotivo'] = $this->input->post('mCodDispositivo');
         $param['idAnimal']= $this->input->post('animal');
         $param['estado']=$this->input->post('esta');
         $param['bateria']=$this->input->post('bate');
 
+            $mCodDispositivo=$this->input->post('mCodDispositivo');
+            
+
+       
+       
+
+        $this->load->library(array('form_validation'));
         
-        
-       echo  $this->DispositivosModels->actualizarModels($param);
+        $this->form_validation->set_rules("mCodDispositivo","Dispositivo","required");
+        $this->form_validation->set_rules("animal","Codigo Animal","required");
+        $this->form_validation->set_rules("esta","Estado","required|numeric");
+        $this->form_validation->set_rules("bate","Bateria","required|numeric");
+    
+        $this->form_validation->set_message("required", "Campo %s es Requerido");
+        $this->form_validation->set_message("numeric", "Seleccione Opción");
+        $this->form_validation->set_message("in_list", "Seleccione Opción");
+        $this->form_validation->set_message("is_unique", "Codigo ya existe");
+
+        if(!$this->form_validation->run()){
+            
+            echo 0;
+
+        }else{
+            echo  $this->DispositivosModels->actualizarModels($param);
+        }
+       
       
 
     }
     
 
     public function guardar(){
-        $codigo=$this->input->post("codigoDispositivo");
+        $codigoDispositivo=$this->input->post("codigoDispositivo");
         $finca=$this->input->post("finca");
         $codigoanimal=$this->input->post("codigoAnimal");
         $estado=$this->input->post("estado");
-        
 
+        $this->load->library(array('form_validation'));      
+
+        $this->form_validation->set_rules("codigoDispositivo","Codigo","required|is_unique[dispositivos.iddispositivo]");
+        $this->form_validation->set_rules("codigoAnimal","Codigo Animal","required");
+        $this->form_validation->set_rules("finca","Finca","required|numeric");
+        $this->form_validation->set_rules("estado","Estado","required|numeric|in_list[0,1]");
+
+        $this->form_validation->set_message("required", "Campo %s es Requerido");
+        $this->form_validation->set_message("numeric", "Seleccione Opción");
+        $this->form_validation->set_message("in_list", "Seleccione Opción");
+        $this->form_validation->set_message("is_unique", "Codigo ya existe");
+
+        if(!$this->form_validation->run()){
+            
+            $this->nuevo();
+
+        }else{
+            
         $data=array(
-            'iddispositivo'=>$codigo,
+            'iddispositivo'=>$codigoDispositivo,
             'idperimetro'=>$finca,
             'IdAnimal'=>$codigoanimal,
             'eliminado'=>0,
@@ -81,15 +121,19 @@ class Dispositivos extends CI_Controller {
         );
 
         if($this->DispositivosModels->addDispositivo($data,"dispositivos")){
+            $this->session->set_flashdata("success","Dispositivo Registrado");
             redirect(base_url()."dispositivos/nuevo");
+            
         }else{
             $this->session->set_flashdata("Error","No se pudo Registrar Información");
             redirect(base_url()."dispositivos/nuevo");
         }
+    }
 
     }
 
     public function nuevo(){
+
         if($this->session->userdata('rol')=="SYSTEM1" || $this->session->userdata('rol')=="SYSTEM2"){
            
           $finca=array(

@@ -1,8 +1,9 @@
 
 $(document).ready(function () {
+    var base=base_url;
     $("#example1").on("click", ".btn-empleado-desactivar", function(){
         var id = $(this).val();
-        
+        alert();
         var eliminar = alertify.confirm('¿Deseas Desactivar este Usuario?', '¡Podrás revertir el cambio más tarde!').setting({
             title: "Desactivación de Usuario",
             onok: function(){
@@ -14,8 +15,14 @@ $(document).ready(function () {
                     },
                     type:"POST",
                     success:function(resp){
-                        $("#"+id).html(resp);
-                        alertify.error('Usuario Desactivado', 'error', 2);
+                        
+                        if(resp == -1){
+                            alertify.error('Ahh ocurrido un error', 'error', 2);
+                        }else{
+                            $("#"+id).html(resp);
+                            alertify.success('Usuario Desactivado', 'error', 2);
+                        }
+                       
                     }
                 });
             }, oncancel: function(){ alertify.success("¡Desactivacion Cancelada!", 2); 
@@ -36,8 +43,13 @@ $(document).ready(function () {
                     },
                     type:"POST",
                     success:function(resp){
-                        $("#"+id).html(resp);
-                        alertify.error('Usuario Activado', 'error', 2);
+                        
+                        if(resp == -1){
+                            alertify.error('Ahh ocurrido un error', 'error', 2);     
+                        }else{
+                            $("#"+id).html(resp);
+                            alertify.success('Usuario Desactivado', 'error', 2);
+                        }
                     }
                 });
             }, oncancel: function(){ alertify.success("¡Activacion Cancelada!", 2); 
@@ -59,7 +71,7 @@ $(document).ready(function () {
                     type:"POST",
                     success:function(resp){
                         $("#"+id).html(resp);
-                        alertify.error('Usuario Eliminado', 'error', 2);
+                        alertify.success('Usuario Eliminado', 'error', 2);
                     }
                 });
             }, oncancel: function(){ alertify.success("¡Eliminacion Cancelada!", 2); 
@@ -78,9 +90,9 @@ $(document).ready(function () {
         var emai=$('#email').val();
         var tele=$('#telefono').val();
 
-        
+       
         $.ajax({
-            url: base_url + "Usuarios/update/",
+            url: base + "Usuarios/update/",
             data:{
                 'nombres': name,
                 'apellidos': apellido,
@@ -91,21 +103,25 @@ $(document).ready(function () {
 
             },
             type: "POST",
-            success: function(resp){
+            success:function(res){
+                
                 alertify.set('notifier','position', 'top-center');
+                    
+               
+                
+                    if(res == 1){
+                        alertify.success('Dato Actualaizado'),
+                        $('#mbt nCerrarModal').click(),
+                        setTimeout('document.location.reload()',1000)
+                    }else{
+                        alertify.error('ahh ocurrido un Error!!');
+                    }
 
+                   
+                   
+                
 
-
-                if(resp==1){
-
-                    alertify.success('Registro Actualizado  ' );
-
-                    $('#mbtnCerrarModal').click();
-
-                    setTimeout('document.location.reload()',1000);
-                }else{
-                    alertify.error('ahh ocurrido un Error!!');
-                }
+            
             }
         });
 
@@ -139,7 +155,7 @@ $(document).ready(function () {
 
         var id=$(this).val();
 
-        alert(id);
+      
         
         $.ajax({
             url: base_url + "Usuarios/buscar",
