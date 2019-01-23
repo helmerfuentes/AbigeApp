@@ -35,13 +35,13 @@
                             <tbody>
                                 <?php if(!empty($fincas)):?>
                                     <?php foreach($fincas as $finca):?>
-                                        <tr class="fila" id="<?php echo $finca->idfinca ?>">
-                                            <td><?php echo $finca->idfinca;?></td>
-                                            <td><?php echo $finca->nombreFinca;?></td>
-                                            <td><?php echo $finca->ubicacion;?></td>
-                                            <td><?php echo $finca->latitud;?></td>
-                                            <td><?php echo $finca->longitud;?></td>
-                                            <td><?php echo $finca->descripcion;?></td>
+                                        <tr class="fila" id="<?= $finca->idfinca ?>">
+                                            <td><?= $finca->idfinca;?></td>
+                                            <td><?= $finca->nombre;?></td>
+                                            <td><?= $finca->ubicacion;?></td>
+                                            <td><?= $finca->latitud;?></td>
+                                            <td><?= $finca->longitud;?></td>
+                                            <td><?= $finca->descripcion;?></td>
                                             <td>
                                                 <?php if($finca->estado == 1): ?>
                                                     <strong class='label label-success'>Activo</strong >

@@ -70,14 +70,21 @@
 <script src="<?php echo base_url();?>assets/template/alertify/alertify.min.js"></script>
 
 <?php if($this->uri->segment(1) == 'fincas'): ?>
+    <script>let isFarm = true;</script>
+    <script src="<?php echo base_url();?>assets/template/js/map.js"></script>
     <script src="<?php echo base_url();?>assets/template/js/fincas/fincas.js"></script>
     <?php if($this->uri->segment(2) == 'info'): ?>
         <script>var idFinca = "<?php echo $this->uri->segment(3) ?>"</script>
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4IEb95P9DieOSrXns34Ao2URyFTGCLNI&libraries=geometry&callback=initMap"></script>
         <script src="<?php echo base_url();?>assets/template/js/fincas/maps.js"></script>
     <?php elseif($this->uri->segment(2) == 'nuevo'): ?>
-    <script src="<?php echo base_url();?>assets/template/js/fincas/add.js"></script>
+        <script src="<?php echo base_url();?>assets/template/js/fincas/add.js"></script>
     <?php endif; ?>
+<?php elseif($this->uri->segment(1) == 'perimetros'): ?>
+    <script>let isFarm = false;</script>
+    <script src="<?php echo base_url();?>assets/template/js/map.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4IEb95P9DieOSrXns34Ao2URyFTGCLNI&libraries=geometry&callback=initMap"></script>
+    <script src="<?php echo base_url();?>assets/template/js/perimeters.js"></script>
 <?php endif; ?>
 </body>
 </html>

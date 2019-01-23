@@ -19,7 +19,7 @@ class Municipios extends CI_Controller {
 
     public function data($id){
         $data = [
-            'departamento' => $this->Departamentos_Model->getById($id),
+            'departamento' => $this->Departamentos_Model->get($id),
             'municipios' => $this->Municipios_Model->getByDpto($id)
         ];
         header('Content-Type: application/json');
