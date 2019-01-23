@@ -68,7 +68,7 @@ class Fincas_Model extends CI_Model {
     }
 
     public function list() {
-        $this->db->select('idfinca, nombre');
+        $this->db->select('idfinca, nombreFinca');
         $this->db->from($this->table);
         $consulta = $this->db->get();
         return $consulta->result();
