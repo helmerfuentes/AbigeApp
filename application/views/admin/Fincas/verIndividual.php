@@ -1,4 +1,4 @@
-        <p><strong>Nombre: </strong><?= $finca->nombre?></p>
+        <p><strong>Nombre: </strong><?= $finca->nombreFinca?></p>
         <p><strong>Ubicación: </strong><?=$finca->ubicacion?></p>
         <p><strong>Latitud: </strong><?= $finca->latitud?></p>
         <p><strong>Longitud: </strong><?= $finca->longitud?></p>

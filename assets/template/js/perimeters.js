@@ -6,6 +6,7 @@ var number = 0;
 function Point(lat,lng) {
     this.latitude = lat;
     this.longitude = lng;
+    this.number = 0;
 }
 
 function current() {
@@ -133,4 +134,36 @@ function descend(index) {
     }
     draw();
     updateCoordinates(arrayPoints);
+}
+
+document.addEventListener('DOMContentLoaded', function(){
+    map.addListener('click', drag);
+    prepareForm();
+});
+
+function prepareForm() {
+    var myForm = document.getElementById('form_store_perimeter');
+    myForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var finca = document.getElementById('finca');
+        var tipo = document.getElementById('tipo');
+        var descripcion = document.getElementById('descripcion');
+        arrayPoints.forEach(function(point, index){
+            point.number = index+1;
+        });
+        var data = {idfinca: finca.value, tipo: tipo.value, descripcion: descripcion.value, coordenadas: arrayPoints};
+        if(finca.value && tipo.value && descripcion.value.length && arrayPoints.length) {
+            sendData(base_url+"perimetros/store", data);
+            cleanAll();
+        } else {
+            alertify.error("Ingrese los datos correctamente", 2);
+        }
+    });
+}
+
+function cleanAll() {
+    arrayPoints = [];
+    updateCoordinates(arrayPoints);
+    document.getElementById('finca').value = '0';
+    document.getElementById('descripcion').value = '';
 }

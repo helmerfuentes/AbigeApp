@@ -1,9 +1,9 @@
-<td><?php echo $finca->idfinca;?></td>
-<td><?php echo $finca->nombreFinca;?></td>
-<td><?php echo $finca->ubicacion;?></td>
-<td><?php echo $finca->latitud;?></td>
-<td><?php echo $finca->longitud;?></td>
-<td><?php echo $finca->descripcion;?></td>
+<td><?= $finca->idfinca;?></td>
+<td><?= $finca->nombreFinca;?></td>
+<td><?= $finca->ubicacion;?></td>
+<td><?= $finca->latitud;?></td>
+<td><?= $finca->longitud;?></td>
+<td><?= $finca->descripcion;?></td>
 <td>
 <?php if($finca->estado == 1): ?>
     <strong class='label label-success'>Activo</strong >

@@ -29,4 +29,14 @@ class Perimetros_Model extends CI_Model {
         $query = $this->db->get();
         return $query->result();
     }
+
+    public function store($data) {
+        $this->db->insert("perimetros",$data);
+        $last_id = $this->db->insert_id(); 
+        return $last_id; 
+    }
+
+    public function insertCoord($data) {
+        return $this->db->insert("coordenadas",$data);
+    }
 }

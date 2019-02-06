@@ -27,6 +27,18 @@ function createPolygon(points, color) {
 function drawPolygon(polygon) {
     polygon.setMap(map);
 }
+
+function sendData(url, data) {
+    fetch(url, {
+    method: 'POST',
+    body: JSON.stringify(data),
+    }).then(res => res.json())
+    .catch(error => console.log(error))
+    .then(response => {
+        alertify.success('Datos insertados correctamente', 'success', 2);
+    });
+}
+
 function erasePolygon(polygon) {
     polygon.setMap(null);
 }
@@ -167,6 +179,6 @@ function initMap() {
         //     // cargarPoligono();
         // }, 5000);
         // pointsMaps(myPoints);
-        loadPositions();
+        // loadPositions();
     }
 }

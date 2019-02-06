@@ -31,8 +31,8 @@ $(document).ready(function () {
                     }
                 });
             },
-            oncancel: function(){ alertify.error("¡Activación cancelada!", 2); 
-        }});
+            oncancel: function(){ alertify.error("¡Activación cancelada!", 2); }
+        });
     });
     // Visualizar finca
     $("#dataFincas").on("click", ".btn-finca-view", function(){

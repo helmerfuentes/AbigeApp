@@ -21,13 +21,13 @@
                                 <p><i class="icon fa fa-ban"></i><?php echo $this->session->flashdata("error"); ?></p>
                              </div>
                         <?php endif;?>
-                        <form action="#" method="POST">
+                        <form action="#" method="POST" id="form_store_perimeter">
                             <div class="form-group">
                                 <label for="finca">Finca:</label>
                                 <select name="finca" id="finca" class="form-control">
                                     <option value="0">Seleccione...</option>
                                     <?php foreach($fincas as $finca):?>
-                                        <option value="<?= $finca->idfinca?>"><?= $finca->nombre?></option>
+                                        <option value="<?= $finca->idfinca?>"><?= $finca->nombreFinca ?></option>
                                     <?php endforeach;?>
                                 </select>
                             </div>

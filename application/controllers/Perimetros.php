@@ -34,12 +34,36 @@ class Perimetros extends CI_Controller {
         $data = [
             'perimetros' => $this->Perimetros_Model->perimetersByFarm($idfinca),
         ];
+        echo json_encode($data);
     }
 
     public function points($id) {
         $data = [
             'coordenadas' => $this->Perimetros_Model->coords($id),
         ];
+        echo json_encode($data);
+    }
+
+    public function store() {
+        $data = json_decode(file_get_contents('php://input'), true);
+        var_dump($data);
+        $finca = $data['idfinca'];
+        $tipo = $data['tipo'];
+        $descripcion = $data['descripcion'];
+        $id = $this->Perimetros_Model->store([
+            'idfinca' => $finca,
+            'tipo' => $tipo,
+            'descripcion' => $descripcion
+        ]);
+        foreach ($data['coordenadas'] as $coordenada) {
+            $this->Perimetros_Model->insertCoord([
+                'idperimetro' => $id,
+                'latitud' => $coordenada['latitude'],
+                'longitud' => $coordenada['longitude'],
+                'numeroPunto' => $coordenada['number']
+            ]);
+        }
+        echo json_encode(['id' => $id]);
     }
 
     private function cargarLayaout($vista,$datoEnviar){

@@ -4,7 +4,7 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      <?php echo $finca->nombreFinca ?>
+      <?php echo $finca->nombre ?>
       <small class="label label-default">Información</small>
     </h1>
   </section>
