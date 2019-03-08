@@ -217,7 +217,6 @@ public function update(){
 
     
 
-    if(stristr($apellidos, " ")){
        
         $apellido=(explode(' ', $apellidos));
         $apellido1=$apellido[0];
