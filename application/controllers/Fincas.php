@@ -58,14 +58,18 @@ class Fincas extends CI_Controller {
         $this->load->view("admin/fincas/view",$data);
     }
 
-    public function modificar($id) {
-        $data = array(
-            'finca' => $this->Fincas_Model->consultarIndividual($id),
-            'departamentos' => $this->Departamentos_Model->all(),
-        );
-        $data['municipios'] = $this->Municipios_Model->getByDpto(element('finca', $data)->COD_DPTO);
-        
-        $this->cargarLayaout("admin/fincas/edit", $data);
+    public function modificar($id = 0) {
+        if($id != 0){
+            $data = array(
+                'finca' => $this->Fincas_Model->consultarIndividual($id),
+                'departamentos' => $this->Departamentos_Model->all(),
+            );
+            $data['municipios'] = $this->Municipios_Model->getByDpto(element('finca', $data)->COD_DPTO);
+            
+            $this->cargarLayaout("admin/fincas/edit", $data);
+        } else {
+            redirect(base_url());
+        }
     }
 
     public function nuevo() {

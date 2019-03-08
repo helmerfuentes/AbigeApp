@@ -68,7 +68,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-8">
-                                    <button type="submit" class="btn btn-success btn-block">Guardar</button>
+                                    <button disabled id="submit_form_perimeter" type="submit" class="btn btn-success btn-block">Guardar</button>
                                 </div>
                                 <div class="col-md-4">
                                     <a href="#" class="btn btn-danger btn-block">Cancelar</a>

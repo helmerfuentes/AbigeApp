@@ -25,7 +25,7 @@
                             <span id="error_nombre" class="text-danger"></span>
                             <div class="form-group">
                                 <label for="nombre">Nombre de la Finca:</label>
-                                <input type="text" class="form-control" id="nombre" name="nombre">
+                                <input type="text" class="form-control" id="nombre" name="nombre" required>
                             </div>
                             <div class="form-group">
                                 <label for="ubicacion">Ubicación(Descriptiva):</label>

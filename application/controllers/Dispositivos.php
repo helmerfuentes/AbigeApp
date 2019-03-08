@@ -230,4 +230,36 @@ class Dispositivos extends CI_Controller {
        
     }
     
+    public function getData() {
+        if($this->session->userdata('rol')=="SYSTEM1" || $this->session->userdata('rol')=="SYSTEM2"){
+            $dispositivos=$this->DispositivosModels->getListadoDispositivoCompleto();
+        }else{
+            $idfinca=$this->session->userdata('finca');
+            $dispositivos=$this->DispositivosModels->getListadoDispositivo($idfinca);
+        }
+        $activos=0;
+        $inactivos=0;
+        $fuera=0;
+        if($dispositivos){
+            foreach ($dispositivos as  $value) {
+                if($value->estado=="1"){
+                    $activos=$activos+1;
+                    if($value->ubicacion=!"Dentro" || $value->ubicacion!=""){
+                        $fuera=$fuera+1; 
+                    }
+                }else{
+                    $inactivos=$inactivos+1;
+                }    
+            }
+        }
+        $listDevices=array(
+            'devices'=>$dispositivos,
+            'actives'=>$activos,
+            'inactives'=>$inactivos,
+            'out'=>$fuera,
+            'total'=>$activos+$inactivos
+        );
+        echo json_encode($listDevices);
+    }
+
 }

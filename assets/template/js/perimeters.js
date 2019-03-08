@@ -137,7 +137,7 @@ function descend(index) {
 }
 
 document.addEventListener('DOMContentLoaded', function(){
-    map.addListener('click', drag);
+    document.getElementById('submit_form_perimeter').disabled = false;
     prepareForm();
 });
 
@@ -151,12 +151,12 @@ function prepareForm() {
         arrayPoints.forEach(function(point, index){
             point.number = index+1;
         });
-        var data = {idfinca: finca.value, tipo: tipo.value, descripcion: descripcion.value, coordenadas: arrayPoints};
-        if(finca.value && tipo.value && descripcion.value.length && arrayPoints.length) {
+        if(finca.value && tipo.value.length > 4 && tipo.value.length < 20 && descripcion.value.length > 5 && descripcion.value.length < 50 && arrayPoints.length) {
+            var data = {idfinca: finca.value, tipo: tipo.value, descripcion: descripcion.value, coordenadas: arrayPoints};
             sendData(base_url+"perimetros/store", data);
             cleanAll();
         } else {
-            alertify.error("Ingrese los datos correctamente.", 2);
+            alertify.error("Datos incorrectos.", 2);
         }
     });
 }

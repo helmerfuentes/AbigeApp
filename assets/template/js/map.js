@@ -172,13 +172,11 @@ function initMap() {
     //Associate the styled map with the MapTypeId and set it to display.
     map.mapTypes.set('styled_map', styledMapType);
     map.setMapTypeId('styled_map');
-    if (isFarm) {
+    if (isFarm == 1) {
         setTimeout(loadPerimeters(), 2000);
-        // setInterval(function loadMap() {
-        //     cleanMap();
-        //     // cargarPoligono();
-        // }, 5000);
-        // pointsMaps(myPoints);
-        // loadPositions();
+    } else {
+        if (isFarm == 0) {
+            map.addListener('click', drag);
+        }
     }
 }
