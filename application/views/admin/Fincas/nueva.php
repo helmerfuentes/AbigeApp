@@ -21,7 +21,8 @@
                                 <p><i class="icon fa fa-ban"></i><?php echo $this->session->flashdata("error"); ?></p>
                              </div>
                         <?php endif;?>
-                        <form action="<?php echo base_url();?>fincas/store" method="POST">
+                        <form action="<?php echo base_url();?>fincas/store" method="POST" id="form_finca">
+                            <span id="error_nombre" class="text-danger"></span>
                             <div class="form-group">
                                 <label for="nombre">Nombre:</label>
                                 <input type="text" class="form-control" id="nombre" name="nombre">
@@ -38,6 +39,7 @@
                                 <label for="longitud">Longitud:</label>
                                 <input type="text" class="form-control" id="longitud" name="longitud">
                             </div>
+                            <span id="error_departamento" class="text-danger"></span>
                             <div class="form-group">
                                 <label for="departamento">Departamento:</label>
                                 <select name="departamento" id="departamento" class="form-control">
@@ -47,6 +49,7 @@
                                     <?php endforeach;?>
                                 </select>
                             </div>
+                            <span id="error_municipio" class="text-danger"></span>
                             <div class="form-group">
                                 <!-- Municipios -->
                                 <label for="municipio">Municipio:</label>
