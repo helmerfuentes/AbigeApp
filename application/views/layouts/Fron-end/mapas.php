@@ -1,4 +1,0 @@
-<div class="map">
-        <!-- <iframe data-wow-delay=".5s" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.9503398796587!2d-73.9940307!3d40.719109700000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a27e2f24131%3A0x64ffc98d24069f02!2sCANADA!5e0!3m2!1sen!2sin!4v1441710758555"></iframe> -->
-        <iframe iframe data-wow-delay=".5s" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7847.2749074414105!2d-73.2635684438721!3d10.450316613478188!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x67acd0380303e569!2sUniversidad+Popular+del+Cesar!5e0!3m2!1ses-419!2sco!4v1528330020810"></iframe>
-</div>

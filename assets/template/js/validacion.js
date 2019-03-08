@@ -66,19 +66,19 @@ var estado=document.querySelector("#estado").value;
 var codigoAnimal=document.querySelector("#codigoAnimal").value;
 
 
-if(!expresion.test(codigoDispositivo)){
+if(codigodispositivo.length==0){
+
+	$("#codigoDispositivo").parent().parent().attr("class"," has-error");
+		$("#codigoDispositivo").parent().children("span").text("Campo requerido").show();
+	
+	return false;
+}
+else if(!expresion.test(codigoDispositivo)){
 	$("#codigoDispositivo").parent().parent().attr("class"," has-error");
 		$("#codigoDispositivo").parent().children("span").text("Solo Caracteres Alfanumericos").show();
 	
 	return false;
 
-}
-else if(codigodispositivo.length==0){
-	
-		$("#codigoDispositivo").parent().parent().attr("class"," has-error");
-		$("#codigoDispositivo").parent().children("span").text("Campo requerido").show();
-	
-	return false;
 }
 else if(codigodispositivo.length<5 || codigodispositivo.length>10){
 	$("#codigoDispositivo").parent().parent().attr("class","form-group has-error has-feedback");

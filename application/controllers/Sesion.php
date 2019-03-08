@@ -15,7 +15,7 @@ class Sesion extends CI_Controller {
         if ($this->session->userdata("login")) {
             redirect(base_url()."Principal");
         }else{
-		$this->load->view('admin/login');
+		$this->load->view('Index');
         }
     }
 
