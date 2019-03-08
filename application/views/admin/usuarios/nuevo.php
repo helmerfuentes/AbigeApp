@@ -43,11 +43,21 @@ if(!$fincas)
             <div class="col-lg-6 col-xlg-9 col-md-7">
                 <div class="card">
                     <div class="card-block">
-                        <form role="form" class="form-horizontal form-material" action="<?php echo base_url();?>Usuarios/guardar" method="POST" id="frmUsuario">
+                    
+                    
+                    <?php if($this->session->flashdata("success")): ?>
+                            <div class="alert alert-success">
+                                <p><?php echo $this->session->flashdata("success")?></p>
+                            </div>
+                        <?php endif; ?>
+                        
+                        <form role="form" class="form-horizontal form-material" action="<?php echo base_url();?>Usuarios/guardar" method="POST" onsubmit ="return validarUsuario()" >
                             <div class="form-group">
                                 <label class="col-md-12"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Identificación</font></font></label>
                                 <div class="col-md-12">
                                     <input name="identificacion" id="identificacion" type="text" placeholder="1034567432" class="form-control form-control-line">
+                                    <span class="help-block"></span>
+                                    <?php echo form_error("identificacion","<span class='help-block'>","</span>");?>
                                 </div>
                             </div>
 
@@ -55,6 +65,8 @@ if(!$fincas)
                                 <label class="col-md-12"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nombre completo</font></font></label>
                                 <div class="col-md-12">
                                     <input type="text" placeholder="Johnathan Doe" name="nombres" id="nombres" class="form-control form-control-line">
+                                    <span class="help-block"></span>
+                                    <?php echo form_error("nombres","<span class='help-block'>","</span>");?>
                                 </div>
                             </div>
                             
@@ -78,12 +90,23 @@ if(!$fincas)
                                 
                             </div>
 
-                            <div class="form-group">
-                                <label for="example-email" class="col-md-12"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Email</font></font></label>
+
+                            <div class="form-group  <?php echo !empty(form_error("email"))? 'has-error':''; ?>" >
+
+                                <label class="col-md-12"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Email*</font></font></label>
+
                                 <div class="col-md-12">
-                                    <input type="email" placeholder="johnathan@admin.com" class="form-control form-control-line" name="email" id="email">
+                                    <input name="email" id="email" type="email" placeholder="johnathan@admin.com" class="form-control form-control-line"
+                                    value="<?php echo set_value("email"); ?>">
+                                    <span class="help-block"></span>
+
+                                    <?php echo form_error("email","<span class='help-block'>","</span>");?>
+
                                 </div>
-                            </div>
+
+                                </div>
+
+
                             <div class="form-group">
                                 <label class="col-md-12"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Dirección</font></font></label>
                                 <div class="col-md-12">

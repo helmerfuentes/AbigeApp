@@ -3,7 +3,7 @@
 
 
 function addDispositivoDueno(){
-	alert();
+	
 	var codigodispositivo=document.querySelector("#codigoDispositivo").value;
 	var finca=document.querySelector("#finca").value;
 	var estado=document.querySelector("#estado").value;
