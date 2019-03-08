@@ -1,4 +1,4 @@
-alert('Srcipt de Perimetros en marcha...');
+console.log("Cargando scripts de perímetros.");
 
 var arrayPoints = [];
 var number = 0;

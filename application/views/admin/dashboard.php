@@ -15,7 +15,7 @@
                 <!-- Default box -->
                 <div class="box box-solid">
                     <div class="box-body">
-                    Esta vista es la del dashboard
+                        <h1>Vista principal</h1>
                     </div>
                     <!-- /.box-body -->
                 </div>

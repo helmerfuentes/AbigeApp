@@ -97,7 +97,7 @@ class Fincas extends CI_Controller {
             'idmunicipio' => $this->input->post('municipio'),
             'latitud' => $this->input->post('latitud'),
             'longitud' => $this->input->post('longitud'),
-            'nombre' => $this->input->post('nombre'),
+            'nombreFinca' => $this->input->post('nombre'),
             'ubicacion' => $this->input->post('ubicacion')
         ];
         if($this->Fincas_Model->store($data)) {
