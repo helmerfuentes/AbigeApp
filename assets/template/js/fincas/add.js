@@ -11,19 +11,19 @@ myForm.addEventListener('submit', function(event){
         toogleError(error_nombre, "El nombre debe estar entre 5 y 60 caracteres", true);
         event.preventDefault();
     } else {
-        toogleError(error_nombre, "Nombre correcto", false);
+        toogleError(error_nombre, "Nombre correcto.", false);
     }
     if (departamento.value == 0){
-        toogleError(error_departamento, "Seleccione un departamento", true);
+        toogleError(error_departamento, "Seleccione un departamento.", true);
         event.preventDefault();
     } else {
-        toogleError(error_departamento, "Departamento seleccionado", false);
+        toogleError(error_departamento, "Departamento seleccionado.", false);
     }
     if (municipio.value == 0){
-        toogleError(error_municipio, "Seleccione un municipio", true);
+        toogleError(error_municipio, "Seleccione un municipio.", true);
         event.preventDefault();
     } else {
-        toogleError(error_municipio, "Municipio seleccionado", false);
+        toogleError(error_municipio, "Municipio seleccionado.", false);
     }
 });
 

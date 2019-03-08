@@ -119,7 +119,7 @@ function draw() {
 }
 
 function ascend(index) {
-    console.log('Ascendiendo', index);
+    console.log('Ascendiendo.', index);
     if (index > 0) {
         [arrayPoints[index], arrayPoints[index - 1]] = [arrayPoints[index - 1], arrayPoints[index]];
     }
@@ -128,7 +128,7 @@ function ascend(index) {
 }
 
 function descend(index) {
-    console.log('Descendiendo', index);
+    console.log('Descendiendo.', index);
     if (index < arrayPoints.length - 1) {
         [arrayPoints[index], arrayPoints[index + 1]] = [arrayPoints[index + 1], arrayPoints[index]];
     }
@@ -156,7 +156,7 @@ function prepareForm() {
             sendData(base_url+"perimetros/store", data);
             cleanAll();
         } else {
-            alertify.error("Ingrese los datos correctamente", 2);
+            alertify.error("Ingrese los datos correctamente.", 2);
         }
     });
 }

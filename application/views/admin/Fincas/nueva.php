@@ -4,8 +4,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-        Categorias
-        <small>Nuevo</small>
+        Fincas
+        <small>Nueva</small>
         </h1>
     </section>
     <!-- Main content -->
@@ -24,11 +24,11 @@
                         <form action="<?php echo base_url();?>fincas/store" method="POST" id="form_finca">
                             <span id="error_nombre" class="text-danger"></span>
                             <div class="form-group">
-                                <label for="nombre">Nombre:</label>
+                                <label for="nombre">Nombre de la Finca:</label>
                                 <input type="text" class="form-control" id="nombre" name="nombre">
                             </div>
                             <div class="form-group">
-                                <label for="ubicacion">Ubicación:</label>
+                                <label for="ubicacion">Ubicación(Descriptiva):</label>
                                 <input type="text" class="form-control" id="ubicacion" name="ubicacion">
                             </div>
                             <div class="form-group">

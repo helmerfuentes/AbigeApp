@@ -52,8 +52,6 @@
                             <span class="pull-right badge bg-red">Inactiva</span>
                           <?php endif;?>
                         </a></li>
-                        <li><a href="#">Completed Projects <span class="pull-right badge bg-green">12</span></a></li>
-                        <li><a href="#">Followers <span class="pull-right badge bg-red">842</span></a></li>
                       </ul>
                     </div>
                     <!-- /.widget-user -->
