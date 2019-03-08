@@ -220,7 +220,7 @@
 
      <div class="modal-header bg-blue">
       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      <h4 class="modal-title" id="myModalLabel">Editar Persona</h4>
+      <h4 class="modal-title" id="myModalLabel">Editar Dispositivo</h4>
     </div>
 
     <div class="modal-body">
@@ -230,7 +230,7 @@
 
     <div class="modal-footer">
       <button type="button" class="btn btn-default" id="mbtnCerrarModal" data-dismiss="modal">Cancelar</button>
-      <button type="button" class="btn btn-info" id="mbtnUpdPerona">Actualizar</button>
+      <button type="button" class="btn btn-info" id="mbtnUpdispositivo">Actualizar</button>
     </div>
 
   </div>

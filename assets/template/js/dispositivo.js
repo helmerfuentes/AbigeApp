@@ -68,7 +68,7 @@ $(document).ready(function () {
 
     
 $('#mbtnUpdispositivo').click(function(){
-    
+  
     var idDis=$('#mCodDispositivo').val();
     var idAnimal=$('#midAnimal').val();
     var estado=$('#mEstado').val();
@@ -85,13 +85,16 @@ $('#mbtnUpdispositivo').click(function(){
         },
         type: "POST",
         success: function(resp){
-            
+           
           if(resp==1){
             alertify.success('Dato Actualaizado');
             $('#mbtnCerrarModal').click();
              setTimeout('document.location.reload()',1000);
           }else{
+              if(resp==0)
             alertify.error('ahh ocurrido un Error!!');
+            else
+            alertify.error(resp);
           }
          
         }

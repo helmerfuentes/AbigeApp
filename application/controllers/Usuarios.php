@@ -66,7 +66,7 @@ class Usuarios extends CI_Controller {
 public function buscar(){
     $idusuario=$this->input->post("identificacion");
 
-    $this->form_validation->set_rules("identificacion","Identificación","required|min_length[7]|max_length[11]|numeric"); 
+    $this->form_validation->set_rules("identificacion","Identificación","required|numeric"); 
     if(!$this->form_validation->run()){
        
         $this->load->library('user_agent');
@@ -95,39 +95,27 @@ public function Guardar(){
 
     $identificacion=$this->input->post("identificacion");
     $nombres=$this->input->post("nombres");
-    $apellidos=$this->input->post("apellidos");
+    $primerApellido=$this->input->post("primerApellido");
+    $segundoApellido=$this->input->post("segundoApellido");
     $email=$this->input->post("email");
     $direccion=$this->input->post("direccion");
     $telefono=$this->input->post("telefono");
 
-    if(ctype_space($apellidos)){
-        $apellidos=(explode(' ', $apellidos));
-        $apellido1=$apellidos[0];
-        $apellido2=$apellidos[1];
 
-    }else{
-        $apellido1=$apellidos;
-        $apellido2="";
-
-    }
     $this->form_validation->set_rules("identificacion","Identificación","required|min_length[7]|max_length[11]|numeric"); 
-
     $this->form_validation->set_rules("nombres","Nombres","required|min_length[3]|max_length[20]|regex_match[/^[\p{L} ]*$/u]");
-
-    $this->form_validation->set_rules("apellidos","Apellidos","required|min_length[3]|max_length[20]|regex_match[/^[\p{L} ]*$/u]");
-
+    $this->form_validation->set_rules("segundoApellido","Segundo Apellido","required|min_length[3]|max_length[10]|regex_match[/^[\p{L} ]*$/u]");
+    $this->form_validation->set_rules("primerApellido","Primer Apellido","required|min_length[3]|max_length[10]|regex_match[/^[\p{L} ]*$/u]");
     $this->form_validation->set_rules("email","Email","required|min_length[3]|max_length[60]|valid_email|is_unique[usuarios.email]");
-
     $this->form_validation->set_rules("direccion","Direccion","required|min_length[10]|max_length[40]");
-
     $this->form_validation->set_rules("telefono","Telefono","required|exact_length[10]");
-
     $this->form_validation->set_message("required", "Campo %s es Requerido");
     $this->form_validation->set_message("max_length", "Campo %s no cumple con maximo caracteres");
     $this->form_validation->set_message("min_length", "Campo %s no cumple con minimo caracteres");
     $this->form_validation->set_message("valid_email", "Campo %s  no valido");
     $this->form_validation->set_message("exact_length", "Campo %s erroneo");
     $this->form_validation->set_message("is_unique", "%s ya Registrado");
+    $this->form_validation->set_message("regex_match", "%s no cumple lo especificado");
 
     if(!$this->form_validation->run()){
        
@@ -146,7 +134,7 @@ public function Guardar(){
         $data=array(
             'idfinca'=>$idfinca,
             'nombres'=>$nombres,
-            'primerApellido'=>$apellido1,
+            'primerApellido'=> $primerApellido,
             'identificacion'=>$identificacion,
             'rol'=>$rol,
             'email'=>$email,
@@ -154,7 +142,7 @@ public function Guardar(){
             'clave'=>$identificacion,
             'direccion'=>$direccion,
             'estado'=>"A",
-            'segundoApellido'=>$apellido2,
+            'segundoApellido'=> $segundoApellido,
             'imagen'=>"default.png"
         );
 
@@ -207,62 +195,46 @@ public function cargarLayaout($vista,$datoEnviar){
 
 public function update(){
     
-    $apellidos=$this->input->post("apellidos");
-
+    $primerApellido=$this->input->post("primerApellido");
+    $segundoApellido=$this->input->post("segundoApellido");
     $nombres=$this->input->post("nombres");
-  
     $direccion=$this->input->post("direccion");
     $telefono=$this->input->post("telefono");
     $codigo=$this->input->post("codigo");
-
+   
     
-
-       
-        $apellido=(explode(' ', $apellidos));
-        $apellido1=$apellido[0];
-        $apellido2=$apellido[1];
-
-    }else{
-        $apellido1=$apellidos;
-        $apellido2="";
-
-    }
 
 
     $this->form_validation->set_rules("codigo","Codigo","required|numeric"); 
-
-
     $this->form_validation->set_rules("nombres","Nombres","required|min_length[3]|max_length[20]|regex_match[/^[\p{L} ]*$/u]");
-
-
-    $this->form_validation->set_rules("apellidos","Apellidos","required|min_length[3]|max_length[20]|regex_match[/^[\p{L} ]*$/u]");
-
-   
+    $this->form_validation->set_rules("segundoApellido","Segundo Apellido","required|min_length[3]|max_length[10]|regex_match[/^[\p{L} ]*$/u]");
+    $this->form_validation->set_rules("primerApellido","Primer Apellido","required|min_length[3]|max_length[10]|regex_match[/^[\p{L} ]*$/u]");
     $this->form_validation->set_rules("direccion","Direccion","required|min_length[10]|max_length[40]");
+    $this->form_validation->set_rules("telefono","Telefono","required|exact_length[10]|numeric");
 
-    $this->form_validation->set_rules("telefono","Telefono","required|exact_length[10]");
-
-    $this->form_validation->set_message("required", "Campo %s es Requerido");
+    $this->form_validation->set_message("required", "Campo %s es    Requerido");
+    $this->form_validation->set_message("alfa", "Campo %s debe contener caracteres alfabeticos");
     $this->form_validation->set_message("numeric", "Campo %s es Numerico");
     $this->form_validation->set_message("max_length", "Campo %s no cumple con maximo caracteres");
     $this->form_validation->set_message("min_length", "Campo %s no cumple con minimo caracteres");
    
     $this->form_validation->set_message("exact_length", "Campo %s erroneo");
-    $this->form_validation->set_message("is_unique", "%s ya Registrado");
+    $this->form_validation->set_message("regex_match", "%s no cumple lo especificado");
 
-
+    
 
     $datos=array(
         'nom'=>$nombres,
-        'ape1'=>$apellido1,
-        'ape2'=>$apellido2,
+        'ape1'=>$primerApellido,
+        'ape2'=>$segundoApellido,
         'tele'=>$telefono,
         'dire'=>$direccion
     );
 
     if(!$this->form_validation->run()){
       
-        echo 0;
+       
+            echo validation_errors('<div class="errors">','</div>');
         
     }else{
        

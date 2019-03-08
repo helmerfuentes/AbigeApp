@@ -85,17 +85,20 @@ $(document).ready(function () {
         var cod=$('#codigo').val();
         
         var name=$('#nombres').val();
-        var apellido=$('#apellidos').val();
+        var primerApellido=$('#primerApellido').val();
+        var segundoApellido=$('#segundoApellido').val();
         var dire=$('#direccion').val();
         var emai=$('#email').val();
         var tele=$('#telefono').val();
 
+        
        
         $.ajax({
             url: base + "Usuarios/update/",
             data:{
                 'nombres': name,
-                'apellidos': apellido,
+                'primerApellido': primerApellido,
+                'segundoApellido':segundoApellido,
                 'direccion': dire,
                 'email': emai,
                 'telefono': tele,
@@ -104,17 +107,20 @@ $(document).ready(function () {
             },
             type: "POST",
             success:function(res){
-                
+              
                 alertify.set('notifier','position', 'top-center');
                     
                
                 
-                    if(res == 1){
+                    if(res==1){
                         alertify.success('Dato Actualaizado'),
                         $('#mbt nCerrarModal').click(),
                         setTimeout('document.location.reload()',1000)
                     }else{
+                        if(res==0)
                         alertify.error('ahh ocurrido un Error!!');
+                        else
+                        alertify.error(res);
                     }
 
                    
@@ -155,7 +161,7 @@ $(document).ready(function () {
 
         var id=$(this).val();
 
-      
+            
         
         $.ajax({
             url: base_url + "Usuarios/buscar",

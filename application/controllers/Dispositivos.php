@@ -64,20 +64,28 @@ class Dispositivos extends CI_Controller {
        
 
         $this->load->library(array('form_validation'));
-        
+
+        if($this->session->userdata('rol')=="DUEÑO")
+        $this->form_validation->set_rules("animal","Codigo Animal","required|min_length[4]|max_length[10]");
+        else
+        $this->form_validation->set_rules("animal","Codigo Animal","min_length[4]|max_length[10]");
+     
         $this->form_validation->set_rules("mCodDispositivo","Dispositivo","required");
-        $this->form_validation->set_rules("animal","Codigo Animal","required");
         $this->form_validation->set_rules("esta","Estado","required|numeric");
         $this->form_validation->set_rules("bate","Bateria","required|numeric");
     
         $this->form_validation->set_message("required", "Campo %s es Requerido");
         $this->form_validation->set_message("numeric", "Seleccione Opción");
+         $this->form_validation->set_message("numeric", "Seleccione Opción");
         $this->form_validation->set_message("in_list", "Seleccione Opción");
-        $this->form_validation->set_message("is_unique", "Codigo ya existe");
+        $this->form_validation->set_message("is_unique", "%s Codigo ya existe");
+        $this->form_validation->set_message("min_length", "%s Minimo 4 caracteres");
+        $this->form_validation->set_message("max_length", "%s Maximo 10 caracteres");
 
         if(!$this->form_validation->run()){
+            $this->session->set_flashdata("Error","No se pudo Registrar Información");
             
-            echo 0;
+            echo validation_errors('<div class="errors">','</div>');
 
         }else{
             echo  $this->DispositivosModels->actualizarModels($param);
@@ -96,14 +104,23 @@ class Dispositivos extends CI_Controller {
 
         $this->load->library(array('form_validation'));      
 
-        $this->form_validation->set_rules("codigoDispositivo","Codigo","required|is_unique[dispositivos.iddispositivo]");
-        $this->form_validation->set_rules("codigoAnimal","Codigo Animal","required");
+        $this->form_validation->set_rules("codigoDispositivo","Codigo","required|is_unique[dispositivos.iddispositivo]|min_length[5]|max_length[10]");
+        
+        if($this->session->userdata('rol')=="DUEÑO")
+        $this->form_validation->set_rules("codigoAnimal","Codigo Animal","required|min_length[4]|max_length[10]");
+
+        else
+        $this->form_validation->set_rules("codigoAnimal","Codigo Animal","min_length[4]|max_length[10]");
+
+
         $this->form_validation->set_rules("finca","Finca","required|numeric");
         $this->form_validation->set_rules("estado","Estado","required|numeric|in_list[0,1]");
 
         $this->form_validation->set_message("required", "Campo %s es Requerido");
         $this->form_validation->set_message("numeric", "Seleccione Opción");
         $this->form_validation->set_message("in_list", "Seleccione Opción");
+        $this->form_validation->set_message("min_length", "Minimo 4 caracteres");
+        $this->form_validation->set_message("max_length", "Maximo 10 caracteres");
         $this->form_validation->set_message("is_unique", "Codigo ya existe");
 
         if(!$this->form_validation->run()){

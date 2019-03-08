@@ -22,15 +22,24 @@
                         
                     </div>
                 <?php endif; ?>
-                <form action="<?php echo base_url();?>Dispositivos/guardar" method="POST" onsubmit ="return addDispositivo()">
-                  <div class="col-sm-12 col-md-offset-5">  
-                   <div class="form-group">
-                    <label class="col-md-12"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Codigo Dispositivo</font></font></label>
-                    <div class="col-md-8">
-                        <input name="codigoDispositivo" id="codigoDispositivo" type="text" placeholder="1034567432" class="form-control form-control-line">
-                        <span class="help-block"></span>
+                <?php if($this->session->flashdata("success")): ?>   
+                      <div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <p><i class="icon fa fa-ban"></i> <?php echo $this->session->flashdata("success") ?></p>
+                        
                     </div>
-                </div>
+                <?php endif; ?>
+                <form action="<?php echo base_url(); ?>Dispositivos/guardar" method="POST" onsubmit="return addDispositivoAdmin()">
+                  <div class="col-sm-12 col-md-offset-5">  
+
+                   <div class="form-group">
+                    <label class="col-md-12"><font style="vertical-align: inherit;"><font style="vertical-align: inherit; ">Codigo Dispositivo</font></font></label>
+                    <div class="col-md-8">
+                        <input value="<?php echo set_value("codigoDispositivo"); ?>" name="codigoDispositivo" id="codigoDispositivo" type="text" placeholder="123ALF" class="form-control form-control-line">
+                        <span class="help-block"></span>
+                        <?php echo form_error("codigoDispositivo","<span class='has-error '>","</span>");?>
+                    </div>
+                   </div>
 
                 
                 <div class="form-group">
@@ -56,7 +65,8 @@
                 <label class="col-md-12"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Codigo Animal</font></font></label>
                 <div class="col-md-8">
                     <input name="codigoAnimal" id="codigoAnimal" type="text" placeholder="1034567432" class="form-control form-control-line">
-                </div>
+                    <span class="help-block"></span>
+        </div>
             </div>
             
             <div class="form-group">

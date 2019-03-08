@@ -27,7 +27,7 @@
                     <p><?php echo $this->session->flashdata("success")?></p>
                 </div>
             <?php endif; ?>
-            <form action="<?php echo base_url();?>Dispositivos/guardar" method="POST" onsubmit="return addDispositivoDueno()">
+            <form action="<?php echo base_url();?>Dispositivos/guardar" method="POST" onsubmit="return addDispositivoAdmin()">
               
               <div class="col-sm-12 col-md-offset-5">  
                  <div class="form-group">
@@ -35,7 +35,7 @@
                     <div class="col-md-8">
                         <input name="codigoDispositivo" id="codigoDispositivo" type="text" placeholder="1034567432" class="form-control form-control-line" value="<?php echo set_value("codigoDispositivo"); ?>"  >
                         <span class="help-block"></span>
-                        <?php echo form_error("codigoDispositivo","<span class='help-block'>","</span>");?>
+                        <?php echo form_error("codigoDispositivo","<span class='form-group has-error has-feedback'>","</span>");?>
                        
                     </div>
                 </div>

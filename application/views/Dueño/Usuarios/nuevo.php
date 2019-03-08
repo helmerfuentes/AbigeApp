@@ -75,15 +75,26 @@
                                 
                             </div>
 
-                            <div class="form-group <?php echo !empty(form_error("apellidos"))? 'has-error':''; ?>" >
-                                <label class="col-md-12"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Apellidos completo</font></font></label>
+                            <div class="form-group <?php echo !empty(form_error("primerApellido"))? 'has-error':''; ?>" >
+                                <label class="col-md-12"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Primer Apellido</font></font></label>
                                 <div class="col-md-12">
-                                    <input type="text" placeholder="Johnathan Doe" name="apellidos" id="apellidos" value="<?php echo set_value("apellidos"); ?>" class="form-control form-control-line">
+                                    <input type="text" placeholder="Johnathan Doe" name="primerApellido" id="primerApellido" value="<?php echo set_value("primerApellido"); ?>" class="form-control form-control-line">
                                     <span class="help-block"></span>
-                                    <?php echo form_error("apellidos","<span class='help-block'>","</span>");?>
+                                    <?php echo form_error("primerApellido","<span class='help-block'>","</span>");?>
                                 </div>
                                 
                             </div>
+
+                            <div class="form-group <?php echo !empty(form_error("segundoApellido"))? 'has-error':''; ?>" >
+                                <label class="col-md-12"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Apellidos completo</font></font></label>
+                                <div class="col-md-12">
+                                    <input type="text" placeholder="Johnathan" name="segundoApellido" id="segundoApellido" value="<?php echo set_value("apellidos"); ?>" class="form-control form-control-line">
+                                    <span class="help-block"></span>
+                                    <?php echo form_error("segundoApellido","<span class='help-block'>","</span>");?>
+                                </div>
+                                
+                            </div>
+
 
                             <div class="form-group  <?php echo !empty(form_error("email"))? 'has-error':''; ?>" >
 

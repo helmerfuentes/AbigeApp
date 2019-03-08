@@ -58,9 +58,18 @@
                         </div>
                         
                         <div class="form-group">
-                            <label class="col-md-12"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Apellidos </font></font></label>
+                            <label class="col-md-12"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Primer Apellido</font></font></label>
                             <div class="col-md-12">
-                                <input type="text" value="<?= $respuesta->primerApellido." ". $respuesta->segundoApellido; ?>" name="apellidos" id="apellidos" class="form-control form-control-line">
+                                <input type="text" value="<?= $respuesta->primerApellido; ?>" name="primerApellido" id="primerApellido" class="form-control form-control-line">
+                                <span class="help-block"></span>
+                                    <?php echo form_error("apellidos","<span class='help-block'>","</span>");?>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-12"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Segundo Apellido </font></font></label>
+                            <div class="col-md-12">
+                                <input type="text" value="<?= $respuesta->segundoApellido; ?>" name="segundoApellido" id="segundoApellido" class="form-control form-control-line">
                                 <span class="help-block"></span>
                                     <?php echo form_error("apellidos","<span class='help-block'>","</span>");?>
                             </div>
