@@ -1,7 +1,7 @@
 <?php
 if(!$fincas)
 
-   // redirect(base_url()."/fincas/nuevo");
+   redirect(base_url()."/fincas/nuevo");
 ?>
 
 <div class="content-wrapper">
@@ -69,7 +69,7 @@ if(!$fincas)
                             </div>
 
                             <div class="form-group <?php echo !empty(form_error("segundoApellido"))? 'has-error':''; ?>" >
-                                <label class="col-md-12"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Apellidos completo</font></font></label>
+                                <label class="col-md-12"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Segundo Apellido</font></font></label>
                                 <div class="col-md-12">
                                     <input type="text" placeholder="Johnathan" name="segundoApellido" id="segundoApellido" value="<?php echo set_value("apellidos"); ?>" class="form-control form-control-line">
                                     <span class="help-block"></span>
